@@ -21,9 +21,9 @@ local options = {
   undofile = true,                         -- enable persistent undo
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  expandtab = false,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  expandtab = false,                       -- convert tabs to spaces
+  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
+  tabstop = 4,                             -- insert 2 spaces for a tab
   cursorline = true,                       -- highlight the current line
   number = true,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
@@ -35,6 +35,7 @@ local options = {
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
+-- stuff
 vim.opt.shortmess:append "c"
 
 for k, v in pairs(options) do
@@ -45,4 +46,11 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
-vim.cmd "let &fcs='eob: '"
+-- autostart nvim-tree
+vim.cmd "autocmd VimEnter * let wid = win_getid()"
+vim.cmd "autocmd VimEnter * NvimTreeOpen"
+vim.cmd "autocmd VimEnter * call win_gotoid(wid)"
+
+-- auto stuff
+vim.cmd "autocmd BufEnter * set nowrap"
+vim.cmd "autocmd VimLeave * call system('xsel -ib', getreg('+'))"

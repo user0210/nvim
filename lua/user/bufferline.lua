@@ -13,7 +13,7 @@ bufferline.setup {
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
-    indicator_icon = "▎",
+    indicator_icon = "█",
     buffer_close_icon = "",
     -- buffer_close_icon = '',
     modified_icon = "●",
@@ -58,7 +58,7 @@ bufferline.setup {
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     show_buffer_icons = true,
     show_buffer_close_icons = true,
-    show_close_icon = true,
+    show_close_icon = false,
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
@@ -72,96 +72,133 @@ bufferline.setup {
     -- end
   },
   highlights = {
-    fill = {
-      guifg = { attribute = "fg", highlight = "#ff0000" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
+	-- hidden tab
     background = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    -- buffer_selected = {
-    --   guifg = {attribute='fg',highlight='#ff0000'},
-    --   guibg = {attribute='bg',highlight='#0000ff'},
-    --   gui = 'none'
-    --   },
-    buffer_visible = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    close_button = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-    close_button_visible = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-    -- close_button_selected = {
-    --   guifg = {attribute='fg',highlight='TabLineSel'},
-    --   guibg ={attribute='bg',highlight='TabLineSel'}
-    --   },
-
-    tab_selected = {
-      guifg = { attribute = "fg", highlight = "Normal" },
-      guibg = { attribute = "bg", highlight = "Normal" },
     },
     tab = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
     },
-    tab_close = {
-      -- guifg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-      guifg = { attribute = "fg", highlight = "TabLineSel" },
-      guibg = { attribute = "bg", highlight = "Normal" },
-    },
-
-    duplicate_selected = {
-      guifg = { attribute = "fg", highlight = "TabLineSel" },
-      guibg = { attribute = "bg", highlight = "TabLineSel" },
-      gui = "italic",
-    },
-    duplicate_visible = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
+    close_button = {
       guibg = { attribute = "bg", highlight = "TabLine" },
-      gui = "italic",
+    },
+    diagnostic = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    info = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    info_diagnostic = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    warning = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    warning_diagnostic = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    error = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    error_diagnostic = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    modified = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
     },
     duplicate = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
       guibg = { attribute = "bg", highlight = "TabLine" },
-      gui = "italic",
     },
-
-    modified = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
+    separator = {
       guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+    pick = {
+      guibg = { attribute = "bg", highlight = "TabLine" },
+    },
+	-- selected and visible tab
+    close_button_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    buffer_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    tab_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    diagnostic_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    info_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    info_diagnostic_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    warning_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    warning_diagnostic_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    error_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    error_diagnostic_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
     },
     modified_selected = {
-      guifg = { attribute = "fg", highlight = "Normal" },
-      guibg = { attribute = "bg", highlight = "Normal" },
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
     },
-    modified_visible = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    separator = {
-      guifg = { attribute = "bg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
+    duplicate_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
     },
     separator_selected = {
-      guifg = { attribute = "bg", highlight = "Normal" },
-      guibg = { attribute = "bg", highlight = "Normal" },
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
     },
-    -- separator_visible = {
-    --   guifg = {attribute='bg',highlight='TabLine'},
-    --   guibg = {attribute='bg',highlight='TabLine'}
-    --   },
     indicator_selected = {
-      guifg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      guibg = { attribute = "bg", highlight = "Normal" },
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    pick_selected = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    close_button_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    buffer_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    diagnostic_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    info_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    info_diagnostic_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    warning_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    warning_diagnostic_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    error_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    error_diagnostic_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    modified_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    duplicate_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    separator_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
+    },
+    pick_visible = {
+      guibg = { attribute = "bg", highlight = "ColorColumn" },
     },
   },
 }

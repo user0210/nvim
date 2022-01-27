@@ -47,9 +47,9 @@ vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- autostart nvim-tree
-vim.cmd "autocmd VimEnter * let wid = win_getid()"
 vim.cmd "autocmd VimEnter * NvimTreeOpen"
-vim.cmd "autocmd VimEnter * call win_gotoid(wid)"
+vim.cmd "autocmd VimEnter * wincmd p"
+vim.cmd "autocmd QuitPre * NvimTreeClose" -- nvim-tree auto_close is crap
 
 -- auto stuff
 vim.cmd "autocmd BufEnter * set nowrap"

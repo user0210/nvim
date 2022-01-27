@@ -36,11 +36,11 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
+  open_on_setup = true,
   ignore_ft_on_setup = {},
-  auto_close = true,
+  auto_close = false,
   open_on_tab = false,
-  hijack_cursor = false,
+  hijack_cursor = true,
   update_cwd = true,
   update_to_buf_dir = {
     enable = true,
@@ -108,4 +108,4 @@ nvim_tree.setup {
 }
 
 -- remove signcolumn from nvim_tree
-require('nvim-tree.view').View.winopts.signcolumn = 'no'
+--require('nvim-tree.view').View.winopts.signcolumn = 'no'

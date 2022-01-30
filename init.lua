@@ -18,4 +18,7 @@ require "user.whichkey"
 require "user.autocommands"
 require "user.base16"
 require "user.colorizer"
+require "user.zen-mode"
+require "user.neoscroll"
+
 require "user.options"

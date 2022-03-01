@@ -5,26 +5,26 @@ end
 
 -- MONDO-BEGIN
 base16.setup({
-	base00 = "#191919",
-	base01 = "#3a3a3a",
-	base02 = "#5b5b5b",
-	base03 = "#7c7c7c",
-	base04 = "#9c9c9c",
-	base05 = "#bdbdbd",
-	base06 = "#dedede",
+	base00 = "#101010",
+	base01 = "#323232",
+	base02 = "#545454",
+	base03 = "#767676",
+	base04 = "#999999",
+	base05 = "#bbbbbb",
+	base06 = "#dddddd",
 	base07 = "#ffffff",
-	base08 = "#dd3f7c",
-	base09 = "#67a564",
-	base0A = "#488981",
-	base0B = "#5e86ab",
-	base0C = "#4b8fc7",
-	base0D = "#1b79d7",
-	base0E = "#7886bf",
-	base0F = "#a66a90",
+	base08 = "#a28374",
+	base09 = "#d17b41",
+	base0A = "#c6a761",
+	base0B = "#76a400",
+	base0C = "#7cbf18",
+	base0D = "#5b9a08",
+	base0E = "#76be81",
+	base0F = "#8484cb",
 })
 
 vim.cmd([[augroup TextGroup]])
-vim.cmd([[hi TextGroup guibg=#191919]])
+vim.cmd([[hi TextGroup guibg=#101010]])
 
 vim.cmd([[hi Normal ctermbg=none guibg=none]])
 vim.cmd([[hi NormalNC ctermbg=none guibg=none]])
@@ -38,32 +38,32 @@ vim.cmd([[hi! link DiagnosticSignWarn TextGroup]])
 vim.cmd([[hi! link DiagnosticSignInfo TextGroup]])
 vim.cmd([[hi! link DiagnosticSignHint TextGroup]])
 
-vim.cmd([[hi TabLineSel guibg=#b31d54]])
-vim.cmd([[hi TabLine guibg=#3a3a3a]])
-vim.cmd([[hi CursorLineNr guifg=#ffffff guibg=#191919 gui=bold]])
+vim.cmd([[hi TabLineSel guibg=#775f52]])
+vim.cmd([[hi TabLine guibg=#323232]])
+vim.cmd([[hi CursorLineNr guifg=#ffffff guibg=#101010 gui=bold]])
 
-vim.cmd([[hi NvimTreeFolderIcon guifg=#1b79d7]])
-vim.cmd([[hi NvimTreeIndentMarker guifg=#dedede]])
-vim.cmd([[hi NvimTreeNormal guifg=#bdbdbd guibg=none]])
+vim.cmd([[hi NvimTreeFolderIcon guifg=#5b9a08]])
+vim.cmd([[hi NvimTreeIndentMarker guifg=#dddddd]])
+vim.cmd([[hi NvimTreeNormal guifg=#bbbbbb guibg=none]])
 vim.cmd([[hi NvimTreeVertSplit guifg=none guibg=none]])
-vim.cmd([[hi NvimTreeFolderName guifg=#1b79d7 guibg=none]])
-vim.cmd([[hi NvimTreeOpenedFolderName guifg=#1b79d7 guibg=none gui=bold,italic]])
-vim.cmd([[hi NvimTreeEmptyFolderName guifg=#9c9c9c guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeGitIgnored guifg=#9c9c9c guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeImageFile guifg=#bdbdbd]])
-vim.cmd([[hi NvimTreeSpecialFile guifg=#67a564]])
-vim.cmd([[hi NvimTreeEndOfBuffer guifg=#191919 guibg=none]])
-vim.cmd([[hi NvimTreeCursorLine guibg=#3a3a3a]])
-vim.cmd([[hi NvimTreeGitignoreIcon guifg=#b31d54]])
-vim.cmd([[hi NvimTreeGitStaged guifg=#4b8fc7]])
-vim.cmd([[hi NvimTreeGitNew guifg=#4b8fc7]])
-vim.cmd([[hi NvimTreeGitRenamed guifg=#4b8fc7]])
-vim.cmd([[hi NvimTreeGitDeleted guifg=#dd3f7c]])
-vim.cmd([[hi NvimTreeGitMerge guifg=#488981]])
-vim.cmd([[hi NvimTreeGitDirty guifg=#488981]])
-vim.cmd([[hi NvimTreeSymlink guifg=#5e86ab]])
-vim.cmd([[hi NvimTreeRootFolder guifg=#bdbdbd guibg=none gui=bold]])
-vim.cmd([[hi NvimTreeExecFile guifg=#7886bf]])
+vim.cmd([[hi NvimTreeFolderName guifg=#5b9a08 guibg=none]])
+vim.cmd([[hi NvimTreeOpenedFolderName guifg=#5b9a08 guibg=none gui=bold,italic]])
+vim.cmd([[hi NvimTreeEmptyFolderName guifg=#999999 guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeGitIgnored guifg=#999999 guibg=none gui=italic]])
+vim.cmd([[hi NvimTreeImageFile guifg=#bbbbbb]])
+vim.cmd([[hi NvimTreeSpecialFile guifg=#d17b41]])
+vim.cmd([[hi NvimTreeEndOfBuffer guifg=#101010 guibg=none]])
+vim.cmd([[hi NvimTreeCursorLine guibg=#323232]])
+vim.cmd([[hi NvimTreeGitignoreIcon guifg=#775f52]])
+vim.cmd([[hi NvimTreeGitStaged guifg=#7cbf18]])
+vim.cmd([[hi NvimTreeGitNew guifg=#7cbf18]])
+vim.cmd([[hi NvimTreeGitRenamed guifg=#7cbf18]])
+vim.cmd([[hi NvimTreeGitDeleted guifg=#a28374]])
+vim.cmd([[hi NvimTreeGitMerge guifg=#c6a761]])
+vim.cmd([[hi NvimTreeGitDirty guifg=#c6a761]])
+vim.cmd([[hi NvimTreeSymlink guifg=#76a400]])
+vim.cmd([[hi NvimTreeRootFolder guifg=#bbbbbb guibg=none gui=bold]])
+vim.cmd([[hi NvimTreeExecFile guifg=#76be81]])
 -- MONDO-END
 
 -- dark background hack

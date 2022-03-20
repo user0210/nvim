@@ -34,6 +34,8 @@ local options = {
 	sidescrolloff = 8,
 	spelllang = "en_us,de_de",
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
+	title = true,
+	titlestring = "Vim[%t]",
 }
 
 -- stuff

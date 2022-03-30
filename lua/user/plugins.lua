@@ -67,7 +67,6 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("RRethy/nvim-base16")
-	use("lunarvim/darkplus.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

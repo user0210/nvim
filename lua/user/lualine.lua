@@ -58,6 +58,13 @@ local progress = function()
 	return chars[index]
 end
 
+-- right chars...
+local function rightend()
+  return [[ ░▒▓]]
+--	return [[%#HI_Group#░▒▓]]
+end
+
+
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
@@ -70,6 +77,7 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
+		padding = { left = 1, right = 0 },
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },
@@ -77,8 +85,8 @@ lualine.setup({
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_y = { location, progress },
+		lualine_z = { rightend },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -86,7 +94,7 @@ lualine.setup({
 		lualine_c = { "filename" },
 		lualine_x = { "location" },
 		lualine_y = {},
-		lualine_z = {},
+		lualine_z = { rightend },
 	},
 	tabline = {},
 	extensions = {},

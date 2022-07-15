@@ -5,77 +5,33 @@ end
 
 -- MONDO-BEGIN
 base16.setup({
-	base00 = "#1c1c1c",
-	base01 = "#3c3c3c",
-	base02 = "#5d5d5d",
-	base03 = "#7d7d7d",
-	base04 = "#9e9e9e",
-	base05 = "#bebebe",
-	base06 = "#dfdfdf",
-	base07 = "#ffffff",
-	base08 = "#ab755e",
-	base09 = "#8b865f",
-	base0A = "#5f8e6d",
-	base0B = "#59898d",
-	base0C = "#6799aa",
-	base0D = "#5194ac",
-	base0E = "#4894c6",
-	base0F = "#5d8bc6",
+	base00 = "#101010",
+	base01 = "#31302b",
+	base02 = "#535146",
+	base03 = "#747161",
+	base04 = "#96927b",
+	base05 = "#b7b296",
+	base06 = "#d9d3b1",
+	base07 = "#faf3cc",
+	base08 = "#dd7e86",
+	base09 = "#baaa74",
+	base0A = "#8499cc",
+	base0B = "#9caad5",
+	base0C = "#a9a9ca",
+	base0D = "#9670c8",
+	base0E = "#d1b1d7",
+	base0F = "#c380a8",
+	base08a = "#ad2e39",
+	base09a = "#75673a",
+	base0Aa = "#3d5793",
+	base0Ba = "#485faa",
+	base0Ca = "#5d5d96",
+	base0Da = "#573385",
+	base0Ea = "#9f5cac",
+	base0Fa = "#853f69",
+	base00a = "#0D0D0D",
+	base01a = "#20201D",
 })
-
-vim.cmd([[augroup TextGroup]])
-vim.cmd([[hi TextGroup guibg=#1c1c1c]])
-
-vim.cmd([[hi Normal ctermbg=none guibg=none]])
-vim.cmd([[hi NormalNC ctermbg=none guibg=none]])
-vim.cmd([[hi VertSplit guibg=none]])
-
-vim.cmd([[hi! link ColorColumn TextGroup]])
-vim.cmd([[hi! link NonText TextGroup]])
-vim.cmd([[hi! link CursorLine TextGroup]])
-vim.cmd([[hi! link DiagnosticSignError TextGroup]])
-vim.cmd([[hi! link DiagnosticSignWarn TextGroup]])
-vim.cmd([[hi! link DiagnosticSignInfo TextGroup]])
-vim.cmd([[hi! link DiagnosticSignHint TextGroup]])
-
-vim.cmd([[hi TabLineSel guibg=#7d5340]])
-vim.cmd([[hi TabLine guibg=#3c3c3c]])
-vim.cmd([[hi CursorLineNr guifg=#ffffff guibg=#1c1c1c gui=bold]])
-
-vim.cmd([[hi NvimTreeFolderIcon guifg=#5194ac]])
-vim.cmd([[hi NvimTreeIndentMarker guifg=#dfdfdf]])
-vim.cmd([[hi NvimTreeNormal guifg=#bebebe guibg=none]])
-vim.cmd([[hi NvimTreeVertSplit guifg=none guibg=none]])
-vim.cmd([[hi NvimTreeFolderName guifg=#5194ac guibg=none]])
-vim.cmd([[hi NvimTreeOpenedFolderName guifg=#5194ac guibg=none gui=bold,italic]])
-vim.cmd([[hi NvimTreeEmptyFolderName guifg=#9e9e9e guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeGitIgnored guifg=#9e9e9e guibg=none gui=italic]])
-vim.cmd([[hi NvimTreeImageFile guifg=#bebebe]])
-vim.cmd([[hi NvimTreeSpecialFile guifg=#8b865f]])
-vim.cmd([[hi NvimTreeEndOfBuffer guifg=#1c1c1c guibg=none]])
-vim.cmd([[hi NvimTreeCursorLine guibg=#3c3c3c]])
-vim.cmd([[hi NvimTreeGitignoreIcon guifg=#7d5340]])
-vim.cmd([[hi NvimTreeGitStaged guifg=#6799aa]])
-vim.cmd([[hi NvimTreeGitNew guifg=#6799aa]])
-vim.cmd([[hi NvimTreeGitRenamed guifg=#6799aa]])
-vim.cmd([[hi NvimTreeGitDeleted guifg=#ab755e]])
-vim.cmd([[hi NvimTreeGitMerge guifg=#5f8e6d]])
-vim.cmd([[hi NvimTreeGitDirty guifg=#5f8e6d]])
-vim.cmd([[hi NvimTreeSymlink guifg=#59898d]])
-vim.cmd([[hi NvimTreeRootFolder guifg=#bebebe guibg=none gui=bold]])
-vim.cmd([[hi NvimTreeExecFile guifg=#4894c6]])
 -- MONDO-END
 
--- dark background hack
--- vim.cmd([[let &colorcolumn=join(range(1,100),',').join(range(100,9999),',')]])
-vim.cmd([[let &colorcolumn=join(range(1,999),',')]])
-vim.opt.fillchars = {
-	vert = " ", -- removes vertsepperator line
-	eob = " ", -- suppress ~ at EndOfBuffer
-	diff = "⣿", -- alternatives = ⣿ ░ ─ ╱
-	--fold = "⠀",
-	--msgsep = "‾",
-	--foldopen = "▾",
-	--foldsep = "│",
-	--foldclose = "▸",
-}
+-- require "themes.theme-dark"

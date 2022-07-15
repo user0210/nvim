@@ -54,13 +54,14 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("goolord/alpha-nvim")
 	use("folke/which-key.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("folke/zen-mode.nvim")
 	use("karb94/neoscroll.nvim")
 	use("aserowy/tmux.nvim")
 	use("RRethy/nvim-base16")
+	use("petertriho/nvim-scrollbar")
+	use("SmiteshP/nvim-navic")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

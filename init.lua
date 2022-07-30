@@ -1,5 +1,4 @@
 require "user.base16"
-require "user.themes.theme-dark"
 require "user.scrollbar"
 require "user.keymaps"
 require "user.plugins"

@@ -81,9 +81,11 @@ bufferline.setup({
 		},
 		buffer_selected = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			gui = 'bold',
 		},
 		tab_selected = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			gui = 'bold',
 		},
 		diagnostic_selected = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },

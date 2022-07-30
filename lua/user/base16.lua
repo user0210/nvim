@@ -34,4 +34,4 @@ base16.setup({
 })
 -- MONDO-END
 
--- require "themes.theme-dark"
+require "user.themes.theme-dark"

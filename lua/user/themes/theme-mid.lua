@@ -4,14 +4,14 @@ local colors = require("colorscheme").colors
 vim.cmd([[augroup CodeGroup]])
 vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base01a })
 
-vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE",				 bg = "NONE" })
+vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = "NONE" })
 
 vim.api.nvim_set_hl(0, 'CursorLine',				{ bg = colors.base00, bold = true })
 vim.api.nvim_set_hl(0, 'CursorLineNr',				{ fg = colors.base02, bg = colors.base00, bold = true })
 
-vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = "NONE" })
-vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base00 })
+vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = "NONE", fg = colors.base01a})
+vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = "NONE", fg = colors.base01})
 
 vim.api.nvim_set_hl(0, 'Scrollbar',					{ bg = colors.base01 })
 

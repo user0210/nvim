@@ -27,11 +27,27 @@ bufferline.setup({
 		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
+		separator_style = "padded_slant", -- | "thick" | "thin" | { 'any', 'any' },
 	},
+-- Importend: change this in ~/.local/share/nvim/site/pack/packer/start/bufferline.nvim/lua/bufferline/constants.lua
+-- [M.sep_names.slant] = { "", "" },
+-- [M.sep_names.padded_slant] = { "" .. M.padding, "" },
 	highlights = {
+		-- separators
+		separator = {
+			guibg = "NONE",
+			guifg = { attribute = "bg", highlight = "TabLine" },
+		},
+		separator_selected = {
+			guibg = "NONE",
+			guifg = { attribute = "bg", highlight = "TabLineSel" },
+		},
+		separator_visible = {
+			guibg = "NONE",
+			guifg = { attribute = "bg", highlight = "TabLineSel" },
+		},
 		-- hidden tab
 		background = {
 			guibg = { attribute = "bg", highlight = "TabLine" },
@@ -65,11 +81,9 @@ bufferline.setup({
 		},
 		modified = {
 			guibg = { attribute = "bg", highlight = "TabLine" },
+			gui = 'bold',
 		},
 		duplicate = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
-		},
-		separator = {
 			guibg = { attribute = "bg", highlight = "TabLine" },
 		},
 		pick = {
@@ -110,11 +124,9 @@ bufferline.setup({
 		},
 		modified_selected = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			gui = 'bold',
 		},
 		duplicate_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		separator_selected = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		indicator_selected = {
@@ -152,11 +164,9 @@ bufferline.setup({
 		},
 		modified_visible = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			gui = 'bold',
 		},
 		duplicate_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		separator_visible = {
 			guibg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		indicator_visible = {

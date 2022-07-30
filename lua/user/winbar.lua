@@ -48,9 +48,13 @@ M.get_winbar = function()
 	end
 	local progress_value = progress()
 
-	local value = [[%#NavicTransparent#%L%#NavicProgress#]] .. progress_value .. [[%#NavicText# ]]
-	value = value .. "%=%{%v:lua.require'nvim-navic'.get_location()%}   "
-	value = value .. [[%#NavicRight#░▒▓]]
+	local value = [[%#NavicTransparent#%L%#NavicProgress#]] .. progress_value .. [[%#NavicText#  ]]
+	value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}   "
+--	value = value .. [[%=%#NavicRight#░▒▓]]
+
+--	align right
+--	value = value .. "%=%{%v:lua.require'nvim-navic'.get_location()%}   "
+--	value = value .. [[%#NavicRight#░▒▓]]
 
 	local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", value, { scope = "local" })
 	if not status_ok then

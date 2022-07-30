@@ -19,10 +19,8 @@ vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 
 -- Bufferline
-vim.cmd([[augroup BufferlineFocusGroup]])
 vim.api.nvim_set_hl(0, 'TabLineSel',				{ bg = colors.base01a })
-vim.cmd([[augroup BufferlineUnfocusGroup]])
-vim.api.nvim_set_hl(0, 'TabLine',					{ bg = "NONE" })
+vim.api.nvim_set_hl(0, 'TabLine',					{ bg = colors.base00 })
 
 -- Left-Collumn Background
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
@@ -92,5 +90,5 @@ vim.api.nvim_set_hl(0, 'NavicIconsTypeParameter',		{ fg = colors.base0Da, bg = c
 vim.api.nvim_set_hl(0, 'NavicText',              		{ fg = colors.base02, bg = colors.base01a})
 vim.api.nvim_set_hl(0, 'NavicSeparator',         		{ fg = colors.base01, bg = colors.base01a})
 vim.api.nvim_set_hl(0, 'NavicTransparent', 	        	{ fg = colors.base01a, bg = colors.base01a})
-vim.api.nvim_set_hl(0, 'NavicProgress', 	        	{ fg = colors.base01a, bg = colors.base02})
+vim.api.nvim_set_hl(0, 'NavicProgress', 	        	{ fg = colors.base00, bg = colors.base02})
 vim.api.nvim_set_hl(0, 'NavicRight', 	        		{ fg = colors.base00, bg = colors.base01a})

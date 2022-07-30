@@ -95,7 +95,10 @@ M.on_attach = function(client, bufnr)
 		client.server_capabilities.document_formatting = false
 	end
 	if client.name == "html" then
+		client.server_capabilities.documentSymbolProvider = false
 		client.server_capabilities.document_formatting = false
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 	end
 	if client.name == "cssmodules_ls" then
 		client.server_capabilities.document_formatting = false

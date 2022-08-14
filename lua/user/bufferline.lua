@@ -37,143 +37,143 @@ bufferline.setup({
 	highlights = {
 		-- separators
 		separator = {
-			guibg = "NONE",
-			guifg = { attribute = "bg", highlight = "TabLine" },
+			bg = "NONE",
+			fg = { attribute = "bg", highlight = "TabLine" },
 		},
 		separator_selected = {
-			guibg = "NONE",
-			guifg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = "NONE",
+			fg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		separator_visible = {
-			guibg = "NONE",
-			guifg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = "NONE",
+			fg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		-- hidden tab
 		background = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		tab = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		close_button = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		diagnostic = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		info = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		info_diagnostic = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		warning = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		warning_diagnostic = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		error = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		error_diagnostic = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		modified = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
-			gui = 'bold',
+			bg = { attribute = "bg", highlight = "TabLine" },
+			italic = false, bold = true,
 		},
 		duplicate = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		pick = {
-			guibg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 		-- selected and visible tab
 		close_button_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		buffer_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-			gui = 'bold',
+			bg = { attribute = "bg", highlight = "TabLineSel" },
+			italic = false, bold = true,
 		},
 		tab_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-			gui = 'bold',
+			bg = { attribute = "bg", highlight = "TabLineSel" },
+			italic = false, bold = true,
 		},
 		diagnostic_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		info_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		info_diagnostic_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		warning_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		warning_diagnostic_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		error_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		error_diagnostic_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		modified_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-			gui = 'bold',
+			bg = { attribute = "bg", highlight = "TabLineSel" },
+			italic = false, bold = true,
 		},
 		duplicate_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		indicator_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		pick_selected = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		close_button_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		buffer_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		diagnostic_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		info_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		info_diagnostic_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		warning_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		warning_diagnostic_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		error_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		error_diagnostic_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		modified_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
-			gui = 'bold',
+			bg = { attribute = "bg", highlight = "TabLineSel" },
+			italic = false, bold = true,
 		},
 		duplicate_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		indicator_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 		pick_visible = {
-			guibg = { attribute = "bg", highlight = "TabLineSel" },
+			bg = { attribute = "bg", highlight = "TabLineSel" },
 		},
 	},
 })

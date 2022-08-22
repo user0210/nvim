@@ -32,7 +32,7 @@ bufferline.setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
-		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thin", -- | "thick" | "thin" | "slant" | "padded_slant" | { 'any', 'any' },
 	},
 -- Importend: change this in ~/.local/share/nvim/site/pack/packer/start/bufferline.nvim/lua/bufferline/constants.lua
 -- [M.sep_names.slant] = { "", "" },
@@ -134,6 +134,7 @@ bufferline.setup({
 		},
 		indicator_selected = {
 			bg = { attribute = "bg", highlight = "TabLineSel" },
+			fg = { attribute = "fg", highlight = "TabLineSel" },
 		},
 		pick_selected = {
 			bg = { attribute = "bg", highlight = "TabLineSel" },
@@ -174,6 +175,7 @@ bufferline.setup({
 		},
 		indicator_visible = {
 			bg = { attribute = "bg", highlight = "TabLineSel" },
+			fg = { attribute = "fg", highlight = "TabLineSel" },
 		},
 		pick_visible = {
 			bg = { attribute = "bg", highlight = "TabLineSel" },

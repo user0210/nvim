@@ -19,8 +19,8 @@ vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 
 -- Bufferline
-vim.api.nvim_set_hl(0, 'TabLineSel',				{ bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'TabLine',					{ bg = colors.base00 })
+vim.api.nvim_set_hl(0, 'TabLineSel',				{ bg = colors.base01a, fg = colors.base0D })
+vim.api.nvim_set_hl(0, 'TabLine',					{ bg = colors.base00, fg = colors.base00a })
 
 -- Left-Collumn Background
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })

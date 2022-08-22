@@ -40,14 +40,20 @@ M.get_winbar = function()
 		local current_line = vim.fn.line(".")
 		local total_lines = vim.fn.line("$")
 		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
-	--	local chars = { "  ", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+	--	local chars = { "█", "▇", "▆", "▅", "▄", "▃", "▂", "▁", " " }
 		local line_ratio = current_line / total_lines
 		local index = math.ceil(line_ratio * #chars)
-		return chars[index]
+		if current_line == 1 then
+			return "%#NavicProgressStart#⠉⠉"
+		elseif line_ratio == 1 then
+			return  "%#NavicProgressEnd#⣀⣀"
+		else
+			return chars[index]
+		end
 	end
 	local progress_value = progress()
 
-	local value = [[%#NavicTransparent#%L%#NavicProgress#]] .. progress_value .. [[%#NavicText#  ]]
+	local value = [[%#NavicTransparent# ⣿%L⣿%#NavicProgress#]] .. progress_value .. [[%#NavicText# ]]
 	value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}   "
 --	value = value .. [[%=%#NavicRight#░▒▓]]
 

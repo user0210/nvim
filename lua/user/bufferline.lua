@@ -10,7 +10,10 @@ bufferline.setup({
 		right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
 		left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
 		middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
-		indicator_icon = "▎",
+		indicator = {
+		    icon = '▎', -- this should be omitted if indicator style is not 'icon'
+		    style = 'icon', -- 'icon' | 'underline' | 'none'
+		},
 		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
@@ -29,7 +32,7 @@ bufferline.setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
-		separator_style = "padded_slant", -- | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 	},
 -- Importend: change this in ~/.local/share/nvim/site/pack/packer/start/bufferline.nvim/lua/bufferline/constants.lua
 -- [M.sep_names.slant] = { "", "" },

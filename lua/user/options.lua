@@ -54,7 +54,15 @@ vim.opt.fillchars = {
 vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
 vim.cmd("autocmd VimEnter * call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
 
-vim.cmd("autocmd QuitPre * NvimTreeClose") 		-- nvim-tree auto_close is crap
+--vim.cmd("autocmd QuitPre * NvimTreeClose") 		-- nvim-tree auto_close is crap
+vim.o.confirm = true
+vim.api.nvim_create_autocmd("BufEnter", {
+	group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
+	callback = function()
+		local layout = vim.api.nvim_call_function("winlayout", {})
+		if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("quit") end
+	end
+})
 
 -- auto stuff
 vim.cmd("autocmd BufEnter * set nowrap")

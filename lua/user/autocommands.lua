@@ -1,17 +1,32 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
-	callback = function()
-		vim.cmd([[
+  pattern = {
+    "Jaq",
+    "qf",
+    "help",
+    "man",
+    "lspinfo",
+    "spectre_panel",
+    "lir",
+    "DressingSelect",
+    "tsplayground",
+    "Markdown",
+  },
+  callback = function()
+    vim.cmd [[
       nnoremap <silent> <buffer> q :close<CR> 
+      nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
-    ]])
-	end,
+    ]]
+  end,
 })
 
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "gitcommit", "markdown" },
+	pattern = {
+		"gitcommit",
+		"markdown"
+	},
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.spell = true
@@ -39,4 +54,11 @@ vim.api.nvim_create_autocmd({ "CursorMoved", "CursorHold", "BufWinEnter", "BufFi
 	callback = function()
 		require("user.winbar").get_winbar()
 	end,
+})
+
+-- from C@M
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.cmd "hi link illuminatedWord LspReferenceText"
+  end,
 })

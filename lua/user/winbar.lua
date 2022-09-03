@@ -53,10 +53,11 @@ M.get_winbar = function()
 	end
 	local progress_value = progress()
 
-	local value = [[%#NavicTransparent#⠿⠇%L⠸⠿]] .. [[%#NavicText#]]
-	value = value .. "  %{%v:lua.require'nvim-navic'.get_location()%}   "
+	local value = [[%#NavicNumbers#⠰⠆%L ]] .. [[%#NavicLeftSep#▏]] .. [[%#NavicNumbers#⠶ ]] .. [[%#NavicText#]]
+	value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}"
+	value = value .. [[%#NavicNumbers#]] .. "%=⠶ "
 --	value = value .. [[%#NavicProgress#]] .. progress_value .. [[%=%#NavicRight#░▒▓]]
---  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄    ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿
+--  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸ 
 
 --	align right
 --	value = value .. "%=%{%v:lua.require'nvim-navic'.get_location()%}   "

@@ -1,31 +1,31 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = {
-    "Jaq",
-    "qf",
-    "help",
-    "man",
-    "lspinfo",
-    "spectre_panel",
-    "lir",
-    "DressingSelect",
-    "tsplayground",
-    "Markdown",
-  },
-  callback = function()
-    vim.cmd [[
+	pattern = {
+		"Jaq",
+		"qf",
+		"help",
+		"man",
+		"lspinfo",
+		"spectre_panel",
+		"lir",
+		"DressingSelect",
+		"tsplayground",
+		"Markdown",
+	},
+	callback = function()
+		vim.cmd([[
       nnoremap <silent> <buffer> q :close<CR> 
       nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
-    ]]
-  end,
+    ]])
+	end,
 })
 
 -- Set wrap and spell in markdown and gitcommit
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = {
 		"gitcommit",
-		"markdown"
+		"markdown",
 	},
 	callback = function()
 		vim.opt_local.wrap = true
@@ -50,15 +50,18 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Set Winbar
-vim.api.nvim_create_autocmd({ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },{
-	callback = function()
-		require("user.winbar").get_winbar()
-	end,
-})
+vim.api.nvim_create_autocmd(
+	{ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+	{
+		callback = function()
+			require("user.winbar").get_winbar()
+		end,
+	}
+)
 
 -- from C@M
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
-  callback = function()
-    vim.cmd "hi link illuminatedWord LspReferenceText"
-  end,
+	callback = function()
+		vim.cmd("hi link illuminatedWord LspReferenceText")
+	end,
 })

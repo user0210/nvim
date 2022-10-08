@@ -82,13 +82,13 @@ end
 local rightend = function()
 	vim.cmd([[augroup LualineRight]])
 	vim.api.nvim_set_hl(0, 'LualineRight', { fg = colors.base00, bg = colors.base0Da })
-	return [[%#LualineRight#░▒▓]]
+	return [[%#LualineRight#]]
 end
 
 local rightendNC = function()
 	vim.cmd([[augroup LualineRightNC]])
 	vim.api.nvim_set_hl(0, 'LualineRightNC', { fg = colors.base00, bg = colors.base01a })
-	return [[%#LualineRightNC#░▒▓]]
+	return [[%#LualineRightNC#]]
 end
 
 -- customize theme

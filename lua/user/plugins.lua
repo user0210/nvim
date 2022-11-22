@@ -64,9 +64,8 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
-	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
-	use("akinsho/bufferline.nvim")
+	use("nvim-tree/nvim-web-devicons")
+	use("nvim-tree/nvim-tree.lua")
 	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
@@ -81,6 +80,9 @@ return packer.startup(function(use)
 	use("RRethy/nvim-base16")
 	use("petertriho/nvim-scrollbar")
 	use("SmiteshP/nvim-navic")
+	use("j-hui/fidget.nvim")
+	use("romgrk/barbar.nvim")
+	--use("akinsho/bufferline.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

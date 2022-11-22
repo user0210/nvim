@@ -59,9 +59,15 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
--- from C@M
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
+-- from CatM
+vim.api.nvim_create_autocmd({ "VimResized" }, {
 	callback = function()
-		vim.cmd("hi link illuminatedWord LspReferenceText")
+		vim.cmd("tabdo wincmd =")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
+	callback = function()
+		vim.cmd("quit")
 	end,
 })

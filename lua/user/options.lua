@@ -1,6 +1,5 @@
 vim.opt.backup = false							-- creates a backup file
---vim.opt.clipboard = "unnamedplus"				-- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0							-- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 1							-- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0						-- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"					-- the encoding written to a file
@@ -26,6 +25,7 @@ vim.opt.tabstop = 4								-- insert 2 spaces for a tab
 vim.opt.cursorline = true						-- highlight the current line
 vim.opt.cursorcolumn = false					-- highlight the current column
 vim.opt.number = true							-- set numbered lines
+vim.opt.showcmd = false                         -- hide (partial) command in the last line of the screen (for performance)
 vim.opt.relativenumber = true					-- set relative numbered lines
 vim.opt.numberwidth = 2							-- set number column width to 2 {default 4}
 vim.opt.signcolumn = "yes"						-- always show the sign column, otherwise it would shift the text each time
@@ -36,6 +36,7 @@ vim.opt.guifont = "monospace:h17"				-- the font used in graphical neovim applic
 vim.opt.spelllang = "en_us,de_de"
 vim.opt.title = true
 vim.opt.titlestring = "Vim[%t]"
+vim.opt.linebreak = true
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
@@ -54,14 +55,15 @@ vim.opt.fillchars = {
 vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
 vim.cmd("autocmd VimEnter * call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
 
---vim.cmd("autocmd QuitPre * NvimTreeClose") 		-- nvim-tree auto_close is crap
 vim.o.confirm = true
+--vim.cmd("autocmd QuitPre * NvimTreeClose")
 vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
-	callback = function()
-		local layout = vim.api.nvim_call_function("winlayout", {})
-		if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("quit") end
-	end
+  nested = true,
+  callback = function()
+    if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+      vim.cmd "quit"
+    end
+  end
 })
 
 -- auto stuff

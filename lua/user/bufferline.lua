@@ -3,6 +3,13 @@ if not status_ok then
 	return
 end
 
+local base_status_ok, base16 = pcall(require, "base16-colorscheme")
+if not base_status_ok then
+	return
+end
+
+local colors = base16.colors
+
 bufferline.setup({
 	options = {
 		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -32,153 +39,59 @@ bufferline.setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
-		separator_style = "thin", -- | "thick" | "thin" | "slant" | "padded_slant" | { 'any', 'any' },
+		separator_style = "thick", -- | "thick" | "thin" | "slant" | "padded_slant" | { 'any', 'any' },
 	},
+
 -- Importend: change this in ~/.local/share/nvim/site/pack/packer/start/bufferline.nvim/lua/bufferline/constants.lua
 -- [M.sep_names.slant] = { "", "" },
 -- [M.sep_names.padded_slant] = { "" .. M.padding, "" },
+
 	highlights = {
-		-- separators
-		separator = {
-			bg = "NONE",
-			fg = { attribute = "bg", highlight = "TabLine" },
-		},
-		separator_selected = {
-			bg = "NONE",
-			fg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		separator_visible = {
-			bg = "NONE",
-			fg = { attribute = "bg", highlight = "TabLineSel" },
-		},
+		-- separators 
+		separator = 				{ bg = "NONE", fg = colors.base00a },
+		separator_selected = 		{ bg = "NONE", fg = colors.base00a },
+		separator_visible = 		{ bg = "NONE", fg = colors.base00a },
 		-- hidden tab
-		background = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		tab = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		close_button = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		diagnostic = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		info = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		info_diagnostic = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		warning = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		warning_diagnostic = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		error = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		error_diagnostic = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		modified = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-			italic = false, bold = true,
-		},
-		duplicate = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
-		pick = {
-			bg = { attribute = "bg", highlight = "TabLine" },
-		},
+		background = 				{ bg = colors.base00a },
+		tab = 						{ bg = colors.base00a },
+		close_button = 				{ bg = colors.base00a },
+		diagnostic = 				{ bg = colors.base00a },
+		info = 						{ bg = colors.base00a },
+		info_diagnostic = 			{ bg = colors.base00a },
+		warning = 					{ bg = colors.base00a },
+		warning_diagnostic = 		{ bg = colors.base00a },
+		error = 					{ bg = colors.base00a },
+		error_diagnostic = 			{ bg = colors.base00a },
+		modified = 					{ bg = colors.base00a, italic = false, bold = true },
+		duplicate = 				{ bg = colors.base00a },
+		pick = 						{ bg = colors.base00a },
 		-- selected and visible tab
-		close_button_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		buffer_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			italic = false, bold = true,
-		},
-		tab_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			italic = false, bold = true,
-		},
-		diagnostic_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		info_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		info_diagnostic_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		warning_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		warning_diagnostic_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		error_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		error_diagnostic_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		modified_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			italic = false, bold = true,
-		},
-		duplicate_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		indicator_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			fg = { attribute = "fg", highlight = "TabLineSel" },
-		},
-		pick_selected = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		close_button_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		buffer_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		diagnostic_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		info_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		info_diagnostic_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		warning_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		warning_diagnostic_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		error_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		error_diagnostic_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		modified_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			italic = false, bold = true,
-		},
-		duplicate_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
-		indicator_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-			fg = { attribute = "fg", highlight = "TabLineSel" },
-		},
-		pick_visible = {
-			bg = { attribute = "bg", highlight = "TabLineSel" },
-		},
+		close_button_selected = 	{ bg = colors.base01a, },
+		buffer_selected = 			{ bg = colors.base01a, italic = false, bold = true, },
+		tab_selected = 				{ bg = colors.base01a, italic = false, bold = true, },
+		diagnostic_selected = 		{ bg = colors.base01a, },
+		info_selected = 			{ bg = colors.base01a, },
+		info_diagnostic_selected = 	{ bg = colors.base01a, },
+		warning_selected = 			{ bg = colors.base01a, },
+		warning_diagnostic_selected={ bg = colors.base01a, },
+		error_selected = 			{ bg = colors.base01a, },
+		error_diagnostic_selected = { bg = colors.base01a, },
+		modified_selected = 		{ bg = colors.base01a, italic = false, bold = true, },
+		duplicate_selected = 		{ bg = colors.base01a, },
+		indicator_selected = 		{ bg = colors.base01a, fg = colors.base0D, },
+		pick_selected = 			{ bg = colors.base01a, },
+		close_button_visible = 		{ bg = colors.base01a, },
+		buffer_visible =			{ bg = colors.base01a, },
+		diagnostic_visible = 		{ bg = colors.base01a, },
+		info_visible = 				{ bg = colors.base01a, },
+		info_diagnostic_visible = 	{ bg = colors.base01a, },
+		warning_visible = 			{ bg = colors.base01a, },
+		warning_diagnostic_visible=	{ bg = colors.base01a, },
+		error_visible = 			{ bg = colors.base01a, },
+		error_diagnostic_visible = 	{ bg = colors.base01a, },
+		modified_visible = 			{ bg = colors.base01a, italic = false, bold = true, },
+		duplicate_visible = 		{ bg = colors.base01a, },
+		indicator_visible = 		{ bg = colors.base01a, fg = colors.base0D, },
+		pick_visible = 				{ bg = colors.base01a, },
 	},
 })

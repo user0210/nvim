@@ -13,14 +13,14 @@ if not dap_install_status_ok then
 	return
 end
 
-dap_install.setup({
-	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
-})
+dap_install.setup({})
 
 dap_install.config("python", {})
+-- add other configs here
 
 dapui.setup({
-	icons = { expanded = "▾", collapsed = "▸" },
+	expand_lines = true,
+	icons = { expanded = "", collapsed = "", circular = "" },
 	mappings = {
 		-- Use a table to apply multiple mappings
 		expand = { "<CR>", "<2-LeftMouse>" },
@@ -33,32 +33,31 @@ dapui.setup({
 	layouts = {
 		{
 			elements = {
-				"scopes",
-				"breakpoints",
-				"stacks",
-				"watches",
+				{ id = "scopes", size = 0.33 },
+				{ id = "breakpoints", size = 0.17 },
+				{ id = "stacks", size = 0.25 },
+				{ id = "watches", size = 0.25 },
 			},
-			size = 40,
+			size = 0.33,
 			position = "right",
 		},
 		{
 			elements = {
-				"repl",
-				"console",
+				{ id = "repl", size = 0.45 },
+				{ id = "console", size = 0.55 },
 			},
-			size = 10,
+			size = 0.27,
 			position = "bottom",
 		},
 	},
 	floating = {
-		max_height = nil, -- These can be integers or a float between 0 and 1.
-		max_width = nil, -- Floats will be treated as percentage of your screen.
-		border = "rounded", -- Border style. Can be "single", "double" or "rounded"
+		max_height = 0.9,
+		max_width = 0.5, -- Floats will be treated as percentage of your screen.
+		border = "rounded", -- Border style. Can be 'single', 'double' or 'rounded'
 		mappings = {
 			close = { "q", "<Esc>" },
 		},
 	},
-	windows = { indent = 1 },
 })
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
@@ -66,9 +65,11 @@ vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignErro
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
 end
+
 dap.listeners.before.event_terminated["dapui_config"] = function()
 	dapui.close()
 end
+
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end

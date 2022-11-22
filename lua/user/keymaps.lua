@@ -1,12 +1,11 @@
-local opts = { noremap = true, silent = true }
-
 -- Shorten function name
 local keymap = vim.keymap.set
+-- Silent keymap option
+local opts = { silent = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -47,8 +46,8 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

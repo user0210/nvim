@@ -21,7 +21,6 @@ M.winbar_filetype_exclude = {
 	"dapui_stacks",
 	"dapui_watches",
 	"dap-repl",
-
 	"lspinfo",
 }
 
@@ -38,26 +37,26 @@ M.get_winbar = function()
 		return
 	end
 
-	local progress = function()
-		local current_line = vim.fn.line(".")
-		local total_lines = vim.fn.line("$")
-		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
-	--	local chars = { "█", "▇", "▆", "▅", "▄", "▃", "▂", "▁", " " }
-		local line_ratio = current_line / total_lines
-		local index = math.ceil(line_ratio * #chars)
-		if current_line == 1 then
-			return "%#NavicProgressStart#⠉⠉"
-		elseif line_ratio == 1 then
-			return  "%#NavicProgressEnd#⣀⣀"
-		else
-			return chars[index]
-		end
-	end
-	local progress_value = progress()
+--	local progress = function()
+--		local current_line = vim.fn.line(".")
+--		local total_lines = vim.fn.line("$")
+--		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
+--	--	local chars = { "█", "▇", "▆", "▅", "▄", "▃", "▂", "▁", " " }
+--		local line_ratio = current_line / total_lines
+--		local index = math.ceil(line_ratio * #chars)
+--		if current_line == 1 then
+--			return "%#NavicProgressStart#⠉⠉"
+--		elseif line_ratio == 1 then
+--			return  "%#NavicProgressEnd#⣀⣀"
+--		else
+--			return chars[index]
+--		end
+--	end
+--	local progress_value = progress()
 
-	local value = [[%#NavicNumbers#⠰⠆%L ]] .. [[%#NavicLeftSep#▏]] .. [[%#NavicNumbers#⠶ ]] .. [[%#NavicText#]]
+	local value = [[%#NavicLeft#  ]] .. [[%#NavicNumbers#%L]] .. [[%#NavicSurround# • ]] .. [[%#NavicText#]]
 	value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}"
-	value = value .. [[%#NavicNumbers#]] .. "%=⠶ "
+	value = value .. [[%#NavicSurround#%= ▕]]
 --	value = value .. [[%#NavicProgress#]] .. progress_value .. [[%=%#NavicRight#░▒▓]]
 --  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸ 
 

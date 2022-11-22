@@ -94,4 +94,11 @@ nvim_tree.setup({
 			},
 		},
 	},
+	tab = {
+		sync = {
+			open = false,
+			close = true,
+			ignore = {},
+		},
+	},
 })

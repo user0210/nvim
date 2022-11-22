@@ -8,19 +8,47 @@ vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = "NONE" })
 
 vim.api.nvim_set_hl(0, 'CursorLine',				{ bg = colors.base01a, bold = true })
-vim.api.nvim_set_hl(0, 'CursorLineNr',				{ fg = colors.base02, bg = colors.base01a, bold = true })
+vim.api.nvim_set_hl(0, 'CursorLineNr',				{ bg = colors.base01a, fg = colors.base02, bold = true })
 
 vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = "NONE", fg = colors.base01a})
 vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = "NONE", fg = colors.base01})
 
-vim.api.nvim_set_hl(0, 'Scrollbar',					{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'Scrollbar',					{ bg = colors.base00a })
+vim.api.nvim_set_hl(0, 'ScrollbarCursor',			{ fg = colors.base01a })
 
 vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 
 -- Bufferline
-vim.api.nvim_set_hl(0, 'TabLineSel',				{ bg = colors.base01a, fg = colors.base0D })
-vim.api.nvim_set_hl(0, 'TabLine',					{ bg = colors.base00, fg = colors.base00a })
+--      Current: current buffer
+--      Visible: visible but not current buffer
+--     Inactive: invisible but not current buffer
+--        -Icon: filetype icon
+--       -Index: buffer index
+--         -Mod: when modified
+--        -Sign: the separator between buffers
+--      -Target: letter in buffer-picking mode
+vim.api.nvim_set_hl(0, 'BufferCurrent',				{ bg = colors.base01a, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferCurrentIndex',		{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferCurrentMod',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferCurrentSign',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'BufferCurrentTarget',		{ bg = colors.base01a, fg = colors.base08 })
+vim.api.nvim_set_hl(0, 'BufferCurrentIcon',			{ bg = colors.base01a, fg = colors.base0Da })
+vim.api.nvim_set_hl(0, 'BufferInactive',			{ bg = colors.base01, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferInactiveIndex',		{ bg = colors.base01, fg = colors.base02 })
+vim.api.nvim_set_hl(0, 'BufferInactiveMod',			{ bg = colors.base01, fg = colors.base04 })
+vim.api.nvim_set_hl(0, 'BufferInactiveSign',		{ bg = colors.base01, fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'BufferInactiveTarget',		{ bg = colors.base01, fg = colors.base02 })
+vim.api.nvim_set_hl(0, 'BufferInactiveIcon',		{ bg = colors.base01, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferTabpageFill',			{ bg = "NONE", fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'BufferTabpages',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisible',				{ bg = colors.base01a, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferVisibleIndex',		{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisibleMod',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisibleSign',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'BufferVisibleTarget',		{ bg = colors.base01a, fg = colors.base08 })
+vim.api.nvim_set_hl(0, 'BufferVisibleIcon',			{ bg = colors.base01a, fg = colors.base0Da })
+
 
 -- Left-Collumn Background
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
@@ -89,8 +117,9 @@ vim.api.nvim_set_hl(0, 'NavicIconsOperator',     		{ fg = colors.base0Da, bg = c
 vim.api.nvim_set_hl(0, 'NavicIconsTypeParameter',		{ fg = colors.base0Ea, bg = colors.base01a, bold = true })
 vim.api.nvim_set_hl(0, 'NavicText',              		{ fg = colors.base02, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'NavicSeparator',         		{ fg = colors.base02, bg = colors.base01a, bold = true })
-vim.api.nvim_set_hl(0, 'NavicNumbers', 	        		{ fg = colors.base02, bg = colors.base01a, bold = true })
-vim.api.nvim_set_hl(0, 'NavicLeftSep', 	        		{ fg = colors.base00, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicLeft', 	        		{ fg = colors.base00a, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicNumbers', 	        		{ fg = colors.base00, bg = colors.base01a, underdotted = true })
+vim.api.nvim_set_hl(0, 'NavicSurround', 	       		{ fg = colors.base00, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'NavicProgress', 	        	{ fg = colors.base01, bg = colors.base02 })
 vim.api.nvim_set_hl(0, 'NavicProgressStart', 	       	{ fg = colors.base00, bg = colors.base01 })
 vim.api.nvim_set_hl(0, 'NavicProgressEnd', 	        	{ fg = colors.base00, bg = colors.base02 })

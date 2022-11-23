@@ -19,6 +19,8 @@ vim.api.nvim_set_hl(0, 'ScrollbarCursor',			{ fg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 
+vim.api.nvim_set_hl(0, 'LspInfoBorder',				{ bg = colors.base00, fg = colors.base05 })
+
 -- Bufferline
 --      Current: current buffer
 --      Visible: visible but not current buffer
@@ -49,6 +51,20 @@ vim.api.nvim_set_hl(0, 'BufferVisibleSign',			{ bg = colors.base01a, fg = colors
 vim.api.nvim_set_hl(0, 'BufferVisibleTarget',		{ bg = colors.base01a, fg = colors.base08 })
 vim.api.nvim_set_hl(0, 'BufferVisibleIcon',			{ bg = colors.base01a, fg = colors.base0Da })
 
+-- treesitter-context plugin
+vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01a })
+
+-- codewindow
+-- CodewindowBorder -- the border highlight
+-- CodewindowBackground -- the background highlight
+-- CodewindowWarn -- the color of the warning dots
+-- CodewindowError -- the color of the error dots
+-- CodewindowAddition -- the color of the addition git sign
+-- CodewindowDeletion -- the color of the deletion git sign
+-- CodewindowUnderline -- the color of the underlines on the minimap
+vim.api.nvim_set_hl(0, 'CodewindowBorder',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'CodewindowBackground',		{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'CodewindowUnderline',		{ bg = colors.base02 })
 
 -- Left-Collumn Background
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
@@ -117,10 +133,10 @@ vim.api.nvim_set_hl(0, 'NavicIconsOperator',     		{ fg = colors.base0Da, bg = c
 vim.api.nvim_set_hl(0, 'NavicIconsTypeParameter',		{ fg = colors.base0Ea, bg = colors.base01a, bold = true })
 vim.api.nvim_set_hl(0, 'NavicText',              		{ fg = colors.base02, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'NavicSeparator',         		{ fg = colors.base02, bg = colors.base01a, bold = true })
-vim.api.nvim_set_hl(0, 'NavicLeft', 	        		{ fg = colors.base00a, bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'NavicNumbers', 	        		{ fg = colors.base00, bg = colors.base01a, underdotted = true })
+vim.api.nvim_set_hl(0, 'NavicLeft', 	        		{ fg = colors.base00, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicNumbers', 	        		{ fg = colors.base01a, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'NavicSurround', 	       		{ fg = colors.base00, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'NavicProgress', 	        	{ fg = colors.base01, bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NavicProgressStart', 	       	{ fg = colors.base00, bg = colors.base01 })
-vim.api.nvim_set_hl(0, 'NavicProgressEnd', 	        	{ fg = colors.base00, bg = colors.base02 })
+vim.api.nvim_set_hl(0, 'NavicProgressStart', 	       	{ fg = colors.base01a, bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NavicProgressEnd', 	        	{ fg = colors.base01a, bg = colors.base02 })
 vim.api.nvim_set_hl(0, 'NavicRight', 	        		{ fg = colors.base00, bg = colors.base01a })

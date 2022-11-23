@@ -6,7 +6,7 @@ end
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
-		registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+		registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
 		spelling = {
 			enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
 			suggestions = 20, -- how many suggestions should be shown in the list?
@@ -45,9 +45,9 @@ local setup = {
 	window = {
 		border = "rounded", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
+		margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+		padding = { 0, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
+		winblend = 1,
 	},
 	layout = {
 		height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -164,6 +164,12 @@ local mappings = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
+	},
+	m = {
+		name = "Scrollbar",
+		m =	{ "<cmd>ScrollbarToggle<cr> <bar> <cmd>MinimapToggle<cr>", "Toggle Both" },
+		s =	{ "<cmd>MinimapToggle<cr>", "Toggle Minimap" },
+		d =	{ "<cmd>ScrollbarToggle<cr>", "Toggle Scrollbar" },
 	},
 	s = {
 		name = "Search",

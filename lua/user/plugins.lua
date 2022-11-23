@@ -81,6 +81,8 @@ return packer.startup(function(use)
 	use("petertriho/nvim-scrollbar")
 	use("SmiteshP/nvim-navic")
 	use("j-hui/fidget.nvim")
+	use("sindrets/diffview.nvim")
+	use("wfxr/minimap.vim")
 	use("romgrk/barbar.nvim")
 	--use("akinsho/bufferline.nvim")
 
@@ -115,6 +117,7 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("nvim-treesitter/nvim-treesitter-context")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")

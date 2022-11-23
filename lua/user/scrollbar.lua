@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 scrollbar.setup({
-    show = true,
+    show = false,
     show_in_active_only = false,
     set_highlights = true,
     folds = 1000, -- handle folds, set to number to disable folds if no. of lines in buffer exceeds this
@@ -96,6 +96,7 @@ scrollbar.setup({
         "prompt",
         "TelescopePrompt",
         "noice",
+		"minimap",
     },
     autocmd = {
         render = {

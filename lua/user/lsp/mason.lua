@@ -90,3 +90,7 @@ for _, server in pairs(servers) do
 
 	lspconfig[server].setup(opts)
 end
+
+-- border for LspInfo
+require('lspconfig.ui.windows').default_options.border = 'rounded'
+

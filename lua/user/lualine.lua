@@ -198,6 +198,9 @@ local filetype = {
 	"filetype",
 	icons_enabled = false,
 	icon = nil,
+	on_click = function ()
+		vim.cmd("LspInfo")
+	end
 }
 
 local location = {
@@ -220,18 +223,6 @@ local spaces = {
 	"spaces",
 	fmt = function()
 		return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-	end,
-}
-
-local progress = {
-	"progress",
-	fmt = function()
-		local current_line = vim.fn.line(".")
-		local total_lines = vim.fn.line("$")
-		local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-		local line_ratio = current_line / total_lines
-		local index = math.ceil(line_ratio * #chars)
-		return chars[index]
 	end,
 }
 
@@ -259,7 +250,7 @@ lualine.setup({
 		theme = templer,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+		disabled_filetypes = { "dashboard", "NvimTree", "Outline", "minimap" },
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,
@@ -274,7 +265,7 @@ lualine.setup({
 		lualine_b = { branch },
 		lualine_c = { diagnostics, diff },
 		lualine_x = { encoding, filetype },
-		lualine_y = { gap, spaces, location, progress },
+		lualine_y = { gap, spaces, location },
 		lualine_z = { surroundR },
 	},
 	inactive_sections = {

@@ -1,3 +1,14 @@
+-- Autostart
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function()
+		--NvimTree
+		vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
+		vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
+		--Minimap
+		vim.cmd("call timer_start(400, { tid -> execute('Minimap')})")
+	end,
+})
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = {
@@ -18,6 +29,32 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
     ]])
+	end,
+})
+
+-- close tree and scrollbar on quit
+vim.api.nvim_create_autocmd({ "QuitPre" }, {
+	pattern = "*",
+	callback = function()
+		local exclude = {
+			"Jaq",
+			"qf",
+			"help",
+			"man",
+			"lspinfo",
+			"spectre_panel",
+			"lir",
+			"DressingSelect",
+			"tsplayground",
+			"Markdown",
+			"packer",
+			"mason",
+		}
+		if vim.tbl_contains(exclude, vim.bo.filetype) then
+			return
+		else
+			vim.cmd("NvimTreeClose | MinimapClose")
+		end
 	end,
 })
 
@@ -50,14 +87,11 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Set Winbar
-vim.api.nvim_create_autocmd(
-	{ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-	{
+vim.api.nvim_create_autocmd({ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" }, {
 		callback = function()
 			require("user.winbar").get_winbar()
 		end,
-	}
-)
+})
 
 -- from CatM
 vim.api.nvim_create_autocmd({ "VimResized" }, {

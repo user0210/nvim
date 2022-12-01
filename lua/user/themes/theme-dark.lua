@@ -21,15 +21,10 @@ vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 
 vim.api.nvim_set_hl(0, 'LspInfoBorder',				{ bg = colors.base00, fg = colors.base05 })
 
+-- Text Background
+vim.cmd([[set winhighlight=Normal:CodeGroup]])
+
 -- Bufferline
---      Current: current buffer
---      Visible: visible but not current buffer
---     Inactive: invisible but not current buffer
---        -Icon: filetype icon
---       -Index: buffer index
---         -Mod: when modified
---        -Sign: the separator between buffers
---      -Target: letter in buffer-picking mode
 vim.api.nvim_set_hl(0, 'BufferCurrent',				{ bg = colors.base01a, fg = colors.base03, italic = true })
 vim.api.nvim_set_hl(0, 'BufferCurrentIndex',		{ bg = colors.base01a, fg = colors.base03 })
 vim.api.nvim_set_hl(0, 'BufferCurrentMod',			{ bg = colors.base01a, fg = colors.base03 })
@@ -50,11 +45,19 @@ vim.api.nvim_set_hl(0, 'BufferVisibleMod',			{ bg = colors.base01a, fg = colors.
 vim.api.nvim_set_hl(0, 'BufferVisibleSign',			{ bg = colors.base01a, fg = colors.base01a })
 vim.api.nvim_set_hl(0, 'BufferVisibleTarget',		{ bg = colors.base01a, fg = colors.base08 })
 vim.api.nvim_set_hl(0, 'BufferVisibleIcon',			{ bg = colors.base01a, fg = colors.base0Da })
-
--- treesitter-context plugin
-vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01a })
+--      Current: current buffer
+--      Visible: visible but not current buffer
+--     Inactive: invisible but not current buffer
+--        -Icon: filetype icon
+--       -Index: buffer index
+--         -Mod: when modified
+--        -Sign: the separator between buffers
+--      -Target: letter in buffer-picking mode
 
 -- codewindow
+vim.api.nvim_set_hl(0, 'CodewindowBorder',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'CodewindowBackground',		{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'CodewindowUnderline',		{ bg = colors.base02 })
 -- CodewindowBorder -- the border highlight
 -- CodewindowBackground -- the background highlight
 -- CodewindowWarn -- the color of the warning dots
@@ -62,9 +65,9 @@ vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01a })
 -- CodewindowAddition -- the color of the addition git sign
 -- CodewindowDeletion -- the color of the deletion git sign
 -- CodewindowUnderline -- the color of the underlines on the minimap
-vim.api.nvim_set_hl(0, 'CodewindowBorder',			{ bg = colors.base01a, fg = colors.base01a })
-vim.api.nvim_set_hl(0, 'CodewindowBackground',		{ bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'CodewindowUnderline',		{ bg = colors.base02 })
+
+-- treesitter-context plugin
+vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01a })
 
 -- Left-Collumn Background
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
@@ -76,9 +79,6 @@ vim.api.nvim_set_hl(0, 'DiagnosticSignHint',		{ fg = colors.base0C, bg = colors.
 vim.api.nvim_set_hl(0, 'GitSignsAdd',				{ fg = colors.base0Ba, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'GitSignsChange',			{ fg = colors.base0Da, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'GitSignsDelete',			{ fg = colors.base0Fa, bg = colors.base01a })
-
--- Text Background
-vim.cmd([[set winhighlight=Normal:CodeGroup]])
 
 -- Nvim-Tree
 vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon',		{ fg = colors.base0D })

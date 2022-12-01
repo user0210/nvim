@@ -8,6 +8,8 @@ if not base_status_ok then
 	return
 end
 
+-- THEMING
+
 local theme = require("lualine.themes.base16")
 local colors = base16.colors
 local templer = {
@@ -45,6 +47,8 @@ local templer = {
 	},
 }
 
+-- COMPONENTS
+
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
@@ -55,6 +59,22 @@ local function diff_source()
 		}
 	end
 end
+
+local diff = {
+	"diff",
+	colored = false, -- Displays a colored diff status if set to true
+	diff_color = {
+		-- Same color values as the general color option can be used here.
+		-- added = "DiffAdd", -- Changes the diff's added color
+		-- modified = "DiffChange", -- Changes the diff's modified color
+		-- removed = "DiffDelete", -- Changes the diff's removed color you
+	},
+	symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
+	source = diff_source, -- A function that works as a data source for diff.
+	-- It must return a table as such:
+	--   { added = add_count, modified = modified_count, removed = removed_count }
+	-- or nil on failure. count <= 0 won't be displayed.
+}
 
 local diagnostics = {
 	"diagnostics",
@@ -80,22 +100,6 @@ local diagnostics = {
 	colored = true, -- Displays diagnostics status in color if set to true.
 	update_in_insert = false, -- Update diagnostics in insert mode.
 	always_visible = true, -- Show diagnostics even if there are none.
-}
-
-local diff = {
-	"diff",
-	colored = false, -- Displays a colored diff status if set to true
-	diff_color = {
-		-- Same color values as the general color option can be used here.
-		-- added = "DiffAdd", -- Changes the diff's added color
-		-- modified = "DiffChange", -- Changes the diff's modified color
-		-- removed = "DiffDelete", -- Changes the diff's removed color you
-	},
-	symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
-	source = diff_source, -- A function that works as a data source for diff.
-	-- It must return a table as such:
-	--   { added = add_count, modified = modified_count, removed = removed_count }
-	-- or nil on failure. count <= 0 won't be displayed.
 }
 
 local mode = {
@@ -243,6 +247,8 @@ local surroundR = {
 	padding = 0,
 	color = { fg = colors.base01a },
 }
+
+-- SETUP
 
 lualine.setup({
 	options = {

@@ -1,11 +1,13 @@
 -- Autostart
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()
-		--NvimTree
-		vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
-		vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
-		--Minimap
-		vim.cmd("call timer_start(400, { tid -> execute('Minimap')})")
+		-- NvimTree
+		--vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
+		--vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
+
+		-- NvimTree with Minimap
+		vim.cmd("call timer_start(100, { tid -> execute('NvimTreeOpen')})")
+		vim.cmd("call timer_start(200, { tid -> execute('wincmd l')})")
 	end,
 })
 
@@ -29,32 +31,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       nnoremap <silent> <buffer> <esc> :close<CR> 
       set nobuflisted 
     ]])
-	end,
-})
-
--- close tree and scrollbar on quit
-vim.api.nvim_create_autocmd({ "QuitPre" }, {
-	pattern = "*",
-	callback = function()
-		local exclude = {
-			"Jaq",
-			"qf",
-			"help",
-			"man",
-			"lspinfo",
-			"spectre_panel",
-			"lir",
-			"DressingSelect",
-			"tsplayground",
-			"Markdown",
-			"packer",
-			"mason",
-		}
-		if vim.tbl_contains(exclude, vim.bo.filetype) then
-			return
-		else
-			vim.cmd("NvimTreeClose | MinimapClose")
-		end
 	end,
 })
 
@@ -87,21 +63,33 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- Set Winbar
-vim.api.nvim_create_autocmd({ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" }, {
+vim.api.nvim_create_autocmd(
+	{ "FileType", "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+	{
 		callback = function()
 			require("user.winbar").get_winbar()
 		end,
-})
+	}
+)
 
 -- from CatM
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	callback = function()
-		vim.cmd("tabdo wincmd =")
+	local line_count = vim.api.nvim_buf_line_count(0)
+		if line_count >= 5000 then
+			vim.cmd("IlluminatePauseBuf")
+		end
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
-	callback = function()
-		vim.cmd("quit")
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "VimResized" }, {
+-- 	callback = function()
+-- 		vim.cmd("tabdo wincmd =")
+-- 	end,
+-- })
+-- 
+-- vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
+-- 	callback = function()
+-- 		vim.cmd("quit")
+-- 	end,
+-- })

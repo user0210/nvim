@@ -83,8 +83,8 @@ return packer.startup(function(use)
 	use("j-hui/fidget.nvim")
 	use("sindrets/diffview.nvim")
 	use("wfxr/minimap.vim")
-	use("romgrk/barbar.nvim")
-	--use("akinsho/bufferline.nvim")
+	--use("romgrk/barbar.nvim")
+	use("akinsho/bufferline.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

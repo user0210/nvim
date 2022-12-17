@@ -1,9 +1,6 @@
 local colors = require("colorscheme").colors
 
 
-vim.cmd([[augroup CodeGroup]])
-vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
-
 vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = "NONE" })
 
@@ -22,6 +19,8 @@ vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'LspInfoBorder',				{ bg = colors.base00, fg = colors.base05 })
 
 -- Text Background
+vim.cmd([[augroup CodeGroup]])
+vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
 vim.cmd([[set winhighlight=Normal:CodeGroup]])
 
 -- Bufferline
@@ -102,7 +101,7 @@ vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',		{ fg = colors.base05, bg = "NONE",
 vim.api.nvim_set_hl(0, 'NvimTreeEmptyFolderName',	{ fg = colors.base04, bg = "NONE", italic = true })
 vim.api.nvim_set_hl(0, 'NvimTreeGitIgnored',		{ fg = colors.base04, bg = "NONE", italic = true })
 vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer',		{ fg = colors.base00, bg = "NONE" })
-vim.api.nvim_set_hl(0, 'NvimTreeVertSplit',			{ fg = "NONE",				 bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NvimTreeVertSplit',			{ fg = "NONE",	bg = "NONE" })
 
 -- Navic
 vim.api.nvim_set_hl(0, 'NavicIconsFile',         		{ fg = colors.base0Da, bg = colors.base01a, bold = true })

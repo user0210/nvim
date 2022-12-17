@@ -48,13 +48,11 @@ zenmode.setup({
 	-- callback where you can add custom code when the Zen window opens
 	on_open = function(win)
 		vim.g.indent_blankline_enabled = false
-		vim.cmd([[hi! link Normal CodeGroup]])
 		vim.cmd([[ScrollbarHide]])
 	end,
 	-- callback where you can add custom code when the Zen window closes
 	on_close = function(win)
 		vim.g.indent_blankline_enabled = true
-		vim.cmd([[hi! Normal ctermbg=none guibg=none]])
 		vim.cmd([[ScrollbarShow]])
 	end,
 })

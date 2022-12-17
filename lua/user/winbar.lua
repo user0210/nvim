@@ -21,6 +21,7 @@ M.winbar_filetype_exclude = {
 	"dapui_watches",
 	"dap-repl",
 	"lspinfo",
+	"mason",
 	"Codewindow",
 }
 

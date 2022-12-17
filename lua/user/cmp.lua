@@ -119,9 +119,13 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = {
-		},
+		-- completion = cmp.config.window.bordered(),
+		-- documentation = cmp.config.window.bordered(),
 		completion = {
+			winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+		},
+		documentation = {
+			winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
 		},
 	},
 	experimental = {

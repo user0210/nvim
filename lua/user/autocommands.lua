@@ -2,60 +2,26 @@
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()
 		-- NvimTree
-		--vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
-		--vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
+		vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
+		vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
 
 		-- NvimTree with Minimap
-		vim.cmd("call timer_start(100, { tid -> execute('NvimTreeOpen')})")
-		vim.cmd("call timer_start(200, { tid -> execute('wincmd l')})")
+		--vim.cmd("call timer_start(100, { tid -> execute('NvimTreeOpen')})")
+		--vim.cmd("call timer_start(200, { tid -> execute('wincmd l')})")
 	end,
 })
 
--- close nvimtree
--- vim.api.nvim_create_autocmd("BufEnter", {
---   nested = true,
---   callback = function()
---     if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
---       vim.cmd "quit"
---     end
---   end
--- })
--- vim.api.nvim_create_autocmd({ "QuitPre" }, {
--- 	pattern = "*",
--- 	callback = function()
--- 		local exclude = {
--- 			"Jaq",
--- 			"qf",
--- 			"help",
--- 			"man",
--- 			"lspinfo",
--- 			"spectre_panel",
--- 			"lir",
--- 			"DressingSelect",
--- 			"tsplayground",
--- 			"Markdown",
--- 			"packer",
--- 			"mason",
--- 		}
--- 		if vim.tbl_contains(exclude, vim.bo.filetype) then
--- 			return
--- 		else
--- 			vim.cmd("NvimTreeClose | MinimapClose")
--- 		end
--- 	end,
--- })
-
 -- unfocus minimap
 vim.api.nvim_create_autocmd("CursorHold", {
-  nested = true,
-  callback = function()
-    if vim.api.nvim_buf_get_name(0):match("-MINIMAP-") ~= nil then
-		vim.cmd("wincmd p")
-    end
-  end
+	nested = true,
+	callback = function()
+		if vim.api.nvim_buf_get_name(0):match("-MINIMAP-") ~= nil then
+			vim.cmd("wincmd p")
+		end
+	end,
 })
 
--- close tree and scrollbar on quit
+-- close tree and minimap on quit
 vim.api.nvim_create_autocmd({ "QuitPre" }, {
 	pattern = "*",
 	callback = function()
@@ -80,6 +46,14 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 		end
 	end,
 })
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	nested = true,
+-- 	callback = function()
+-- 		if #vim.api.nvim_list_wins() == 1 and vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil then
+-- 			vim.cmd("quit")
+-- 		end
+-- 	end,
+-- })
 
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {

@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -57,16 +56,14 @@ packer.init({
 	},
 })
 
--- Install your plugins here
 return packer.startup(function(use)
-	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
-	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("windwp/nvim-autopairs")
+	use("numToStr/Comment.nvim")
 	use("nvim-tree/nvim-web-devicons")
 	use("nvim-tree/nvim-tree.lua")
-	use("moll/vim-bbye")
+	use("famiu/bufdelete.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
 	use("ahmedkhalf/project.nvim")
@@ -74,39 +71,46 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/which-key.nvim")
 	use("norcalli/nvim-colorizer.lua")
-	use("folke/zen-mode.nvim")
 	use("karb94/neoscroll.nvim")
 	use("aserowy/tmux.nvim")
 	use("RRethy/nvim-base16")
-	use("petertriho/nvim-scrollbar")
 	use("SmiteshP/nvim-navic")
 	use("j-hui/fidget.nvim")
 	use("sindrets/diffview.nvim")
-	use("wfxr/minimap.vim")
 	--use("romgrk/barbar.nvim")
 	use("akinsho/bufferline.nvim")
 
-	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
+	-- scrollbars
+	use("wfxr/minimap.vim")
+	use("petertriho/nvim-scrollbar")
+	use("kevinhwang91/nvim-hlslens")
 
-	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  requires = {
+		-- LSP Support
+		{'neovim/nvim-lspconfig'},
+		{'williamboman/mason.nvim'},
+		{'williamboman/mason-lspconfig.nvim'},
 
-	-- LSP
-	--use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+		-- Autocompletion
+		{'hrsh7th/nvim-cmp'},
+		{'hrsh7th/cmp-buffer'},
+		{'hrsh7th/cmp-path'},
+		{'saadparwaiz1/cmp_luasnip'},
+		{'hrsh7th/cmp-nvim-lsp'},
+		{'hrsh7th/cmp-nvim-lua'},
+		{'hrsh7th/cmp-cmdline'},
+		{'onsails/lspkind.nvim'},
+
+		-- Snippets
+		{'L3MON4D3/LuaSnip'},
+		{'rafamadriz/friendly-snippets'},
+	  }
+	}
 	use("RRethy/vim-illuminate")
+	use("jose-elias-alvarez/null-ls.nvim")
+	use("jayp0521/mason-null-ls.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")

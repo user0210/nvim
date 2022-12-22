@@ -91,3 +91,35 @@ end)
 nvim_tree_events.subscribe("TreeClose", function()
 	bufferline_api.set_offset(0)
 end)
+
+
+local colors = require("colorscheme").colors
+
+vim.api.nvim_set_hl(0, 'BufferCurrent',				{ bg = colors.base01a, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferCurrentIndex',		{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferCurrentMod',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferCurrentSign',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'BufferCurrentTarget',		{ bg = colors.base01a, fg = colors.base08 })
+vim.api.nvim_set_hl(0, 'BufferCurrentIcon',			{ bg = colors.base01a, fg = colors.base0Da })
+vim.api.nvim_set_hl(0, 'BufferInactive',			{ bg = colors.base01, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferInactiveIndex',		{ bg = colors.base01, fg = colors.base02 })
+vim.api.nvim_set_hl(0, 'BufferInactiveMod',			{ bg = colors.base01, fg = colors.base04 })
+vim.api.nvim_set_hl(0, 'BufferInactiveSign',		{ bg = colors.base01, fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'BufferInactiveTarget',		{ bg = colors.base01, fg = colors.base02 })
+vim.api.nvim_set_hl(0, 'BufferInactiveIcon',		{ bg = colors.base01, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferTabpageFill',			{ bg = "NONE", fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'BufferTabpages',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisible',				{ bg = colors.base01a, fg = colors.base03, italic = true })
+vim.api.nvim_set_hl(0, 'BufferVisibleIndex',		{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisibleMod',			{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'BufferVisibleSign',			{ bg = colors.base01a, fg = colors.base01a })
+vim.api.nvim_set_hl(0, 'BufferVisibleTarget',		{ bg = colors.base01a, fg = colors.base08 })
+vim.api.nvim_set_hl(0, 'BufferVisibleIcon',			{ bg = colors.base01a, fg = colors.base0Da })
+--      Current: current buffer
+--      Visible: visible but not current buffer
+--     Inactive: invisible but not current buffer
+--        -Icon: filetype icon
+--       -Index: buffer index
+--         -Mod: when modified
+--        -Sign: the separator between buffers
+--      -Target: letter in buffer-picking mode

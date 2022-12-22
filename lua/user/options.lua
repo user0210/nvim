@@ -41,7 +41,7 @@ vim.opt.linebreak = true
 vim.opt.shortmess:append("c")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
-vim.o.confirm = true
+vim.opt.confirm = true
 vim.opt.fillchars = {
 	vert = " ",									-- removes vertsepperator line
 	eob = " ",									-- suppress ~ at EndOfBuffer

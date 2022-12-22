@@ -102,3 +102,28 @@ nvim_tree.setup({
 		},
 	},
 })
+
+local colors = require("colorscheme").colors
+
+vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon',		{ fg = colors.base0D })
+vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker',		{ fg = colors.base06 })
+vim.api.nvim_set_hl(0, 'NvimTreeImageFile',			{ fg = colors.base05 })
+vim.api.nvim_set_hl(0, 'NvimTreeSpecialFile',		{ fg = colors.base09 })
+vim.api.nvim_set_hl(0, 'NvimTreeGitignoreIcon',     { fg = colors.base08a })
+vim.api.nvim_set_hl(0, 'NvimTreeGitStaged',			{ fg = colors.base0C })
+vim.api.nvim_set_hl(0, 'NvimTreeGitNew',			{ fg = colors.base0C })
+vim.api.nvim_set_hl(0, 'NvimTreeGitRenamed',		{ fg = colors.base0C })
+vim.api.nvim_set_hl(0, 'NvimTreeGitDeleted',		{ fg = colors.base08 })
+vim.api.nvim_set_hl(0, 'NvimTreeGitMerge',			{ fg = colors.base0A })
+vim.api.nvim_set_hl(0, 'NvimTreeGitDirty',			{ fg = colors.base0A })
+vim.api.nvim_set_hl(0, 'NvimTreeSymlink',			{ fg = colors.base0B })
+vim.api.nvim_set_hl(0, 'NvimTreeExecFile',			{ fg = colors.base0E })
+vim.api.nvim_set_hl(0, 'NvimTreeCursorLine',		{ fg = colors.base06, bg = colors.base0Da })
+vim.api.nvim_set_hl(0, 'NvimTreeNormal',			{ fg = colors.base05, bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NvimTreeFolderName',		{ fg = colors.base0D, bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NvimTreeOpenedFolderName',	{ fg = colors.base0D, bg = "NONE", bold = true, italic = true })
+vim.api.nvim_set_hl(0, 'NvimTreeRootFolder',		{ fg = colors.base05, bg = "NONE", bold = true })
+vim.api.nvim_set_hl(0, 'NvimTreeEmptyFolderName',	{ fg = colors.base04, bg = "NONE", italic = true })
+vim.api.nvim_set_hl(0, 'NvimTreeGitIgnored',		{ fg = colors.base04, bg = "NONE", italic = true })
+vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer',		{ fg = colors.base00, bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NvimTreeVertSplit',			{ fg = "NONE",	bg = "NONE" })

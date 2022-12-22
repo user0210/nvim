@@ -1,9 +1,9 @@
 vim.g.minimap_width = 6
 vim.g.minimap_auto_start = 0
-vim.g.minimap_auto_start_win_enter = 1
-vim.g.minimap_block_filetypes = {'fugitive', 'tagbar', 'fzf', 'telescope', 'NvimTree'}
+vim.g.minimap_auto_start_win_enter = 0
+vim.g.minimap_block_filetypes = {'tagbar', 'fzf', 'telescope', 'NvimTree'}
 vim.g.minimap_block_buftypes = {'nofile', 'nowrite', 'quickfix', 'terminal', 'prompt', 'NvimTree'}
-vim.g.minimap_close_filetypes = {'startify', 'NvimTree'}
+vim.g.minimap_close_filetypes = {'NvimTree'}
 vim.g.minimap_highlight_range = 1
 vim.g.minimap_highlight_search = 1
 vim.g.minimap_git_colors = 1

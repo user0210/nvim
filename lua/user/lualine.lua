@@ -3,15 +3,10 @@ if not status_ok then
 	return
 end
 
-local base_status_ok, base16 = pcall(require, "base16-colorscheme")
-if not base_status_ok then
-	return
-end
-
 -- THEMING
 
 local theme = require("lualine.themes.base16")
-local colors = base16.colors
+local colors = require("colorscheme").colors
 local templer = {
 	normal = {
 		a = { bg = colors.base0Da, fg = colors.base07 },
@@ -74,6 +69,7 @@ local diff = {
 	-- It must return a table as such:
 	--   { added = add_count, modified = modified_count, removed = removed_count }
 	-- or nil on failure. count <= 0 won't be displayed.
+	padding = 1
 }
 
 local diagnostics = {
@@ -100,6 +96,7 @@ local diagnostics = {
 	colored = true, -- Displays diagnostics status in color if set to true.
 	update_in_insert = false, -- Update diagnostics in insert mode.
 	always_visible = true, -- Show diagnostics even if there are none.
+	padding = 1
 }
 
 local mode = {
@@ -161,7 +158,7 @@ local mode = {
 	-- lua_expr is short for lua-expression and vim_fun is short for vim-function.
 	type = nil,
 
-	padding = 1, -- Adds padding to the left and right of components.
+	padding = { left = 0, right = 1 },
 	-- Padding can be specified to left or right independently, e.g.:
 	--   padding = { left = left_padding, right = right_padding }
 
@@ -190,12 +187,14 @@ local filename = {
 		unnamed = "[No Name]", -- Text to show for unnamed buffers.
 		newfile = "[New]", -- Text to show for new created file before first writting
 	},
+	padding = 1,
 }
 
 local branch = {
 	"branch",
 	icons_enabled = true,
 	icon = "",
+	padding = 1
 }
 
 local filetype = {
@@ -204,15 +203,18 @@ local filetype = {
 	icon = nil,
 	on_click = function ()
 		vim.cmd("LspInfo")
-	end
+	end,
+	padding = 1,
 }
 
 local location = {
 	"location",
+	padding = 1,
 }
 
 local encoding = {
 	"encoding",
+	padding = 1,
 }
 
 local gap = {
@@ -228,6 +230,7 @@ local spaces = {
 	fmt = function()
 		return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 	end,
+	padding = 1,
 }
 
 local surroundL = {
@@ -236,16 +239,47 @@ local surroundL = {
 		return "▎ "
 	end,
 	padding = 0,
-	color = { fg = colors.base01a },
+	color = { fg = colors.base0D },
 }
 
 local surroundR = {
 	"surroundR",
 	fmt = function()
-		return " ▕"
+		return "▕"
 	end,
 	padding = 0,
 	color = { fg = colors.base01a },
+}
+
+local minimap = {
+	"minimap",
+	fmt = function()
+		if vim.g.minimap_auto_start == 0 then
+			return ">>"
+		else
+			return "<<"
+		end
+	end,
+	on_click = function ()
+		if vim.g.minimap_auto_start == 0 then
+			vim.g.minimap_auto_start = 1
+			local minimaptoggle = vim.api.nvim_create_augroup("minimaptoggle", { clear = true })
+			vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
+				callback = function()
+					vim.cmd("Minimap")
+				end,
+				group = minimaptoggle,
+			})
+			vim.cmd("Minimap")
+			vim.cmd("ScrollbarHide")
+		else
+			vim.g.minimap_auto_start = 0
+			vim.api.nvim_del_augroup_by_name("minimaptoggle")
+			vim.cmd("MinimapClose")
+			vim.cmd("ScrollbarShow")
+		end
+	end,
+	padding = { left = 1, right = 0 },
 }
 
 -- SETUP
@@ -271,16 +305,16 @@ lualine.setup({
 		lualine_b = { branch },
 		lualine_c = { diagnostics, diff },
 		lualine_x = { encoding, filetype },
-		lualine_y = { gap, spaces, location },
-		lualine_z = { surroundR },
+		lualine_y = { spaces, location },
+		lualine_z = { minimap, surroundR },
 	},
 	inactive_sections = {
-		lualine_a = { surroundL },
+		lualine_a = {},
 		lualine_b = {},
 		lualine_c = { filename },
 		lualine_x = { location },
 		lualine_y = {},
-		lualine_z = { surroundR },
+		lualine_z = {},
 	},
 	tabline = {},
 	extensions = {},

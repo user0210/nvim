@@ -1,20 +1,19 @@
+local colors = require("colorscheme").colors
+
+vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicNumbers', 	        	{ fg = colors.base01a, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicSurround', 	       	{ fg = colors.base00, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'NavicProgress', 	        { fg = colors.base01, bg = colors.base02 })
+
+
 local M = {}
 
 M.winbar_filetype_exclude = {
 	"help",
-	"startify",
-	"dashboard",
 	"packer",
-	"neogitstatus",
 	"NvimTree",
-	"Trouble",
-	"lir",
-	"Outline",
-	"spectre_panel",
 	"toggleterm",
-	"DressingSelect",
-	"Jaq",
-	"harpoon",
 	"dapui_scopes",
 	"dapui_breakpoints",
 	"dapui_stacks",
@@ -22,7 +21,8 @@ M.winbar_filetype_exclude = {
 	"dap-repl",
 	"lspinfo",
 	"mason",
-	"Codewindow",
+	"minimap",
+	"",
 }
 
 M.winbar_filetype_empty = {
@@ -53,7 +53,6 @@ M.get_winbar = function()
 		local current_line = vim.fn.line(".")
 		local total_lines = vim.fn.line("$")
 		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
-	--	local chars = { "█", "▇", "▆", "▅", "▄", "▃", "▂", "▁", " " }
 		local line_ratio = current_line / total_lines
 		local index = math.ceil(line_ratio * #chars)
 		if current_line == 1 then
@@ -70,11 +69,13 @@ M.get_winbar = function()
 	if empty() then
 		value = " "
 	else
-		value = value .. [[%#NavicNumbers#%L]] .. [[%#NavicProgress#]] .. progress_value .. [[%#NavicSurround#▏]] .. [[%#NavicText#]]
-		value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}"
-		--	align right
-		--	value = value .. "%=%{%v:lua.require'nvim-navic'.get_location()%}   "
-		--	value = value .. [[%#NavicRight#░▒▓]]
+		--value = value .. [[%#NavicNumbers#%L]] .. [[%#NavicProgress#]] .. progress_value .. [[%#NavicSurround#▏]] .. [[%#NavicText#]]
+		--value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+		value = value .. [[%#NavicNumbers#%L   ]] .. [[%#NavicText#]]
+		value = value .. "%{%v:lua.require'nvim-navic'.get_location()%}%="
+		--value = value .. [[%#NavicProgress#]] .. progress_value
+
 		--  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 	end
 
@@ -85,4 +86,3 @@ M.get_winbar = function()
 end
 
 return M
-

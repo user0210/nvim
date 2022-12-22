@@ -22,11 +22,12 @@ M.winbar_filetype_exclude = {
 	"lspinfo",
 	"mason",
 	"minimap",
+	"undotree",
 	"",
 }
 
 M.winbar_filetype_empty = {
-	"minimap",
+	"diffpanel",
 }
 
 local excludes = function()

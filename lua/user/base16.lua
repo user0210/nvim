@@ -6,7 +6,7 @@ end
 base16.with_config ({
     telescope = false,
     indentblankline = true,
-    cmp = true,
+    cmp = false,
     illuminate = true,
 })
 
@@ -52,11 +52,9 @@ vim.api.nvim_set_hl(0, 'CursorLineNr',				{ bg = colors.base01a, fg = colors.bas
 vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'SignColumn',				{ fg = colors.base02, bg = colors.base01a })
 
-vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = colors.base00 })
+vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = colors.base00, fg = colors.base01a })
 vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base00, fg = colors.base01a})
 vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base00, fg = colors.base01})
-
-vim.api.nvim_set_hl(0, 'TabLineSel',				{ bg = colors.base00, sp = colors.base00})
 
 -- Text Background
 vim.cmd([[augroup CodeGroup]])

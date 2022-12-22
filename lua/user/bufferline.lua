@@ -31,6 +31,7 @@ bufferline.setup({
 		diagnostics_update_in_insert = false,
 		offsets = {
 			{ filetype = "NvimTree", text = "", padding = 0 }, -- padding = #[[%L]] + 4
+			{ filetype = "undotree", text = "", padding = 0 },
 			{ filetype = "minimap", text = "", padding = 1 },
 		},
 		show_buffer_icons = true,

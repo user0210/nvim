@@ -17,12 +17,12 @@ local templer = {
 		z = { bg = colors.base0Da, fg = colors.base01 },
 	},
 	inactive = {
-		a = { bg = colors.base01a, fg = colors.base02 },
-		b = { bg = colors.base01a, fg = colors.base02 },
-		c = { bg = colors.base01a, fg = colors.base02 },
-		x = { bg = colors.base01a, fg = colors.base02 },
-		y = { bg = colors.base01a, fg = colors.base02 },
-		z = { bg = colors.base01a, fg = colors.base02 },
+		a = { bg = colors.base01a, fg = colors.base03 },
+		b = { bg = colors.base01a, fg = colors.base03 },
+		c = { bg = colors.base01a, fg = colors.base03 },
+		x = { bg = colors.base01a, fg = colors.base03 },
+		y = { bg = colors.base01a, fg = colors.base03 },
+		z = { bg = colors.base01a, fg = colors.base03 },
 	},
 	insert = {
 		a = { bg = colors.base0D, fg = colors.base00 },
@@ -263,12 +263,11 @@ local minimap = {
 	on_click = function ()
 		if vim.g.minimap_auto_start == 0 then
 			vim.g.minimap_auto_start = 1
-			local minimaptoggle = vim.api.nvim_create_augroup("minimaptoggle", { clear = true })
 			vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 				callback = function()
 					vim.cmd("Minimap")
 				end,
-				group = minimaptoggle,
+				group = vim.api.nvim_create_augroup("minimaptoggle", { clear = true }),
 			})
 			vim.cmd("Minimap")
 			vim.cmd("ScrollbarHide")

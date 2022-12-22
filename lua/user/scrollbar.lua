@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+require("scrollbar.handlers.search").setup({
+	override_lens = function() end,
+})
+
 local colors = require("colorscheme").colors
 
 scrollbar.setup({
@@ -15,7 +19,7 @@ scrollbar.setup({
 		text = " ",
 		color = nil,
 		cterm = nil,
-		hide_if_all_visible = true, -- Hides handle if all lines are visible
+		hide_if_all_visible = false, -- Hides handle if all lines are visible
 	},
 	marks = {
 		Cursor = {
@@ -88,6 +92,8 @@ scrollbar.setup({
 		"TelescopePrompt",
 		"noice",
 		"minimap",
+		"undotree",
+		"diffpanel",
 	},
 	autocmd = {
 		render = {
@@ -115,18 +121,3 @@ scrollbar.setup({
 		search = true, -- Requires hlslens
 	},
 })
-
-
-local hls_status_ok, hlslens = pcall(require, "hlslens")
-if not hls_status_ok then
-	return
-end
-
-require("scrollbar.handlers.search").setup({
-    override_lens = function() end,
-})
-
-vim.api.nvim_set_hl(0, 'HlSearchLens',				{ fg = colors.base00a, bg = colors.base01 })
-vim.api.nvim_set_hl(0, 'HlSearchLensNear',			{ fg = colors.base00a, bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'HlSearchFloat',				{ fg = colors.base00a, bg = colors.base02 })
---vim.api.nvim_set_hl(0, 'HlSearchNear',			{ fg = colors.base00a, bg = colors.base02 })

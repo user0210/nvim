@@ -72,11 +72,9 @@ lsp.setup_nvim_cmp({
 			before = function(entry, vim_item)
 				vim_item.menu = ({
 					nvim_lsp = "[LSP]",
-					nvim_lua = "[lua]",
 					luasnip = "[Snippet]",
 					buffer = "[Buffer]",
 					path = "[Path]",
-					emoji = "[Emoji]",
 				})[entry.source.name]
 				return vim_item
 			end,
@@ -84,7 +82,6 @@ lsp.setup_nvim_cmp({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "nvim_lua" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },

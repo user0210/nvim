@@ -77,8 +77,8 @@ return packer.startup(function(use)
 	use("SmiteshP/nvim-navic")
 	use("j-hui/fidget.nvim")
 	use("sindrets/diffview.nvim")
-	--use("romgrk/barbar.nvim")
 	use("akinsho/bufferline.nvim")
+	use("mbbill/undotree")
 
 	-- scrollbars
 	use("wfxr/minimap.vim")
@@ -100,7 +100,6 @@ return packer.startup(function(use)
 		{'saadparwaiz1/cmp_luasnip'},
 		{'hrsh7th/cmp-nvim-lsp'},
 		{'hrsh7th/cmp-nvim-lua'},
-		{'hrsh7th/cmp-cmdline'},
 		{'onsails/lspkind.nvim'},
 
 		-- Snippets

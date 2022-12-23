@@ -110,6 +110,7 @@ return packer.startup(function(use)
 	use("RRethy/vim-illuminate")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("jayp0521/mason-null-ls.nvim")
+	use("Maan2003/lsp_lines.nvim")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")

@@ -289,7 +289,7 @@ lualine.setup({
 		theme = templer,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "dashboard", "NvimTree", "Outline", "minimap" },
+		disabled_filetypes = { "dashboard", "NvimTree", "Outline", "minimap", "undotree", "diff" },
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,

@@ -44,7 +44,7 @@ vim.opt.confirm = true
 vim.opt.fillchars = {
 	eob = " ",									-- suppress ~ at EndOfBuffer
 	diff = "⣿",									-- alternatives = ⣿ ░ ─ ╱
-	vert = " ",									-- removes vertsepperator line
+	vert = "▉",									-- removes vertsepperator line
 	--fold = "⠀",
 	--msgsep = "‾",
 	--foldopen = "▾",

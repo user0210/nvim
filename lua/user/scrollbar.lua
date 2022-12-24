@@ -9,27 +9,27 @@ require("scrollbar.handlers.search").setup({
 
 local colors = require("colorscheme").colors
 
-vim.api.nvim_set_hl(0, "ScrollbarHandle", 			{ bg = colors.base01a,	fg = colors.base00a })
 vim.api.nvim_set_hl(0, "ScrollbarCursor", 			{ bg = colors.base01a,	fg = colors.base00a })
-vim.api.nvim_set_hl(0, "ScrollbarCursorHandle", 	{ bg = colors.base01a,	fg = colors.base00a })
+vim.api.nvim_set_hl(0, "ScrollbarHandle", 			{ bg = colors.base01,	fg = colors.base00a })
+vim.api.nvim_set_hl(0, "ScrollbarCursorHandle", 	{ bg = colors.base01,	fg = colors.base00a })
 vim.api.nvim_set_hl(0, "ScrollbarError", 			{ bg = colors.base00,	fg = colors.base08a })
-vim.api.nvim_set_hl(0, "ScrollbarErrorHandle", 		{ bg = colors.base01a,	fg = colors.base08 })
+vim.api.nvim_set_hl(0, "ScrollbarErrorHandle", 		{ bg = colors.base01,	fg = colors.base08 })
 vim.api.nvim_set_hl(0, "ScrollbarWarn", 			{ bg = colors.base00,	fg = colors.base09a })
-vim.api.nvim_set_hl(0, "ScrollbarWarnHandle", 		{ bg = colors.base01a,	fg = colors.base09 })
+vim.api.nvim_set_hl(0, "ScrollbarWarnHandle", 		{ bg = colors.base01,	fg = colors.base09 })
 vim.api.nvim_set_hl(0, "ScrollbarSearch", 			{ bg = colors.base00,	fg = colors.base0Aa })
-vim.api.nvim_set_hl(0, "ScrollbarSearchHandle", 	{ bg = colors.base01a,	fg = colors.base0A })
+vim.api.nvim_set_hl(0, "ScrollbarSearchHandle", 	{ bg = colors.base01,	fg = colors.base0A })
 vim.api.nvim_set_hl(0, "ScrollbarInfo", 			{ bg = colors.base00,	fg = colors.base0Ca })
-vim.api.nvim_set_hl(0, "ScrollbarInfoHandle", 		{ bg = colors.base01a,	fg = colors.base0C })
+vim.api.nvim_set_hl(0, "ScrollbarInfoHandle", 		{ bg = colors.base01,	fg = colors.base0C })
 vim.api.nvim_set_hl(0, "ScrollbarHint", 			{ bg = colors.base00,	fg = colors.base0Fa })
-vim.api.nvim_set_hl(0, "ScrollbarHintHandle", 		{ bg = colors.base01a,	fg = colors.base0F })
+vim.api.nvim_set_hl(0, "ScrollbarHintHandle", 		{ bg = colors.base01,	fg = colors.base0F })
 vim.api.nvim_set_hl(0, "ScrollbarMisc", 			{ bg = colors.base00,	fg = colors.base03a })
-vim.api.nvim_set_hl(0, "ScrollbarMiscHandle", 		{ bg = colors.base01a,	fg = colors.base03 })
+vim.api.nvim_set_hl(0, "ScrollbarMiscHandle", 		{ bg = colors.base01,	fg = colors.base03 })
 vim.api.nvim_set_hl(0, "ScrollbarGitAdd", 			{ bg = colors.base00,	fg = colors.base0Ba })
-vim.api.nvim_set_hl(0, "ScrollbarGitAddHandle", 	{ bg = colors.base01a,	fg = colors.base0B })
+vim.api.nvim_set_hl(0, "ScrollbarGitAddHandle", 	{ bg = colors.base01,	fg = colors.base0B })
 vim.api.nvim_set_hl(0, "ScrollbarGitChange", 		{ bg = colors.base00,	fg = colors.base0Da })
-vim.api.nvim_set_hl(0, "ScrollbarGitChangeHandle", 	{ bg = colors.base01a,	fg = colors.base0D })
+vim.api.nvim_set_hl(0, "ScrollbarGitChangeHandle", 	{ bg = colors.base01,	fg = colors.base0D })
 vim.api.nvim_set_hl(0, "ScrollbarGitDelete", 		{ bg = colors.base00,	fg = colors.base0Fa })
-vim.api.nvim_set_hl(0, "ScrollbarGitDeleteHandle", 	{ bg = colors.base01a,	fg = colors.base0F })
+vim.api.nvim_set_hl(0, "ScrollbarGitDeleteHandle", 	{ bg = colors.base01,	fg = colors.base0F })
 
 
 scrollbar.setup({
@@ -94,7 +94,7 @@ scrollbar.setup({
 		"noice",
 		"minimap",
 		"undotree",
-		"diffpanel",
+		"diff",
 	},
 	autocmd = {
 		render = {

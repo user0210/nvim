@@ -102,6 +102,7 @@ nvim_tree.setup({
 		},
 	},
 })
+require('nvim-tree.view').View.winopts.signcolumn = 'auto'
 
 local colors = require("colorscheme").colors
 

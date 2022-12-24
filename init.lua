@@ -25,6 +25,7 @@ require "user.winbar"
 require "user.minimap"
 require "user.scrollbar"
 require "user.tmux"
+require "user.undotree"
 
 require "user.keymaps"
 require "user.autocommands"

@@ -7,6 +7,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	end,
 })
 
+-- signcolumn not in undotree
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = {
+		"NvimTree",
+		"undotree",
+		"diff",
+	},
+	callback = function()
+		vim.opt.signcolumn = "auto"
+	end,
+})
+
 -- unfocus minimap
 vim.api.nvim_create_autocmd("CursorHold", {
 	nested = true,
@@ -35,7 +47,7 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 			"packer",
 			"mason",
 			"undotree",
-			"diffpanel",
+			"diff",
 		}
 		if vim.tbl_contains(exclude, vim.bo.filetype) then
 			return

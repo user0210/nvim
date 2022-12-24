@@ -116,7 +116,7 @@ local nmappings = {
 		u = { "<cmd>lua require'dapui'.toggle()<cr>", "Dap UI" },
 		t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate Debug Session" },
 	},
-	["e"] = { "<cmd>:NvimTreeNoFocus<cr> <bar> :UndotreeHide<cr>", "Explorer" },
+	["e"] = { "<esc><cmd>UndotreeHide<bar>NvimTreeNoFocus<cr>", "Explorer" },
 	["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find files" },
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	g = {
@@ -146,7 +146,8 @@ local nmappings = {
 		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 		k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		l = { "<cmd>lua require 'lsp_lines'.toggle()<cr>", "Lsp_Lines Toggle" },
+		L = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
@@ -154,7 +155,7 @@ local nmappings = {
 	},
 	m = {
 		name = "Scrollbar",
-		m = { ":ScrollbarToggle<CR> <BAR> :MinimapToggle<CR>", "Toggle Minimap" },
+		m = { "<cmd>ScrollbarToggle<bar>MinimapToggle<cr>", "Toggle Minimap" },
 	},
 	s = {
 		name = "Search",
@@ -183,7 +184,7 @@ local nmappings = {
 	},
 	["p"] = { [["_dP]], "Paste No Yank" },
 	["r"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace in File" },
-	["u"] = { "<cmd>:UndotreeToggle<cr> <bar> :NvimTreeClose<cr>", "UndoTree" },
+	["u"] = { "<esc><cmd>NvimTreeClose<bar>UndotreeToggle<cr>", "UndoTree" },
 	["y"] = { [["+y]], "Yank System Clipboard" },
 }
 

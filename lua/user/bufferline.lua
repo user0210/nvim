@@ -30,8 +30,8 @@ bufferline.setup({
 		diagnostics = false, -- | "nvim_lsp" | "coc",
 		diagnostics_update_in_insert = false,
 		offsets = {
-			{ filetype = "NvimTree", text = "", padding = 0 }, -- padding = #[[%L]] + 4
-			{ filetype = "undotree", text = "", padding = 0 },
+			{ filetype = "NvimTree", text = "", padding = -1 }, -- padding = #[[%L]] + 4
+			{ filetype = "undotree", text = "-- undotree --", padding = -1 },
 			{ filetype = "minimap", text = "", padding = 1 },
 		},
 		show_buffer_icons = true,

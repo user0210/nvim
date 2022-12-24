@@ -59,7 +59,7 @@ bufferline.setup({
 		offset_separator = 			{ bg = colors.base01a, fg = colors.base00 },
 		-- hidden tab
 		fill =						{ bg = colors.base00, fg = colors.base01, },
-		tab_close = 				{ bg = colors.base01a, fg = colors.base00a, },
+		tab_close = 				{ bg = colors.base00, fg = colors.base02, },
 		tab = 						{ bg = colors.base02, fg = colors.base00, },
 		numbers = 					{ bg = colors.base02, fg = colors.base00, },
 		background = 				{ bg = colors.base02, fg = colors.base00, },

@@ -5,11 +5,11 @@ end
 
 -- THEMING
 
-local theme = require("lualine.themes.base16")
+require("lualine.themes.base16")
 local colors = require("colorscheme").colors
 local templer = {
 	normal = {
-		a = { bg = colors.base0Da, fg = colors.base07 },
+		a = { bg = colors.base0Da, fg = colors.base0D },
 		b = { bg = colors.base0Da, fg = colors.base01 },
 		c = { bg = colors.base0Da, fg = colors.base01 },
 		x = { bg = colors.base0Da, fg = colors.base01 },
@@ -17,12 +17,12 @@ local templer = {
 		z = { bg = colors.base0Da, fg = colors.base01 },
 	},
 	inactive = {
-		a = { bg = colors.base01a, fg = colors.base03 },
-		b = { bg = colors.base01a, fg = colors.base03 },
-		c = { bg = colors.base01a, fg = colors.base03 },
-		x = { bg = colors.base01a, fg = colors.base03 },
-		y = { bg = colors.base01a, fg = colors.base03 },
-		z = { bg = colors.base01a, fg = colors.base03 },
+		a = { bg = colors.base02, fg = colors.base00 },
+		b = { bg = colors.base02, fg = colors.base00 },
+		c = { bg = colors.base01a, fg = colors.base02 },
+		x = { bg = colors.base01a, fg = colors.base02 },
+		y = { bg = colors.base01a, fg = colors.base02 },
+		z = { bg = colors.base01a, fg = colors.base02 },
 	},
 	insert = {
 		a = { bg = colors.base0D, fg = colors.base00 },
@@ -142,10 +142,13 @@ local mode = {
 	--   color = { fg = '#ffaa88', bg = 'grey', gui='italic,bold' },
 	--   color = { fg = 204 }   -- When fg/bg are omitted, they default to the your theme's fg/bg.
 	--   color = 'WarningMsg'   -- Highlight groups can also be used.
-	--   color = function(section)
-	--      return { fg = vim.bo.modified and '#aa3355' or '#33aa88' }
-	--   end,
-	color = nil,
+	color = function()
+		if vim.api.nvim_get_mode()['mode']:match("n") ~= nil then
+	   		return { fg = colors.base07 }
+		else
+	   		return { fg = colors.base00 }
+		end
+	end,
 
 	-- Specify what type a component is, if omitted, lualine will guess it for you.
 	--
@@ -187,7 +190,7 @@ local filename = {
 		unnamed = "[No Name]", -- Text to show for unnamed buffers.
 		newfile = "[New]", -- Text to show for new created file before first writting
 	},
-	padding = 1,
+	padding = { left = 0, right = 2 },
 }
 
 local branch = {
@@ -239,7 +242,6 @@ local surroundL = {
 		return "▎ "
 	end,
 	padding = 0,
-	color = { fg = colors.base0D },
 }
 
 local surroundR = {
@@ -308,9 +310,9 @@ lualine.setup({
 		lualine_z = { minimap, surroundR },
 	},
 	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { filename },
+		lualine_a = { surroundL },
+		lualine_b = { filename },
+		lualine_c = {},
 		lualine_x = { location },
 		lualine_y = {},
 		lualine_z = {},

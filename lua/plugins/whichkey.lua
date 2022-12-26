@@ -119,8 +119,8 @@ local nmappings = {
 	["n"] = { "nzzzv", "" },
 	["N"] = { "Nzzzv", "" },
 	["J"] = { "mzJ`z", "" },
-	["<a-n>"] = { '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', "Next References-Cursor" },
-	["<a-p>"] = { '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', "Prev References-Cursor" },
+	["<a-n>"] = { '<cmd>lua require"illuminate".goto_next_reference{wrap=true}<cr>', "Next References-Cursor" },
+	["<a-p>"] = { '<cmd>lua require"illuminate".goto_prev_reference{wrap=true}<cr>', "Prev References-Cursor" },
 	-- ["<S-l>"] = { ":bnext<CR>", "move right" }, 		--no need with tmux-plugin
 	-- ["<S-h>"] = { ":bprevious<CR>", "move left" },	--no need with tmux-plugin
 

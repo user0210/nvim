@@ -72,7 +72,6 @@ lsp.ensure_installed({
 })
 
 lsp.on_attach(function(client, bufnr)
-	require("illuminate").on_attach(client)
 	if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
 	end

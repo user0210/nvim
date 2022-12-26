@@ -5,7 +5,6 @@ require("mason.settings").set({
 	},
 })
 
-
 -- ZERO-LSP SETUP
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
@@ -41,9 +40,9 @@ lsp.ensure_installed({
 })
 
 lsp.on_attach(function(client, bufnr)
-	local navic = require("nvim-navic")
+	require("illuminate").on_attach(client)
 	if client.server_capabilities.documentSymbolProvider then
-		navic.attach(client, bufnr)
+		require("nvim-navic").attach(client, bufnr)
 	end
 end)
 
@@ -53,6 +52,15 @@ lsp.configure("sumneko_lua", {
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+			telemetry = {
+				enable = false,
 			},
 		},
 	},
@@ -100,7 +108,6 @@ vim.diagnostic.config({
 	float = true,
 })
 
-
 -- NULL-LS
 local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
@@ -138,16 +145,14 @@ null_ls.setup({
 })
 
 require("mason-null-ls").setup({
-    ensure_installed = nil,
-    automatic_installation = true,
-    automatic_setup = true,
+	ensure_installed = nil,
+	automatic_installation = true,
+	automatic_setup = true,
 })
-
 
 -- lsp_lines SETUP
 require("lsp_lines").setup()
-vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
-
+vim.diagnostic.config({ virtual_lines = { only_current_line = false } })
 
 -- THEMING
 local colors = require("colorscheme").colors

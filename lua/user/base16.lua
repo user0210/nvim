@@ -1,7 +1,4 @@
-local status_ok, base16 = pcall(require, "base16-colorscheme")
-if not status_ok then
-	return
-end
+local base16 = require("base16-colorscheme")
 
 base16.with_config ({
     telescope = false,

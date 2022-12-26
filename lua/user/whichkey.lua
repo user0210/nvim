@@ -1,8 +1,3 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-	return
-end
-
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -187,6 +182,9 @@ local nmappings = {
 	["u"] = { "<esc><cmd>NvimTreeClose<bar>UndotreeToggle<cr>", "UndoTree" },
 	["y"] = { [["+y]], "Yank System Clipboard" },
 }
+
+
+local which_key = require("which-key")
 
 which_key.setup(setup)
 which_key.register(nmappings, nopts)

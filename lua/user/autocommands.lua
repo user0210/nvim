@@ -92,13 +92,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- Fixes Autocomment
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	callback = function()
-		vim.cmd("set formatoptions-=cro")
-	end,
-})
-
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	callback = function()
@@ -106,15 +99,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
--- Set Winbar
-vim.api.nvim_create_autocmd(
-	{ "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
-	{
-		callback = function()
-			require("user.winbar").get_winbar()
-		end,
-	}
-)
+-- Fixes Autocomment
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function()
+		vim.cmd("set formatoptions-=cro")
+	end,
+})
 
 -- from CatM
 vim.api.nvim_create_autocmd({ "VimResized" }, {

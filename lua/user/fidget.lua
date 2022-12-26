@@ -1,43 +1,4 @@
-local status_ok, fidget = pcall(require, "fidget")
-if not status_ok then
-	return
-end
-
--- dots
--- dots_negative
--- dots_snake
--- dots_footsteps
--- dots_hop
--- line
--- pipe
--- dots_ellipsis
--- dots_scrolling
--- star
--- flip
--- hamburger
--- grow_vertical
--- grow_horizontal
--- noise
--- dots_bounce
--- triangle
--- arc
--- circle
--- square_corners
--- circle_quarters
--- circle_halves
--- dots_toggle
--- box_toggle
--- arrow
--- zip
--- bouncing_bar
--- bouncing_ball
--- clock
--- earth
--- moon
--- dots_pulse
--- meter
-
-fidget.setup({
+require("fidget").setup({
 	text = {
 		spinner = "dots", -- animation shown when tasks are ongoing
 		done = "✔", -- character shown when all tasks are complete
@@ -87,3 +48,37 @@ fidget.setup({
 		strict = false, -- whether to interpret LSP strictly
 	},
 })
+
+-- dots
+-- dots_negative
+-- dots_snake
+-- dots_footsteps
+-- dots_hop
+-- line
+-- pipe
+-- dots_ellipsis
+-- dots_scrolling
+-- star
+-- flip
+-- hamburger
+-- grow_vertical
+-- grow_horizontal
+-- noise
+-- dots_bounce
+-- triangle
+-- arc
+-- circle
+-- square_corners
+-- circle_quarters
+-- circle_halves
+-- dots_toggle
+-- box_toggle
+-- arrow
+-- zip
+-- bouncing_bar
+-- bouncing_ball
+-- clock
+-- earth
+-- moon
+-- dots_pulse
+-- meter

@@ -1,12 +1,11 @@
-local status_ok, lualine = pcall(require, "lualine")
-if not status_ok then
-	return
-end
-
--- THEMING
-
-require("lualine.themes.base16")
+local lualine = require("lualine")
 local colors = require("colorscheme").colors
+require("lualine.themes.auto")
+
+vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'WinBarLeft', 	        	{ fg = colors.base01a, bg = colors.base01a })
+
 local templer = {
 	normal = {
 		a = { bg = colors.base0Da, fg = colors.base0D },
@@ -69,7 +68,7 @@ local diff = {
 	-- It must return a table as such:
 	--   { added = add_count, modified = modified_count, removed = removed_count }
 	-- or nil on failure. count <= 0 won't be displayed.
-	padding = 1
+	padding = 1,
 }
 
 local diagnostics = {
@@ -96,7 +95,7 @@ local diagnostics = {
 	colored = true, -- Displays diagnostics status in color if set to true.
 	update_in_insert = false, -- Update diagnostics in insert mode.
 	always_visible = true, -- Show diagnostics even if there are none.
-	padding = 1
+	padding = 1,
 }
 
 local mode = {
@@ -143,10 +142,10 @@ local mode = {
 	--   color = { fg = 204 }   -- When fg/bg are omitted, they default to the your theme's fg/bg.
 	--   color = 'WarningMsg'   -- Highlight groups can also be used.
 	color = function()
-		if vim.api.nvim_get_mode()['mode']:match("n") ~= nil then
-	   		return { fg = colors.base07 }
+		if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
+			return { fg = colors.base07 }
 		else
-	   		return { fg = colors.base00 }
+			return { fg = colors.base00 }
 		end
 	end,
 
@@ -197,14 +196,14 @@ local branch = {
 	"branch",
 	icons_enabled = true,
 	icon = "",
-	padding = 1
+	padding = 1,
 }
 
 local filetype = {
 	"filetype",
 	icons_enabled = false,
 	icon = nil,
-	on_click = function ()
+	on_click = function()
 		vim.cmd("LspInfo")
 	end,
 	padding = 1,
@@ -218,14 +217,6 @@ local location = {
 local encoding = {
 	"encoding",
 	padding = 1,
-}
-
-local gap = {
-	"gap",
-	fmt = function()
-		return " "
-	end,
-	padding = 0,
 }
 
 local spaces = {
@@ -262,7 +253,7 @@ local minimap = {
 			return "<<"
 		end
 	end,
-	on_click = function ()
+	on_click = function()
 		if vim.g.minimap_auto_start == 0 then
 			vim.g.minimap_auto_start = 1
 			vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
@@ -283,6 +274,45 @@ local minimap = {
 	padding = { left = 1, right = 0 },
 }
 
+local progress = {
+	"progress",
+	fmt = function()
+		local current_line = vim.fn.line(".")
+		local total_lines = vim.fn.line("$")
+		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
+		local line_ratio = current_line / total_lines
+		local index = math.ceil(line_ratio * #chars)
+		if current_line == 1 then
+			return ""
+		elseif line_ratio == 1 then
+			return ""
+		else
+			return chars[index]
+		end
+	end,
+	padding = 0,
+	color = { fg = colors.base01a },
+}
+
+local navic = {
+	"navic",
+	fmt = function()
+		return "%{%v:lua.require'nvim-navic'.get_location()%}%="
+	end,
+	padding = 0,
+	color = { bg = colors.base01a },
+--  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
+}
+
+local winbarL = {
+	"winbarL",
+	fmt = function()
+		return [[%#WinBarLeft#%L   ]]
+	end,
+	padding = 0,
+}
+
+
 -- SETUP
 
 lualine.setup({
@@ -291,7 +321,32 @@ lualine.setup({
 		theme = templer,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "dashboard", "NvimTree", "Outline", "minimap", "undotree", "diff" },
+		disabled_filetypes = {
+			statusline = {
+				"dashboard",
+				"NvimTree",
+				"Outline",
+				"minimap",
+				"undotree",
+				"diff",
+			},
+			winbar = {
+				"help",
+				"packer",
+				"NvimTree",
+				"toggleterm",
+				"dapui_scopes",
+				"dapui_breakpoints",
+				"dapui_stacks",
+				"dapui_watches",
+				"dap-repl",
+				"lspinfo",
+				"mason",
+				"minimap",
+				"diff",
+				"",
+			},
+		},
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,
@@ -316,6 +371,14 @@ lualine.setup({
 		lualine_x = { location },
 		lualine_y = {},
 		lualine_z = {},
+	},
+	winbar = {
+		lualine_b = { winbarL, navic },
+		lualine_y = {},
+	},
+	inactive_winbar = {
+		lualine_b = { navic },
+		lualine_y = {},
 	},
 	tabline = {},
 	extensions = {},

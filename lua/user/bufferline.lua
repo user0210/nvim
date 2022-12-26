@@ -1,11 +1,6 @@
-local status_ok, bufferline = pcall(require, "bufferline")
-if not status_ok then
-	return
-end
-
 local colors = require("colorscheme").colors
 
-bufferline.setup({
+require("bufferline").setup({
 	options = {
 		-- numbers = function(opts)
 		-- 	return string.format('%s', opts.raise(opts.ordinal))

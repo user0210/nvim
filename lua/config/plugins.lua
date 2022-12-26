@@ -11,10 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 require("lazy").setup({
-
-	{ "windwp/nvim-autopairs", config = function() require"plugins.autopairs" end, },
-	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end, },
-	{ "akinsho/toggleterm.nvim", config = function() require"plugins.toggleterm" end, },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", config = function() require"plugins.autopairs" end, },
+	{ "akinsho/toggleterm.nvim", cmd = { "ToggleTerm" }, config = function() require"plugins.toggleterm" end, },
 	{ "ahmedkhalf/project.nvim", config = function() require"plugins.project" end, },
 	{ "lukas-reineke/indent-blankline.nvim", config = function() require"plugins.indentline" end, },
 	{ "folke/which-key.nvim", config = function() require"plugins.whichkey" end, },
@@ -23,16 +21,19 @@ require("lazy").setup({
 	{ "aserowy/tmux.nvim", config = function() require"plugins.tmux" end, },
 	{ "RRethy/nvim-base16", config = function() require"plugins.base16" end, },
 	{ "j-hui/fidget.nvim", config = function() require"plugins.fidget" end, },
-	{ "mbbill/undotree", config = function() require"plugins.undotree" end, },
-	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
+	{ "mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide" }, config = function() require"plugins.undotree" end, },
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
 	{ "wfxr/minimap.vim", config = function() require"plugins.minimap" end, },
+	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
 	{ "sindrets/diffview.nvim", }, --no need for config
 
+	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
+		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
+	},
 	{ "lewis6991/gitsigns.nvim", config = function() require"plugins.gitsigns" end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{ "nvim-telescope/telescope.nvim", config = function() require"plugins.telescope" end,
+	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", config = function() require"plugins.telescope" end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{ "nvim-tree/nvim-tree.lua", config = function() require"plugins.nvim-tree" end,

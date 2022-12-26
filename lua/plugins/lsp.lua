@@ -1,3 +1,35 @@
+-- local M = {
+-- 	  "VonHeikemen/lsp-zero.nvim",
+-- 	  dependencies = {
+-- 		-- LSP Support
+-- 		"neovim/nvim-lspconfig",
+-- 		"williamboman/mason.nvim",
+-- 		"williamboman/mason-lspconfig.nvim",
+--
+-- 		-- Autocompletion
+-- 		"hrsh7th/nvim-cmp",
+-- 		"hrsh7th/cmp-buffer",
+-- 		"hrsh7th/cmp-path",
+-- 		"saadparwaiz1/cmp_luasnip",
+-- 		"hrsh7th/cmp-nvim-lsp",
+-- 		"hrsh7th/cmp-nvim-lua",
+-- 		"onsails/lspkind.nvim",
+--
+-- 		-- Snippets
+-- 		"L3MON4D3/LuaSnip",
+-- 		"rafamadriz/friendly-snippets",
+--
+-- 		-- null-ls
+-- 		"jose-elias-alvarez/null-ls.nvim",
+-- 		"jayp0521/mason-null-ls.nvim",
+-- 		"nvim-lua/plenary.nvim",
+--
+-- 		-- misc
+-- 		"Maan2003/lsp_lines.nvim",
+-- 	  },
+-- }
+-- function M.config()
+
 -- MASON SETUP
 require("mason.settings").set({
 	ui = {
@@ -147,7 +179,7 @@ null_ls.setup({
 require("mason-null-ls").setup({
 	ensure_installed = nil,
 	automatic_installation = true,
-	automatic_setup = true,
+	automatic_setup = false,
 })
 
 -- lsp_lines SETUP
@@ -164,3 +196,6 @@ vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = colors.base0C, bg = colors.b
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 vim.api.nvim_set_hl(0, "LspInfoBorder", { bg = colors.base00, fg = colors.base05 })
+
+-- end
+-- return M

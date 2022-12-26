@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"nvim-treesitter/nvim-treesitter-context",
+-- }
+-- function M.config()
+
 require("treesitter-context").setup({
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
     max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -16,3 +21,6 @@ require("treesitter-context").setup({
 
 local colors = require("colorscheme").colors
 vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01a })
+
+-- end
+-- return M

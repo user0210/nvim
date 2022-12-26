@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"SmiteshP/nvim-navic",
+-- }
+-- function M.config()
+
 require("nvim-navic").setup {
     icons = {
         File          = " ",
@@ -63,3 +68,6 @@ vim.api.nvim_set_hl(0, 'NavicIconsOperator',     		{ fg = colors.base0Da, bg = c
 vim.api.nvim_set_hl(0, 'NavicIconsTypeParameter',		{ fg = colors.base0Ea, bg = colors.base01a, bold = false })
 vim.api.nvim_set_hl(0, 'NavicText',              		{ fg = colors.base03, bg = colors.base01a, italic = true })
 vim.api.nvim_set_hl(0, 'NavicSeparator',         		{ fg = colors.base04, bg = colors.base01a, bold = true })
+
+-- end
+-- return M

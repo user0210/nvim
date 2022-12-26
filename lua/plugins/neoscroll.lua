@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"karb94/neoscroll.nvim",
+-- }
+-- function M.config()
+
 require("neoscroll").setup({
     -- All these keys will be mapped to their corresponding default scrolling animation
     mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
@@ -19,3 +24,6 @@ t['<PageUp>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '250'}}
 t['<PageDown>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '250'}}
 
 require('neoscroll.config').set_mappings(t)
+
+-- end
+-- return M

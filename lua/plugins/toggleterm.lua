@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"akinsho/toggleterm.nvim",
+-- }
+-- function M.config()
+
 require("toggleterm").setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
@@ -32,3 +37,6 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
+
+-- end
+-- return M

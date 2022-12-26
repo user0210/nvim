@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"uga-rosa/ccc.nvim",
+-- }
+-- function M.config()
+
 local ccc = require("ccc")
 ccc.setup({
 	highlighter = {
@@ -5,3 +10,6 @@ ccc.setup({
 		excludes = { "Packer" },
 	},
 })
+
+-- end
+-- return M

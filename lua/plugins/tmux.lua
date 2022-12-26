@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"aserowy/tmux.nvim",
+-- }
+-- function M.config()
+
 require("tmux").setup({
     copy_sync = {
         -- enables copy sync and overwrites all register actions to
@@ -51,3 +56,6 @@ require("tmux").setup({
         resize_step_y = 1,
     }
 })
+
+-- end
+-- return M

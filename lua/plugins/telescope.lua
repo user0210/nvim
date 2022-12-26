@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"nvim-telescope/telescope.nvim",
+-- }
+-- function M.config()
+
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 
@@ -17,3 +22,6 @@ telescope.setup({
 		},
 	},
 })
+
+-- end
+-- return M

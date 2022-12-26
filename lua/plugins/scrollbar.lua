@@ -1,3 +1,11 @@
+-- local M = {
+-- 	"petertriho/nvim-scrollbar",
+-- 	dependencies = {
+-- 		"kevinhwang91/nvim-hlslens",
+-- 	},
+-- }
+-- function M.config()
+
 require("scrollbar.handlers.search").setup({
 	override_lens = function() end,
 })
@@ -8,51 +16,51 @@ require("scrollbar").setup({
 	set_highlights = false,
 	folds = 1000, -- handle folds, set to number to disable folds if no. of lines in buffer exceeds this
 	max_lines = false, -- disables if no. of lines in buffer exceeds this
-    handle = {
-        text = " ",
-        hide_if_all_visible = true, -- Hides handle if all lines are visible
-    },
-    marks = {
-        Cursor = {
-            text = "•",
-            priority = 0,
-        },
-        Search = {
-            text = { "-", "=" },
-            priority = 1,
-        },
-        Error = {
-            text = { "-", "=" },
-            priority = 2,
-        },
-        Warn = {
-            text = { "-", "=" },
-            priority = 3,
-        },
-        Info = {
-            text = { "-", "=" },
-            priority = 4,
-        },
-        Hint = {
-            text = { "-", "=" },
-            priority = 5,
-        },
-        Misc = {
-            text = { "-", "=" },
-            priority = 6,
-        },
-        GitAdd = {
-            text = "┆",
-            priority = 7,
-        },
-        GitChange = {
-            text = "┆",
-            priority = 7,
-        },
-        GitDelete = {
-            text = "▁",
-            priority = 7,
-        },
+	handle = {
+		text = " ",
+		hide_if_all_visible = true, -- Hides handle if all lines are visible
+	},
+	marks = {
+		Cursor = {
+			text = "•",
+			priority = 0,
+		},
+		Search = {
+			text = { "-", "=" },
+			priority = 1,
+		},
+		Error = {
+			text = { "-", "=" },
+			priority = 2,
+		},
+		Warn = {
+			text = { "-", "=" },
+			priority = 3,
+		},
+		Info = {
+			text = { "-", "=" },
+			priority = 4,
+		},
+		Hint = {
+			text = { "-", "=" },
+			priority = 5,
+		},
+		Misc = {
+			text = { "-", "=" },
+			priority = 6,
+		},
+		GitAdd = {
+			text = "┆",
+			priority = 7,
+		},
+		GitChange = {
+			text = "┆",
+			priority = 7,
+		},
+		GitDelete = {
+			text = "▁",
+			priority = 7,
+		},
 	},
 	excluded_buftypes = {
 		"terminal",
@@ -93,7 +101,6 @@ require("scrollbar").setup({
 	},
 })
 
-
 local colors = require("colorscheme").colors
 
 vim.api.nvim_set_hl(0, "ScrollbarCursor", 			{ bg = colors.base01a,	fg = colors.base00a })
@@ -117,3 +124,6 @@ vim.api.nvim_set_hl(0, "ScrollbarGitChange", 		{ bg = colors.base00,	fg = colors
 vim.api.nvim_set_hl(0, "ScrollbarGitChangeHandle", 	{ bg = colors.base01,	fg = colors.base0D })
 vim.api.nvim_set_hl(0, "ScrollbarGitDelete", 		{ bg = colors.base00,	fg = colors.base0Fa })
 vim.api.nvim_set_hl(0, "ScrollbarGitDeleteHandle", 	{ bg = colors.base01,	fg = colors.base0F })
+
+-- end
+-- return M

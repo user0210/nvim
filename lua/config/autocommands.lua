@@ -34,17 +34,12 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 	pattern = "*",
 	callback = function()
 		local exclude = {
-			"Jaq",
-			"qf",
 			"help",
 			"man",
-			"lspinfo",
-			"spectre_panel",
-			"lir",
 			"DressingSelect",
 			"tsplayground",
-			"Markdown",
-			"packer",
+			"lazy",
+			"lspinfo",
 			"mason",
 			"undotree",
 			"diff",
@@ -60,13 +55,9 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = {
-		"Jaq",
-		"qf",
 		"help",
 		"man",
 		"lspinfo",
-		"spectre_panel",
-		"lir",
 		"DressingSelect",
 		"tsplayground",
 		"Markdown",

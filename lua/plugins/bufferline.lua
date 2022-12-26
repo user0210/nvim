@@ -1,3 +1,12 @@
+-- local M = {
+-- 	"akinsho/nvim-bufferline.lua",
+-- 	dependencies = {
+-- 		"famiu/bufdelete.nvim",
+-- 		"nvim-tree/nvim-web-devicons",
+-- 	},
+-- }
+-- function M.setup()
+
 local colors = require("colorscheme").colors
 
 require("bufferline").setup({
@@ -108,3 +117,6 @@ require("bufferline").setup({
 		hint_diagnostic_visible = 	{ bg = colors.base01a, fg = colors.base03, },
 	},
 })
+
+-- end
+-- return M

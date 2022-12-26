@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"ahmedkhalf/project.nvim",
+-- }
+-- function M.config()
+
 require("project_nvim").setup({
 
 	-- detection_methods = { "lsp", "pattern" }, -- NOTE: lsp detection will get annoying with multiple langs in one project
@@ -8,3 +13,6 @@ require("project_nvim").setup({
 })
 
 require("telescope").load_extension("projects")
+
+-- end
+-- return M

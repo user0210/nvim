@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"nvim-lualine/lualine.nvim",
+-- }
+-- function M.config()
+
 local lualine = require("lualine")
 local colors = require("colorscheme").colors
 require("lualine.themes.auto")
@@ -383,3 +388,6 @@ lualine.setup({
 	tabline = {},
 	extensions = {},
 })
+
+-- end
+-- return M

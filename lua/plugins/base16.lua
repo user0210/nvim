@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"RRethy/nvim-base16",
+-- }
+-- function M.config()
+
 local base16 = require("base16-colorscheme")
 
 base16.with_config ({
@@ -9,32 +14,32 @@ base16.with_config ({
 
 -- MONDO-BEGIN
 base16.setup({
-	base00 = "#1d1f21",
-	base01 = "#282a2e",
-	base02 = "#373b41",
-	base03 = "#969896",
-	base04 = "#b4b7b4",
-	base05 = "#c5c8c6",
-	base06 = "#e0e0e0",
-	base07 = "#ffffff",
-	base08 = "#cc6666",
-	base09 = "#de935f",
-	base0A = "#f0c674",
-	base0B = "#b5bd68",
-	base0C = "#8abeb7",
-	base0D = "#81a2be",
-	base0E = "#b294bb",
-	base0F = "#a3685a",
-	base08a = "#AC4646",
-	base09a = "#BE733F",
-	base0Aa = "#D0A654",
-	base0Ba = "#959D48",
-	base0Ca = "#6A9E97",
-	base0Da = "#61829E",
-	base0Ea = "#92749B",
-	base0Fa = "#83483A",
-	base00a = "#181A1C",
-	base01a = "#222427",
+	base00 = "#1d2021",
+	base01 = "#3c3836",
+	base02 = "#504945",
+	base03 = "#665c54",
+	base04 = "#bdae93",
+	base05 = "#d5c4a1",
+	base06 = "#ebdbb2",
+	base07 = "#fbf1c7",
+	base08 = "#fb4934",
+	base09 = "#fe8019",
+	base0A = "#fabd2f",
+	base0B = "#b8bb26",
+	base0C = "#8ec07c",
+	base0D = "#83a598",
+	base0E = "#d3869b",
+	base0F = "#d65d0e",
+	base08a = "#DB2914",
+	base09a = "#DE6000",
+	base0Aa = "#DA9D0F",
+	base0Ba = "#989B06",
+	base0Ca = "#6EA05C",
+	base0Da = "#638578",
+	base0Ea = "#B3667B",
+	base0Fa = "#B63D00",
+	base00a = "#181B1C",
+	base01a = "#2C2C2B",
 })
 -- MONDO-END
 
@@ -57,3 +62,6 @@ vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base02, fg = colors.base00
 vim.cmd([[augroup CodeGroup]])
 vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
 vim.cmd([[set winhighlight=Normal:CodeGroup]])
+
+-- end
+-- return M

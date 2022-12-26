@@ -1,3 +1,11 @@
+-- local M = {
+-- 	"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+-- 	dependencies = {
+-- 		"JoosepAlviste/nvim-ts-context-commentstring",
+-- 	},
+-- }
+-- function M.config()
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python" }, -- put the language you want in this array
 	-- ensure_installed = "all", -- one of "all" or a list of languages
@@ -18,3 +26,6 @@ require("nvim-treesitter.configs").setup({
 		enable_autocmd = false,
 	},
 })
+
+-- end
+-- return M

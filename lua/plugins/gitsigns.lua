@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"lewis6991/gitsigns.nvim",
+-- }
+-- function M.config()
+
 require("gitsigns").setup({
 	signs = {
 		add          = { hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
@@ -46,3 +51,6 @@ local colors = require("colorscheme").colors
 vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = colors.base0Ba, bg = colors.base01a })
 vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.base0Da, bg = colors.base01a })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.base0Fa, bg = colors.base01a })
+
+-- end
+-- return M

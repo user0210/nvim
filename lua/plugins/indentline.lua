@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"lukas-reineke/indent-blankline.nvim",
+-- }
+-- function M.config()
+
 require("indent_blankline").setup({
 	buftype_exclude = { "terminal", "nofile" },
 	filetype_exclude = {
@@ -13,3 +18,6 @@ require("indent_blankline").setup({
 	use_treesitter = true,
 	show_current_context = true,
 })
+
+-- end
+-- return M

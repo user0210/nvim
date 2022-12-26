@@ -1,3 +1,11 @@
+-- local M = {
+--   "nvim-tree/nvim-tree.lua",
+-- 	dependencies = {
+-- 		"nvim-tree/nvim-web-devicons",
+-- 	},
+-- }
+-- function M.config()
+
 local nvim_tree = require ("nvim-tree")
 local nvim_tree_config = require ("nvim-tree.config")
 local tree_cb = nvim_tree_config.nvim_tree_callback
@@ -120,3 +128,6 @@ vim.api.nvim_set_hl(0, 'NvimTreeEmptyFolderName',	{ fg = colors.base04, bg = "NO
 vim.api.nvim_set_hl(0, 'NvimTreeGitIgnored',		{ fg = colors.base04, bg = "NONE", italic = true })
 vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer',		{ fg = colors.base00, bg = "NONE" })
 vim.api.nvim_set_hl(0, 'NvimTreeVertSplit',			{ fg = "NONE",	bg = "NONE" })
+
+-- end
+-- return M

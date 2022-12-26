@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"mbbill/undotree",
+-- }
+-- function M.config()
+
 -- e.g. using 'd' instead of 'days' to save some space.
 vim.g.undotree_ShortIndicators = 1
 
@@ -59,3 +64,6 @@ vim.api.nvim_set_hl(0, 'UndotreeDelete',			{ bg = colors.base0Fa, fg = colors.ba
 vim.g.undotree_HighlightSyntaxAdd = "UndotreeAdd"
 vim.g.undotree_HighlightSyntaxChange = "UndotreeChange"
 vim.g.undotree_HighlightSyntaxDel = "UndotreeDelete"
+
+-- end
+-- return M

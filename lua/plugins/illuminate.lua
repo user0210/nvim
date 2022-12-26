@@ -1,3 +1,8 @@
+-- local M = {
+-- 	"RRethy/vim-illuminate",
+-- }
+-- function M.config()
+
 require("illuminate").configure({
 	providers = {
 		"lsp",
@@ -7,14 +12,11 @@ require("illuminate").configure({
 	delay = 200,
 	filetypes_denylist = {
 		"dirvish",
-		"fugitive",
 		"NvimTree",
 		"packer",
 		"neogitstatus",
 		"Trouble",
-		"lir",
 		"Outline",
-		"spectre_panel",
 		"toggleterm",
 		"DressingSelect",
 		"TelescopePrompt",
@@ -26,3 +28,6 @@ require("illuminate").configure({
 	providers_regex_syntax_allowlist = {},
 	under_cursor = true,
 })
+
+-- end
+-- return M

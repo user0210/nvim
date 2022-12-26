@@ -1,11 +1,13 @@
+-- local M = {
+-- 	"mfussenegger/nvim-dap",
+-- 	dependencies = {
+-- 		"rcarriga/nvim-dap-ui",
+-- 	},
+-- }
+-- function M.config()
+
 local dap = require("dap")
 local dapui = require("dapui")
-local dap_install = require("dap-install")
-
-dap_install.setup({})
-
-dap_install.config("python", {})
--- add other configs here
 
 dapui.setup({
 	expand_lines = true,
@@ -62,3 +64,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
+
+-- end
+-- return M

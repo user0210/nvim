@@ -1,3 +1,12 @@
+-- local M = {
+-- 	"numToStr/Comment.nvim",
+-- 	dependencies = {
+-- 		"nvim-treesitter/nvim-treesitter",
+-- 		"JoosepAlviste/nvim-ts-context-commentstring",
+-- 	},
+-- }
+-- function M.config()
+
 require("Comment").setup({
 	pre_hook = function(ctx)
 		-- Only calculate commentstring for tsx filetypes
@@ -22,3 +31,6 @@ require("Comment").setup({
 		end
 	end,
 })
+
+-- end
+-- return M

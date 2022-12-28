@@ -144,7 +144,7 @@ local nmappings = {
 		["e"] = { "<esc><cmd>UndotreeHide<bar>NvimTreeNoFocus<cr>", "Explorer" },
 		["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Find files" },
-		["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
 		g = {
 			name = "Git",
 			g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },

@@ -36,7 +36,7 @@ require("bufferline").setup({
 		offsets = {
 			{ filetype = "NvimTree", text = "", padding = 0 }, -- padding = #[[%L]] + 4
 			{ filetype = "undotree", text = "", padding = 0 },
-			{ filetype = "minimap", text = "", padding = 0 },
+		--	{ filetype = "minimap", text = "", padding = 0 },
 		},
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,

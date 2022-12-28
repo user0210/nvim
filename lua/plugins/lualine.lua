@@ -11,14 +11,17 @@ vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarLeft', 	        	{ fg = colors.base01a, bg = colors.base01a })
 
+vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01a, fg = colors.base02})
+vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base0Db, fg = colors.base00})
+
 local templer = {
 	normal = {
-		a = { bg = colors.base0Da, fg = colors.base0D },
-		b = { bg = colors.base0Da, fg = colors.base01 },
-		c = { bg = colors.base0Da, fg = colors.base01 },
-		x = { bg = colors.base0Da, fg = colors.base01 },
-		y = { bg = colors.base0Da, fg = colors.base01 },
-		z = { bg = colors.base0Da, fg = colors.base01 },
+		a = { bg = colors.base0Db, fg = colors.base0Da },
+		b = { bg = colors.base0Db, fg = colors.base01 },
+		c = { bg = colors.base0Db, fg = colors.base01 },
+		x = { bg = colors.base0Db, fg = colors.base01 },
+		y = { bg = colors.base0Db, fg = colors.base01 },
+		z = { bg = colors.base0Db, fg = colors.base01 },
 	},
 	inactive = {
 		a = { bg = colors.base02, fg = colors.base00 },
@@ -29,20 +32,20 @@ local templer = {
 		z = { bg = colors.base01a, fg = colors.base02 },
 	},
 	insert = {
-		a = { bg = colors.base0D, fg = colors.base00 },
-		z = { bg = colors.base0Da, fg = colors.base01 },
+		a = { bg = colors.base0Da, fg = colors.base0D },
+		z = { bg = colors.base0Db, fg = colors.base01 },
 	},
 	replace = {
-		a = { bg = colors.base09a, fg = colors.base00 },
-		z = { bg = colors.base0Da, fg = colors.base01 },
+		a = { bg = colors.base09a, fg = colors.base09 },
+		z = { bg = colors.base0Db, fg = colors.base01 },
 	},
 	visual = {
-		a = { bg = colors.base0E, fg = colors.base00 },
-		z = { bg = colors.base0Da, fg = colors.base01 },
+		a = { bg = colors.base0Ea, fg = colors.base0E },
+		z = { bg = colors.base0Db, fg = colors.base01 },
 	},
 	command = {
-		a = { bg = colors.base0C, fg = colors.base00 },
-		z = { bg = colors.base0Da, fg = colors.base01 },
+		a = { bg = colors.base0Ca, fg = colors.base0C },
+		z = { bg = colors.base0Db, fg = colors.base01 },
 	},
 }
 
@@ -61,12 +64,12 @@ end
 
 local diff = {
 	"diff",
-	colored = false, -- Displays a colored diff status if set to true
+	colored = true, -- Displays a colored diff status if set to true
 	diff_color = {
 		-- Same color values as the general color option can be used here.
-		-- added = "DiffAdd", -- Changes the diff's added color
-		-- modified = "DiffChange", -- Changes the diff's modified color
-		-- removed = "DiffDelete", -- Changes the diff's removed color you
+		added = { bg = colors.base0Db, fg = colors.base0B }, -- Changes the diff's added color
+		modified = { bg = colors.base0Db, fg = colors.base0D }, -- Changes the diff's modified color
+		removed = { bg = colors.base0Db, fg = colors.base08 }, -- Changes the diff's removed color you
 	},
 	symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
 	source = diff_source, -- A function that works as a data source for diff.
@@ -116,7 +119,7 @@ local mode = {
 	-- {'branch', icon = {'', align='right', color={fg='green'}}}
 	icon = nil,
 
-	separator = { left = "", right = "" }, -- Determines what separator to use for the component.
+	separator = { left = " ", right = "" }, -- Determines what separator to use for the component.
 	-- Note:
 	--  When a string is provided it's treated as component_separator.
 	--  When a table is provided it's treated as section_separator.
@@ -148,7 +151,7 @@ local mode = {
 	--   color = 'WarningMsg'   -- Highlight groups can also be used.
 	color = function()
 		if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
-			return { fg = colors.base07 }
+			return { fg = colors.base05 }
 		else
 			return { fg = colors.base00 }
 		end
@@ -323,6 +326,10 @@ local winbarL = {
 }
 
 
+-- extensions
+local minimap_bar = { sections = {}, filetypes = { 'minimap' } }
+
+
 -- SETUP
 
 lualine.setup({
@@ -336,7 +343,6 @@ lualine.setup({
 				"dashboard",
 				"NvimTree",
 				"Outline",
-				"minimap",
 				"undotree",
 				"diff",
 			},
@@ -352,7 +358,6 @@ lualine.setup({
 				"dap-repl",
 				"lspinfo",
 				"mason",
-				"minimap",
 				"diff",
 				"",
 			},
@@ -364,8 +369,8 @@ lualine.setup({
 	sections = {
 		lualine_a = { surroundL, mode },
 		lualine_b = { branch },
-		lualine_c = { diagnostics, diff },
-		lualine_x = { encoding, filetype },
+		lualine_c = { diagnostics },
+		lualine_x = { diff, encoding, filetype },
 		lualine_y = { spaces, location },
 		lualine_z = { minimap, surroundR },
 	},
@@ -382,12 +387,13 @@ lualine.setup({
 		lualine_y = {},
 	},
 	inactive_winbar = {
-		lualine_b = { navic },
+		lualine_b = { winbarL, navic },
 		lualine_y = {},
 	},
 	tabline = {},
-	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm" },
+	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm", minimap_bar },
 })
+
 
 -- end
 -- return M

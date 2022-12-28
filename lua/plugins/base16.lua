@@ -64,8 +64,6 @@ vim.api.nvim_set_hl(0, 'SignColumn',				{ fg = colors.base02, bg = colors.base01
 vim.api.nvim_set_hl(0, 'FoldColumn',				{ fg = colors.base02, bg = colors.base01a })
 
 vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = colors.base00, fg = colors.base01a })
-vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01a, fg = colors.base02})
-vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base02, fg = colors.base00})
 vim.api.nvim_set_hl(0, 'EndOfBuffer',				{ bg = colors.base01a, fg = colors.base00a})
 
 -- Text Background

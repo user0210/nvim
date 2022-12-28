@@ -7,21 +7,23 @@ local lualine = require("lualine")
 local colors = require("colorscheme").colors
 require("lualine.themes.auto")
 
+local bg = colors.base0Da
+
 vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarLeft', 	        	{ fg = colors.base01a, bg = colors.base01a })
 
 vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01a, fg = colors.base02})
-vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base0Db, fg = colors.base00})
+vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = bg, fg = colors.base00})
 
 local templer = {
 	normal = {
-		a = { bg = colors.base0Db, fg = colors.base0Da },
-		b = { bg = colors.base0Db, fg = colors.base01 },
-		c = { bg = colors.base0Db, fg = colors.base01 },
-		x = { bg = colors.base0Db, fg = colors.base01 },
-		y = { bg = colors.base0Db, fg = colors.base01 },
-		z = { bg = colors.base0Db, fg = colors.base01 },
+		a = { bg = bg, fg = colors.base0D },
+		b = { bg = bg, fg = colors.base01 },
+		c = { bg = bg, fg = colors.base01 },
+		x = { bg = bg, fg = colors.base01 },
+		y = { bg = bg, fg = colors.base01 },
+		z = { bg = bg, fg = colors.base01 },
 	},
 	inactive = {
 		a = { bg = colors.base02, fg = colors.base00 },
@@ -32,20 +34,20 @@ local templer = {
 		z = { bg = colors.base01a, fg = colors.base02 },
 	},
 	insert = {
-		a = { bg = colors.base0Da, fg = colors.base0D },
-		z = { bg = colors.base0Db, fg = colors.base01 },
+		a = { bg = colors.base0D, fg = colors.base0Da },
+		z = { bg = bg, fg = colors.base01 },
 	},
 	replace = {
-		a = { bg = colors.base09a, fg = colors.base09 },
-		z = { bg = colors.base0Db, fg = colors.base01 },
+		a = { bg = colors.base09, fg = colors.base09a },
+		z = { bg = bg, fg = colors.base01 },
 	},
 	visual = {
-		a = { bg = colors.base0Ea, fg = colors.base0E },
-		z = { bg = colors.base0Db, fg = colors.base01 },
+		a = { bg = colors.base0E, fg = colors.base0Ea },
+		z = { bg = bg, fg = colors.base01 },
 	},
 	command = {
-		a = { bg = colors.base0Ca, fg = colors.base0C },
-		z = { bg = colors.base0Db, fg = colors.base01 },
+		a = { bg = colors.base0C, fg = colors.base0Ca },
+		z = { bg = bg, fg = colors.base01 },
 	},
 }
 
@@ -67,9 +69,9 @@ local diff = {
 	colored = true, -- Displays a colored diff status if set to true
 	diff_color = {
 		-- Same color values as the general color option can be used here.
-		added = { bg = colors.base0Db, fg = colors.base0B }, -- Changes the diff's added color
-		modified = { bg = colors.base0Db, fg = colors.base0D }, -- Changes the diff's modified color
-		removed = { bg = colors.base0Db, fg = colors.base08 }, -- Changes the diff's removed color you
+		added = { bg = bg, fg = colors.base0B }, -- Changes the diff's added color
+		modified = { bg = bg, fg = colors.base0D }, -- Changes the diff's modified color
+		removed = { bg = bg, fg = colors.base08 }, -- Changes the diff's removed color you
 	},
 	symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
 	source = diff_source, -- A function that works as a data source for diff.

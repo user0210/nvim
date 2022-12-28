@@ -102,8 +102,43 @@ nvim_tree.setup({
 		},
 	},
 })
+
+-- auto on/off signcolumn
 require('nvim-tree.view').View.winopts.signcolumn = 'auto'
 
+-- autostart tree
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function()
+		-- NvimTree
+		vim.cmd("command NvimTreeNoFocus :lua require('nvim-tree').toggle(false, true)")
+		vim.cmd("call timer_start(200, { tid -> execute('NvimTreeNoFocus')})")
+	end,
+})
+
+-- auto-close
+vim.api.nvim_create_autocmd({ "QuitPre" }, {
+	pattern = "*",
+	callback = function()
+		local exclude = {
+			"help",
+			"man",
+			"DressingSelect",
+			"tsplayground",
+			"lazy",
+			"lspinfo",
+			"mason",
+			"undotree",
+			"diff",
+		}
+		if vim.tbl_contains(exclude, vim.bo.filetype) then
+			return
+		else
+			vim.cmd("NvimTreeClose")
+		end
+	end,
+})
+
+-- colors
 local colors = require("colorscheme").colors
 
 vim.api.nvim_set_hl(0, 'NvimTreeFolderIcon',		{ fg = colors.base0D })

@@ -46,7 +46,7 @@ vim.opt.iskeyword:append("-")
 vim.opt.confirm = true
 vim.opt.fillchars = {
 	eob = " ",									-- suppress ~ at EndOfBuffer
-	diff = "⣿",									-- alternatives = ⣿ ░ ─ ╱
+	diff = "",									-- alternatives = ⣿ ░ ─ ╱
 	vert = "▉",									-- removes vertsepperator line
 	--fold = "⠀",
 	--msgsep = "‾",

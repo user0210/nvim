@@ -73,6 +73,7 @@ require("scrollbar").setup({
 		"minimap",
 		"undotree",
 		"diff",
+		"lazy",
 	},
 	autocmd = {
 		render = {

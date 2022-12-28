@@ -19,13 +19,13 @@ require("lazy").setup({
 	{ "uga-rosa/ccc.nvim", config = function() require"plugins.ccc" end, },
 	{ "karb94/neoscroll.nvim", config = function() require"plugins.neoscroll" end, },
 	{ "aserowy/tmux.nvim", config = function() require"plugins.tmux" end, },
-	{ "RRethy/nvim-base16", config = function() require"plugins.base16" end, },
+	{ "RRethy/nvim-base16", priority = 1000, config = function() require"plugins.base16" end, },
 	{ "j-hui/fidget.nvim", config = function() require"plugins.fidget" end, },
 	{ "mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide" }, config = function() require"plugins.undotree" end, },
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
 	{ "wfxr/minimap.vim", config = function() require"plugins.minimap" end, },
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
-	{ "sindrets/diffview.nvim", }, --no need for config
+	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, }, --no need for config
 
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
@@ -57,6 +57,13 @@ require("lazy").setup({
 		},
 		build = ":TSUpdate",
 	},
+	{ "Maan2003/lsp_lines.nvim",
+		keys = { { "<leader>ll", "<cmd>lua require'lsp_lines'.toggle()<cr>", desc = "Toggle Lsp_Lines" }, },
+		config = function()
+			require"lsp_lines".setup()
+			require"lsp_lines".toggle()
+		end,
+	},
 	{ "VonHeikemen/lsp-zero.nvim", config = function() require"plugins.lsp" end,
 		dependencies = {
 			-- LSP Support
@@ -77,8 +84,6 @@ require("lazy").setup({
 			-- Null-LS
 			"jose-elias-alvarez/null-ls.nvim",
 			"jayp0521/mason-null-ls.nvim",
-			-- misc
-			"Maan2003/lsp_lines.nvim",
 		},
 	},
 },

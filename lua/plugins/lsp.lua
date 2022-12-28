@@ -181,10 +181,6 @@ require("mason-null-ls").setup({
 	automatic_setup = false,
 })
 
--- lsp_lines SETUP
-require("lsp_lines").setup()
-vim.diagnostic.config({ virtual_lines = { only_current_line = false } })
-
 -- THEMING
 local colors = require("colorscheme").colors
 

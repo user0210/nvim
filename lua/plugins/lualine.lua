@@ -266,6 +266,8 @@ local minimap = {
 					vim.cmd("Minimap")
 				end,
 				group = vim.api.nvim_create_augroup("minimaptoggle", { clear = true }),
+				lualine.refresh({ place = { 'statusline' },
+})
 			})
 			vim.cmd("Minimap")
 			vim.cmd("ScrollbarHide")
@@ -274,30 +276,32 @@ local minimap = {
 			vim.api.nvim_del_augroup_by_name("minimaptoggle")
 			vim.cmd("MinimapClose")
 			vim.cmd("ScrollbarShow")
+			lualine.refresh({ place = { 'statusline' },
+})
 		end
 	end,
 	padding = { left = 1, right = 0 },
 }
 
-local progress = {
-	"progress",
-	fmt = function()
-		local current_line = vim.fn.line(".")
-		local total_lines = vim.fn.line("$")
-		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
-		local line_ratio = current_line / total_lines
-		local index = math.ceil(line_ratio * #chars)
-		if current_line == 1 then
-			return ""
-		elseif line_ratio == 1 then
-			return ""
-		else
-			return chars[index]
-		end
-	end,
-	padding = 0,
-	color = { fg = colors.base01a },
-}
+-- local progress = {
+-- 	"progress",
+-- 	fmt = function()
+-- 		local current_line = vim.fn.line(".")
+-- 		local total_lines = vim.fn.line("$")
+-- 		local chars = { "██", "▇▇", "▆▆", "▅▅", "▄▄", "▃▃", "▂▂", "▁▁", "  " }
+-- 		local line_ratio = current_line / total_lines
+-- 		local index = math.ceil(line_ratio * #chars)
+-- 		if current_line == 1 then
+-- 			return ""
+-- 		elseif line_ratio == 1 then
+-- 			return ""
+-- 		else
+-- 			return chars[index]
+-- 		end
+-- 	end,
+-- 	padding = 0,
+-- 	color = { fg = colors.base01a },
+-- }
 
 local navic = {
 	"navic",
@@ -355,10 +359,6 @@ lualine.setup({
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,
-		refresh = {
-			statusline = 200,
-			winbar = 500,
-		},
 	},
 	sections = {
 		lualine_a = { surroundL, mode },
@@ -385,7 +385,7 @@ lualine.setup({
 		lualine_y = {},
 	},
 	tabline = {},
-	extensions = {},
+	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm" },
 })
 
 -- end

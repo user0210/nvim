@@ -13,5 +13,38 @@ vim.g.minimap_highlight_range = 1
 vim.g.minimap_highlight_search = 1
 vim.g.minimap_git_colors = 1
 
+-- auto-unfocus minimap
+vim.api.nvim_create_autocmd("CursorHold", {
+	nested = true,
+	callback = function()
+		if vim.api.nvim_buf_get_name(0):match("-MINIMAP-") ~= nil then
+			vim.cmd("wincmd p")
+		end
+	end,
+})
+
+-- auto-close
+vim.api.nvim_create_autocmd({ "QuitPre" }, {
+	pattern = "*",
+	callback = function()
+		local exclude = {
+			"help",
+			"man",
+			"DressingSelect",
+			"tsplayground",
+			"lazy",
+			"lspinfo",
+			"mason",
+			"undotree",
+			"diff",
+		}
+		if vim.tbl_contains(exclude, vim.bo.filetype) then
+			return
+		else
+			vim.cmd("MinimapClose")
+		end
+	end,
+})
+
 -- end
 -- return M

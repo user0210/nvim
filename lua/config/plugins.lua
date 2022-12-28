@@ -20,13 +20,15 @@ require("lazy").setup({
 	{ "karb94/neoscroll.nvim", config = function() require"plugins.neoscroll" end, },
 	{ "aserowy/tmux.nvim", config = function() require"plugins.tmux" end, },
 	{ "RRethy/nvim-base16", priority = 1000, config = function() require"plugins.base16" end, },
-	{ "j-hui/fidget.nvim", config = function() require"plugins.fidget" end, },
 	{ "mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide" }, config = function() require"plugins.undotree" end, },
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
 	{ "wfxr/minimap.vim", config = function() require"plugins.minimap" end, },
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
-	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, }, --no need for config
+	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
 
+	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
+		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	},
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
 	},

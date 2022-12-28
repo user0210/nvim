@@ -252,13 +252,14 @@ local surroundR = {
 local minimap = {
 	"minimap",
 	fmt = function()
-		if vim.g.minimap_auto_start == 0 then
+		if vim.g.minimap_auto_start == 1 then
 			return ">>"
 		else
 			return "<<"
 		end
 	end,
 	on_click = function()
+		require"plugins.minimap"
 		if vim.g.minimap_auto_start == 0 then
 			vim.g.minimap_auto_start = 1
 			vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {

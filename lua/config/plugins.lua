@@ -22,9 +22,9 @@ require("lazy").setup({
 	{ "RRethy/nvim-base16", priority = 1000, config = function() require"plugins.base16" end, },
 	{ "mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide" }, config = function() require"plugins.undotree" end, },
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
-	{ "wfxr/minimap.vim", config = function() require"plugins.minimap" end, },
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
 	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
+	{ "wfxr/minimap.vim", cmd = { "Minimap", "MinimapClose" }, config = function() require"plugins.minimap" end, },
 
 	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
 		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },

@@ -56,10 +56,12 @@ vim.g.undotree_CursorLine = 1
 
 -- Highlight linked syntax type.
 -- You may chose your favorite through ":hi" command
+
 local colors = require("colorscheme").colors
-vim.api.nvim_set_hl(0, 'UndotreeAdd',				{ bg = colors.base0Ba, fg = colors.base00 })
-vim.api.nvim_set_hl(0, 'UndotreeChange',			{ bg = colors.base0Da, fg = colors.base00 })
-vim.api.nvim_set_hl(0, 'UndotreeDelete',			{ bg = colors.base0Fa, fg = colors.base00 })
+
+vim.api.nvim_set_hl(0, 'UndotreeAdd',				{ bg = colors.base0Bb, fg = "NONE" })
+vim.api.nvim_set_hl(0, 'UndotreeChange',			{ bg = colors.base0Db, fg = "NONE" })
+vim.api.nvim_set_hl(0, 'UndotreeDelete',			{ bg = colors.base08b, fg = "NONE" })
 
 vim.g.undotree_HighlightSyntaxAdd = "UndotreeAdd"
 vim.g.undotree_HighlightSyntaxChange = "UndotreeChange"

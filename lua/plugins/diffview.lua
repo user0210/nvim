@@ -97,10 +97,6 @@ require("diffview").setup({
 			require('lualine').hide({ place = { "tabline" }, unhide = true, })
 			vim.opt.laststatus = 3
 			vim.cmd("ScrollbarHide")
-			print(
-				("A new %s was opened on tab page %d!")
-					:format(view:class():name(), view.tabpage)
-			)
 		end,
 		view_leave = function()
 			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = "NONE" })

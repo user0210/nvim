@@ -262,6 +262,20 @@ local tabs = {
 -- }
 --  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 
+local noice = {
+	require("noice").api.statusline.mode.get,
+	cond = require("noice").api.statusline.mode.has,
+	color = function()
+		if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
+			return { fg = colors.base05 }
+		else
+			return { fg = colors.base00 }
+		end
+	end,
+	separator = { left = " ", right = "" },
+	padding = { left = 0, right = 1 },
+}
+
 -- extensions
 local minimap_bar = { sections = {}, filetypes = { 'minimap' } }
 
@@ -303,9 +317,9 @@ lualine.setup({
 		},
 	},
 	sections = {
-		lualine_a = { surroundL, mode },
-		lualine_b = { "branch" },
-		lualine_c = { diagnostics },
+		lualine_a = { surroundL, mode, noice },
+		lualine_b = { "branch", diagnostics },
+		lualine_c = {},
 		lualine_x = { diff, "encoding", filetype },
 		lualine_y = { spaces, "location" },
 		lualine_z = { minimap, surroundR },

@@ -13,6 +13,10 @@ vim.g.minimap_highlight_range = 1
 vim.g.minimap_highlight_search = 1
 vim.g.minimap_git_colors = 1
 
+
+vim.api.nvim_set_keymap("n", "n", "<cmd>MinimapRefresh<cr>nzzzv", {noremap = true, silent = true} )
+vim.api.nvim_set_keymap("n", "N", "<cmd>MinimapRefresh<cr>Nzzzv", {noremap = true, silent = true} )
+
 -- auto-unfocus minimap
 vim.api.nvim_create_autocmd("CursorHold", {
 	nested = true,

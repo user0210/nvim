@@ -24,7 +24,7 @@ require("lazy").setup({
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
 	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
-	{ "wfxr/minimap.vim", cmd = { "Minimap", "MinimapClose" }, config = function() require"plugins.minimap" end, },
+	{ "wfxr/minimap.vim", cmd = { "MinimapRefresh" }, config = function() require"plugins.minimap" end, },
 
 	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
 		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },

@@ -11,7 +11,6 @@ local bg = colors.base0Da
 
 vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
 vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'WinBarLeft', 	        	{ fg = colors.base01a, bg = colors.base01a })
 
 vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01a, fg = colors.base02})
 vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = bg, fg = colors.base00})
@@ -66,34 +65,20 @@ end
 
 local diff = {
 	"diff",
-	colored = true, -- Displays a colored diff status if set to true
+	colored = true,
 	diff_color = {
-		-- Same color values as the general color option can be used here.
-		added = { bg = bg, fg = colors.base0B }, -- Changes the diff's added color
-		modified = { bg = bg, fg = colors.base0D }, -- Changes the diff's modified color
-		removed = { bg = bg, fg = colors.base08 }, -- Changes the diff's removed color you
+		added = { bg = bg, fg = colors.base0B },
+		modified = { bg = bg, fg = colors.base0D },
+		removed = { bg = bg, fg = colors.base08 },
 	},
-	symbols = { added = "+", modified = "~", removed = "-" }, -- Changes the symbols used by the diff.
-	source = diff_source, -- A function that works as a data source for diff.
-	-- It must return a table as such:
-	--   { added = add_count, modified = modified_count, removed = removed_count }
-	-- or nil on failure. count <= 0 won't be displayed.
-	padding = 1,
+	symbols = { added = "+", modified = "~", removed = "-" },
+	source = diff_source,
 }
 
 local diagnostics = {
 	"diagnostics",
-
-	-- Table of diagnostic sources, available sources are:
-	--   'nvim_lsp', 'nvim_diagnostic', 'nvim_workspace_diagnostic', 'coc', 'ale', 'vim_lsp'.
-	-- or a function that returns a table as such:
-	--   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
-	sources = { "nvim_diagnostic" },
-
-	-- Displays diagnostics for the defined severity types
-	-- sections = { 'error', 'warn', 'info', 'hint' },
-	sections = { "error", "warn" },
-
+	sources = { "nvim_lsp", "nvim_diagnostic" },
+	sections = { "error", "warn" }, -- sections = { 'error', 'warn', 'info', 'hint' },
 	--diagnostics_color = {
 	--  -- Same values as the general color option can be used here.
 	--  error = 'DiagnosticError', -- Changes diagnostics' error color.
@@ -102,55 +87,17 @@ local diagnostics = {
 	--  hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
 	--},
 	symbols = { error = " ", warn = " ", info = "I", hint = "H" },
-	colored = true, -- Displays diagnostics status in color if set to true.
-	update_in_insert = false, -- Update diagnostics in insert mode.
-	always_visible = true, -- Show diagnostics even if there are none.
-	padding = 1,
+	colored = true,
+	update_in_insert = false,
+	always_visible = true,
 }
 
 local mode = {
 	"mode",
-	icons_enabled = true, -- Enables the display of icons alongside the component.
-	-- Defines the icon to be displayed in front of the component.
-	-- Can be string|table
-	-- As table it must contain the icon as first entry and can use
-	-- color option to custom color the icon. Example:
-	-- {'branch', icon = ''} / {'branch', icon = {'', color={fg='green'}}}
-
-	-- icon position can also be set to the right side from table. Example:
-	-- {'branch', icon = {'', align='right', color={fg='green'}}}
-	icon = nil,
-
-	separator = { left = " ", right = "" }, -- Determines what separator to use for the component.
-	-- Note:
-	--  When a string is provided it's treated as component_separator.
-	--  When a table is provided it's treated as section_separator.
-	--  Passing an empty string disables the separator.
-	--
-	-- These options can be used to set colored separators
-	-- around a component.
-	--
-	-- The options need to be set as such:
-	--   separator = { left = '', right = ''}
-	--
-	-- Where left will be placed on left side of component,
-	-- and right will be placed on its right.
-	--
-
+	icons_enabled = true,
+	icon = nil, -- {'branch', icon = ''} / {'branch', icon = {'', align='right', color={fg='green'}}}
+	separator = { left = " ", right = "" },
 	cond = nil, -- Condition function, the component is loaded when the function returns `true`.
-
-	-- Defines a custom color for the component:
-	--
-	-- 'highlight_group_name' | { fg = '#rrggbb'|cterm_value(0-255)|'color_name(red)', bg= '#rrggbb', gui='style' } | function
-	-- Note:
-	--  '|' is synonymous with 'or', meaning a different acceptable format for that placeholder.
-	-- color function has to return one of other color types ('highlight_group_name' | { fg = '#rrggbb'|cterm_value(0-255)|'color_name(red)', bg= '#rrggbb', gui='style' })
-	-- color functions can be used to have different colors based on state as shown below.
-	--
-	-- Examples:
-	--   color = { fg = '#ffaa88', bg = 'grey', gui='italic,bold' },
-	--   color = { fg = 204 }   -- When fg/bg are omitted, they default to the your theme's fg/bg.
-	--   color = 'WarningMsg'   -- Highlight groups can also be used.
 	color = function()
 		if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
 			return { fg = colors.base05 }
@@ -158,55 +105,28 @@ local mode = {
 			return { fg = colors.base00 }
 		end
 	end,
-
-	-- Specify what type a component is, if omitted, lualine will guess it for you.
-	--
-	-- Available types are:
-	--   [format: type_name(example)], mod(branch/filename),
-	--   stl(%f/%m), var(g:coc_status/bo:modifiable),
-	--   lua_expr(lua expressions), vim_fun(viml function name)
-	--
-	-- Note:
-	-- lua_expr is short for lua-expression and vim_fun is short for vim-function.
 	type = nil,
-
 	padding = { left = 0, right = 1 },
-	-- Padding can be specified to left or right independently, e.g.:
-	--   padding = { left = left_padding, right = right_padding }
-
 	fmt = nil, -- Format function, formats the component's output.
-	on_click = nil, -- takes a function that is called when component is clicked with mouse.
-	-- the function receives several arguments
-	-- - number of clicks incase of multiple clicks
-	-- - mouse button used (l(left)/r(right)/m(middle)/...)
-	-- - modifiers pressed (s(shift)/c(ctrl)/a(alt)/m(meta)...)
+	on_click = nil,
 }
 
 local filename = {
 	"filename",
-	file_status = true, -- Displays file status (readonly status, modified status)
-	newfile_status = false, -- Display new file status (new file means no write after created)
+	file_status = true,
+	newfile_status = false,
 	path = 0, -- 0: Just the filename
 	-- 1: Relative path
 	-- 2: Absolute path
 	-- 3: Absolute path, with tilde as the home directory
-
-	shorting_target = 40, -- Shortens path to leave 40 spaces in the window
-	-- for other components. (terrible name, any suggestions?)
+	shorting_target = 40,
 	symbols = {
-		modified = "[+]", -- Text to show when the file is modified.
-		readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
-		unnamed = "[No Name]", -- Text to show for unnamed buffers.
-		newfile = "[New]", -- Text to show for new created file before first writting
+		modified = "[+]",
+		readonly = "[-]",
+		unnamed = "[No Name]",
+		newfile = "[New]",
 	},
 	padding = { left = 0, right = 2 },
-}
-
-local branch = {
-	"branch",
-	icons_enabled = true,
-	icon = "",
-	padding = 1,
 }
 
 local filetype = {
@@ -216,17 +136,6 @@ local filetype = {
 	on_click = function()
 		vim.cmd("LspInfo")
 	end,
-	padding = 1,
-}
-
-local location = {
-	"location",
-	padding = 1,
-}
-
-local encoding = {
-	"encoding",
-	padding = 1,
 }
 
 local spaces = {
@@ -234,59 +143,102 @@ local spaces = {
 	fmt = function()
 		return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 	end,
-	padding = 1,
 }
 
 local surroundL = {
 	"surroundL",
-	fmt = function()
-		return "▎ "
-	end,
+	fmt = function() return "▎ " end,
 	padding = 0,
 }
 
 local surroundR = {
 	"surroundR",
-	fmt = function()
-		return "▕"
-	end,
+	fmt = function() return "▕" end,
 	padding = 0,
 	color = { fg = colors.base01a },
+}
+
+local winbarL = {
+	"winbarL",
+	fmt = function() return "%L   " end,
+	padding = 0,
+	color = { fg = colors.base01a, bg = colors.base01a }
+}
+
+local tabclose = {
+	"tabclose",
+	fmt = function() return "" end,
+	on_click = function() vim.cmd("tabclose") end,
+	color = { fg = colors.base03, bg = colors.base01a }
+}
+
+local spread = {
+	"spread",
+	fmt = function() return "%=" end,
+	padding = 0,
+	color = { fg = colors.base01, bg = colors.base00 }
 }
 
 local minimap = {
 	"minimap",
 	fmt = function()
-		if vim.g.minimap_auto_start == 1 then
-			return ">>"
-		else
-			return "<<"
-		end
+		if vim.g.minimap_auto_start == 1 then return ">>" else return "<<" end
 	end,
 	on_click = function()
-		require"plugins.minimap"
-		if vim.g.minimap_auto_start == 0 then
+		if vim.g.minimap_auto_start == nil then
+			vim.cmd("MinimapRefresh")
+		end
+		if vim.g.minimap_auto_start == 1 then
+			vim.g.minimap_auto_start = 0
+			vim.api.nvim_del_augroup_by_name("minimaptoggle")
+			vim.cmd("MinimapClose")
+			vim.cmd("ScrollbarShow")
+			lualine.refresh({ place = { 'statusline' } })
+		else
 			vim.g.minimap_auto_start = 1
 			vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
 				callback = function()
 					vim.cmd("Minimap")
 				end,
 				group = vim.api.nvim_create_augroup("minimaptoggle", { clear = true }),
-				lualine.refresh({ place = { 'statusline' },
-})
+				lualine.refresh({ place = { 'statusline' } })
 			})
 			vim.cmd("Minimap")
 			vim.cmd("ScrollbarHide")
-		else
-			vim.g.minimap_auto_start = 0
-			vim.api.nvim_del_augroup_by_name("minimaptoggle")
-			vim.cmd("MinimapClose")
-			vim.cmd("ScrollbarShow")
-			lualine.refresh({ place = { 'statusline' },
-})
 		end
 	end,
 	padding = { left = 1, right = 0 },
+}
+
+local navic = {
+	"navic",
+	fmt = function() return "%{%v:lua.require'nvim-navic'.get_location()%}%=" end,
+	padding = 0,
+	color = { bg = colors.base01a },
+}
+
+local tabs = {
+	"tabs",
+	max_length = vim.o.columns / 3,
+	mode = 0,
+	-- 0: Shows tab_nr
+	-- 1: Shows tab_name
+	-- 2: Shows tab_nr + tab_name
+
+	tabs_color = {
+		active = { bg = colors.base01a, fg = colors.base04 },
+		inactive = { bg = colors.base02, fg = colors.base00 },
+	},
+	separator = { left = "█", right = "█" },
+	fmt = function(name, context)
+		-- Show + if buffer is modified in tab
+		local buflist = vim.fn.tabpagebuflist(context.tabnr)
+		local winnr = vim.fn.tabpagewinnr(context.tabnr)
+		local bufnr = buflist[winnr]
+		local mod = vim.fn.getbufvar(bufnr, '&mod')
+
+		return name .. (mod == 1 and ' +' or '')
+	end,
 }
 
 -- local progress = {
@@ -308,25 +260,7 @@ local minimap = {
 -- 	padding = 0,
 -- 	color = { fg = colors.base01a },
 -- }
-
-local navic = {
-	"navic",
-	fmt = function()
-		return "%{%v:lua.require'nvim-navic'.get_location()%}%="
-	end,
-	padding = 0,
-	color = { bg = colors.base01a },
 --  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
-}
-
-local winbarL = {
-	"winbarL",
-	fmt = function()
-		return [[%#WinBarLeft#%L   ]]
-	end,
-	padding = 0,
-}
-
 
 -- extensions
 local minimap_bar = { sections = {}, filetypes = { 'minimap' } }
@@ -338,8 +272,11 @@ lualine.setup({
 	options = {
 		icons_enabled = true,
 		theme = templer,
+		always_divide_middle = false,
+		globalstatus = false,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
+		ignore_focus = {},
 		disabled_filetypes = {
 			statusline = {
 				"dashboard",
@@ -364,38 +301,31 @@ lualine.setup({
 				"",
 			},
 		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = false,
 	},
 	sections = {
 		lualine_a = { surroundL, mode },
-		lualine_b = { branch },
+		lualine_b = { "branch" },
 		lualine_c = { diagnostics },
-		lualine_x = { diff, encoding, filetype },
-		lualine_y = { spaces, location },
+		lualine_x = { diff, "encoding", filetype },
+		lualine_y = { spaces, "location" },
 		lualine_z = { minimap, surroundR },
 	},
 	inactive_sections = {
 		lualine_a = { surroundL },
 		lualine_b = { filename },
 		lualine_c = {},
-		lualine_x = { location },
+		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},
 	},
-	winbar = {
-		lualine_b = { winbarL, navic },
-		lualine_y = {},
-	},
-	inactive_winbar = {
-		lualine_b = { winbarL, navic },
-		lualine_y = {},
-	},
-	tabline = {},
+	winbar = { lualine_a = { winbarL, navic } },
+	inactive_winbar = { lualine_a = { winbarL } },
+	tabline = { lualine_a = { spread, tabs, tabclose } },
+
 	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm", minimap_bar },
 })
 
+require('lualine').hide({ place = { "tabline" } })
 
 -- end
 -- return M

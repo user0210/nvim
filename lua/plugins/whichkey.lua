@@ -84,6 +84,18 @@ local setup = {
 --   term_mode = "t",
 --   command_mode = "c",
 
+local iopts = {
+	mode = "i", -- NORMAL mode
+	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+	silent = true, -- use `silent` when creating keymaps
+	noremap = true, -- use `noremap` when creating keymaps
+	nowait = true, -- use `nowait` when creating keymaps
+}
+
+local imappings = {
+	["<a-H>"] = { "<cmd>bprev<cr>", "previous Buffer" },
+	["<a-L>"] = { "<cmd>bnext<cr>", "next Buffer" },
+}
 
 local vopts = {
 	mode = "v", -- NORMAL mode
@@ -98,6 +110,8 @@ local vmappings = {
 	[">"] = { ">gv", "Move Text Right" },
 	["J"] = { ":m '>+1<CR>gv=gv", "Move Text Down" },
 	["K"] = { ":m '<-2<CR>gv=gv", "Move Text Up" },
+	["<a-H>"] = { "<cmd>bprev<cr>", "previous Buffer" },
+	["<a-L>"] = { "<cmd>bnext<cr>", "next Buffer" },
 	["<leader>"] = {
 		["/"] = { "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", "Comment" },
 		["f"] = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
@@ -114,11 +128,13 @@ local nopts = {
 }
 
 local nmappings = {
-	["<C-d>"] = { "<C-d>zz", "" },
-	["<C-u>"] = { "<C-u>zz", "" },
-	["n"] = { "nzzzv", "" },
-	["N"] = { "Nzzzv", "" },
-	["J"] = { "mzJ`z", "" },
+	["<C-d>"] = { "<C-d>zz", "scroll Down" },
+	["<C-u>"] = { "<C-u>zz", "scroll Up" },
+	["n"] = { "nzzzv", "next Search" },
+	["N"] = { "Nzzzv", "prev Search" },
+	["J"] = { "mzJ`z", "merge Lines" },
+	["<a-H>"] = { "<cmd>bprev<cr>", "previous Buffer" },
+	["<a-L>"] = { "<cmd>bnext<cr>", "next Buffer" },
 	["<a-n>"] = { '<cmd>lua require"illuminate".goto_next_reference{wrap=true}<cr>', "Next References-Cursor" },
 	["<a-p>"] = { '<cmd>lua require"illuminate".goto_prev_reference{wrap=true}<cr>', "Prev References-Cursor" },
 	-- ["<S-l>"] = { ":bnext<CR>", "move right" }, 		--no need with tmux-plugin
@@ -159,11 +175,11 @@ local nmappings = {
 			o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 			b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 			c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-			--d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+		--	d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 			d = { "<cmd>DiffviewOpen<cr>", "Diff" },
 			D = { "<cmd>DiffviewFileHistory<cr>", "Diff History" },
 		},
-		["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+		["h"] = { "<cmd>nohlsearch<CR><silent>:call minimap#vim#ClearColorSearch()<CR>", "No Highlight" },
 		l = {
 			name = "LSP",
 			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -174,7 +190,6 @@ local nmappings = {
 			I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 			j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 			k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-			--l = { "<cmd>lua require 'lsp_lines'.toggle()<cr>", "Lsp_Lines Toggle" },
 			L = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
 			q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 			r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
@@ -223,6 +238,7 @@ local which_key = require("which-key")
 which_key.setup(setup)
 which_key.register(nmappings, nopts)
 which_key.register(vmappings, vopts)
+which_key.register(imappings, iopts)
 
 -- end
 -- return M

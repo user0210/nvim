@@ -94,6 +94,7 @@ require("diffview").setup({
 		end,
 		view_enter = function(view)
 			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = colors.base00 })
+			require('lualine').hide({ place = { "tabline" }, unhide = true, })
 			vim.opt.laststatus = 3
 			vim.cmd("ScrollbarHide")
 			print(
@@ -103,6 +104,7 @@ require("diffview").setup({
 		end,
 		view_leave = function()
 			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = "NONE" })
+			require('lualine').hide({ place = { "tabline" }, unhide = false, })
 			vim.opt.laststatus = 2
 			vim.cmd("ScrollbarShow")
 		end,

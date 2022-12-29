@@ -97,6 +97,12 @@ lsp.configure("sumneko_lua", {
 	},
 })
 
+lsp.configure('tsserver', {
+	flags = {
+		debounce_text_changes = 150,
+	},
+})
+
 local lspkind = require("lspkind")
 lsp.setup_nvim_cmp({
 	formatting = {

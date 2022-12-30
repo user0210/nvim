@@ -317,9 +317,9 @@ lualine.setup({
 		},
 	},
 	sections = {
-		lualine_a = { surroundL, mode, noice },
-		lualine_b = { "branch", diagnostics },
-		lualine_c = {},
+		lualine_a = { surroundL, mode },
+		lualine_b = { "branch" },
+		lualine_c = { diagnostics },
 		lualine_x = { diff, "encoding", filetype },
 		lualine_y = { spaces, "location" },
 		lualine_z = { minimap, surroundR },

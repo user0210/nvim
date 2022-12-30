@@ -19,10 +19,10 @@ vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { bg = colors.base00 })
 vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { bg = colors.base00 })
 
 -- cmd-line
-vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base0Da, fg = colors.base00 })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base0Da, fg = colors.base05 })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base0Da, fg = colors.base05 })
-vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base0Da, fg = colors.base00 })
+vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base01a, fg = colors.base00 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base01a, fg = colors.base00 })
 
 
 require("noice").setup({

@@ -39,8 +39,8 @@ vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 	{ fg = colors.base0B, bg = colors.
 vim.api.nvim_set_hl(0, "DiagnosticSignHint", 	{ fg = colors.base0C, bg = colors.base01a })
 
 -- define hi-group for documentation-window
-vim.api.nvim_set_hl(0, "DocumentationNormal", 		{ bg = colors.base01 })
-vim.api.nvim_set_hl(0, "DocumentationFloatBorder", 	{ bg = colors.base00, fg = colors.base03 })
+vim.api.nvim_set_hl(0, "DocumentationNormal", 		{ bg = colors.base00a })
+vim.api.nvim_set_hl(0, "DocumentationFloatBorder", 	{ bg = colors.base00a, fg = colors.base00a })
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 vim.api.nvim_set_hl(0, "LspInfoBorder", { bg = colors.base00, fg = colors.base05 })

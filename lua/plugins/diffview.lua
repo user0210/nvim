@@ -4,6 +4,7 @@
 -- function M.config()
 
 local colors = require("colorscheme").colors
+local lualine = require("lualine")
 
 require("diffview").setup({
 	diff_binaries = false, -- Show diffs for binaries
@@ -92,15 +93,15 @@ require("diffview").setup({
 		diff_buf_win_enter = function()
 			vim.opt_local.signcolumn = "no"
 		end,
-		view_enter = function(view)
+		view_enter = function()
 			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = colors.base00 })
-			require('lualine').hide({ place = { "tabline" }, unhide = true, })
+			lualine.hide({ place = { "tabline" }, unhide = true, })
 			vim.opt.laststatus = 3
 			vim.cmd("ScrollbarHide")
 		end,
 		view_leave = function()
 			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = "NONE" })
-			require('lualine').hide({ place = { "tabline" }, unhide = false, })
+			lualine.hide({ place = { "tabline" }, unhide = false, })
 			vim.opt.laststatus = 2
 			vim.cmd("ScrollbarShow")
 		end,

@@ -30,15 +30,28 @@
 -- }
 -- function M.config()
 
--- MASON SETUP
-require("mason.settings").set({
-	ui = {
-		border = "rounded",
-	},
-})
+-- THEMING
+local colors = require("colorscheme").colors
+
+vim.api.nvim_set_hl(0, "DiagnosticSignError", 	{ fg = colors.base08, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 	{ fg = colors.base09, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 	{ fg = colors.base0B, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint", 	{ fg = colors.base0C, bg = colors.base01a })
+
+-- define hi-group for documentation-window
+vim.api.nvim_set_hl(0, "DocumentationNormal", 		{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, "DocumentationFloatBorder", 	{ bg = colors.base00, fg = colors.base03 })
+
+require("lspconfig.ui.windows").default_options.border = "rounded"
+vim.api.nvim_set_hl(0, "LspInfoBorder", { bg = colors.base00, fg = colors.base05 })
+
+
 
 -- ZERO-LSP SETUP
+require("mason.settings").set({ ui = { border = "rounded" } })
+
 local lsp = require("lsp-zero")
+local null_ls = require("null-ls")
 lsp.preset("recommended")
 
 lsp.set_preferences({
@@ -71,13 +84,14 @@ lsp.ensure_installed({
 	"yamlls",
 })
 
-lsp.on_attach(function(client, bufnr)
-	if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
-	end
-end)
+-- share options between serveral servers
+local lsp_opts = {
+	flags = {
+		debounce_text_changes = 150,
+	}
+}
 
--- Fix Undefined global 'vim'
+-- configure an individual server
 lsp.configure("sumneko_lua", {
 	settings = {
 		Lua = {
@@ -95,13 +109,25 @@ lsp.configure("sumneko_lua", {
 			},
 		},
 	},
+	lsp_opts,
 })
 
 lsp.configure('tsserver', {
-	flags = {
-		debounce_text_changes = 150,
-	},
+	lsp_opts,
+	-- disable format because null-ls does also...
+	-- on_init = function(client)
+	-- 	client.server_capabilities.documentFormattingProvider = false
+	-- 	client.server_capabilities.documentFormattingRangeProvider = false
+	-- end,
 })
+
+-- the function below will be executed whenever
+-- a language server is attached to a buffer
+lsp.on_attach(function(client, bufnr)
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
+end)
 
 local lspkind = require("lspkind")
 lsp.setup_nvim_cmp({
@@ -131,11 +157,20 @@ lsp.setup_nvim_cmp({
 		{ name = "buffer" },
 		{ name = "path" },
 	},
+	documentation = {
+		max_height = 15,
+		max_width = 60,
+		border = 'rounded',
+		col_offset = 1,
+		side_padding = 1,
+		winhighlight = 'Normal:DocumentationNormal,FloatBorder:DocumentationFloatBorder,CursorLine:DocumentationCursorLine,Search:DocumentationSearch',
+		zindex = 1001
+	}
 })
 
 lsp.setup()
 
--- override some configs
+-- override diagnostics configs (only with 'recommended' setup)
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -146,16 +181,15 @@ vim.diagnostic.config({
 })
 
 -- NULL-LS
-local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
-
 -- https://github.com/prettier-solidity/prettier-plugin-solidity
 -- npm install --save-dev prettier prettier-plugin-solidity
+
 null_ls.setup({
 	on_attach = function(client, bufnr)
 		null_opts.on_attach(client, bufnr)
@@ -181,22 +215,16 @@ null_ls.setup({
 	},
 })
 
-require("mason-null-ls").setup({
+-- MASON NULL-LS
+local mason_nullls = require("mason-null-ls")
+mason_nullls.setup({
 	ensure_installed = nil,
 	automatic_installation = true,
-	automatic_setup = false,
+	automatic_setup = true,
 })
 
--- THEMING
-local colors = require("colorscheme").colors
+mason_nullls.setup_handlers({})
 
-vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = colors.base08, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = colors.base09, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = colors.base0B, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = colors.base0C, bg = colors.base01a })
-
-require("lspconfig.ui.windows").default_options.border = "rounded"
-vim.api.nvim_set_hl(0, "LspInfoBorder", { bg = colors.base00, fg = colors.base05 })
 
 -- end
 -- return M

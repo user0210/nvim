@@ -27,7 +27,10 @@ require("lazy").setup({
 	{ "wfxr/minimap.vim", cmd = { "MinimapRefresh" }, config = function() require"plugins.minimap" end, },
 
 	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
-		dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		--	"rcarriga/nvim-notify",
+		},
 	},
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },

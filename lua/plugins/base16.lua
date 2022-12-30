@@ -71,5 +71,13 @@ vim.cmd([[augroup CodeGroup]])
 vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
 vim.cmd([[set winhighlight=Normal:CodeGroup]])
 
+
+-- popupmenu
+vim.api.nvim_set_hl(0, 'Pmenu',			{ bg = colors.base01, fg = colors.base04 })
+vim.api.nvim_set_hl(0, 'PmenuSel',		{ bg = colors.base04, fg = colors.base00, blend = 0 })
+vim.api.nvim_set_hl(0, 'PmenuSbar',		{ bg = colors.base01, })
+vim.api.nvim_set_hl(0, 'PmenuThumb',	{ bg = colors.base0Db, })
+
+
 -- end
 -- return M

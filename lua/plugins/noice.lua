@@ -7,10 +7,23 @@
 -- }
 -- function M.config()
 
+
 local colors = require("colorscheme").colors
 
 -- notify-background...
 vim.api.nvim_set_hl(0, "NotifyBackground", { bg = colors.base01a })
+vim.api.nvim_set_hl(0, "NotifyERRORBorder", { bg = colors.base00 })
+vim.api.nvim_set_hl(0, "NotifyWARNBorder", 	{ bg = colors.base00 })
+vim.api.nvim_set_hl(0, "NotifyINFOBorder", 	{ bg = colors.base00 })
+vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { bg = colors.base00 })
+vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { bg = colors.base00 })
+
+-- cmd-line
+vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base0Da, fg = colors.base00 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base0Da, fg = colors.base05 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base0Da, fg = colors.base05 })
+vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base0Da, fg = colors.base00 })
+
 
 require("noice").setup({
 	-- you can enable a preset for easier configuration
@@ -19,10 +32,29 @@ require("noice").setup({
 		command_palette = true, -- position the cmdline and popupmenu together
 		long_message_to_split = true, -- long messages will be sent to a split
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
-		lsp_doc_border = true, -- add a border to hover docs and signature help
+		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
 	cmdline = {
 		view = "cmdline",
+		format = {
+			cmdline = { pattern = "^:", icon = " ", lang = "vim" },
+			search_down = { kind = "search", pattern = "^/", icon = "  ", lang = "regex" },
+			search_up = { kind = "search", pattern = "^%?", icon = "  ", lang = "regex" },
+			filter = { pattern = "^:%s*!", icon = " $", lang = "bash" },
+			lua = { pattern = "^:%s*lua%s+", icon = " ", lang = "lua" },
+			help = { pattern = "^:%s*he?l?p?%s+", icon = " " },
+			input = {}, -- Used by input()
+		},
+	},
+	popupmenu = {
+		backend = "cmp", -- backend to use to show regular cmdline completions
+	},
+	lsp = {
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true,
+		},
 	},
 	views = {
 		cmdline_popup = {
@@ -35,10 +67,27 @@ require("noice").setup({
 				winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
 			},
 		},
-	},
-	popupmenu = {
-		enabled = true, -- enables the Noice popupmenu UI
-		backend = "nui", -- backend to use to show regular cmdline completions
+		mini = {
+			align = "message-right",
+			timeout = 4000,
+			position = {
+				row = 2,
+				col = -1,
+				-- col = 0,
+			},
+			border = {
+				style = "none",
+			},
+			zindex = 60,
+			win_options = {
+				winblend = 30,
+				winhighlight = {
+					Normal = "NoiceMini",
+					IncSearch = "",
+					Search = "",
+				},
+			},
+		},
 	},
 	routes = {
 		{ -- Hide Search Virtual Text
@@ -57,15 +106,8 @@ require("noice").setup({
 			opts = { skip = true },
 		},
 	},
-	lsp = {
-		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-		override = {
-			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-			["vim.lsp.util.stylize_markdown"] = true,
-			["cmp.entry.get_documentation"] = true,
-		},
-	},
 })
+
 
 -- end
 -- return M

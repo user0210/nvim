@@ -2,6 +2,7 @@
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 
+vim.opt.pumblend=10 							-- popupmenu transparency
 vim.opt.backup = false							-- creates a backup file
 vim.opt.cmdheight = 1							-- more space in the neovim command line for displaying messages
 vim.opt.laststatus = 2							-- one status line (2) or more (3)

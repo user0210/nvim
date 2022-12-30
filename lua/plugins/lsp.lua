@@ -33,17 +33,13 @@
 -- THEMING
 local colors = require("colorscheme").colors
 
-vim.api.nvim_set_hl(0, "DiagnosticSignError", 	{ fg = colors.base08, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 	{ fg = colors.base09, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 	{ fg = colors.base0B, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", 	{ fg = colors.base0C, bg = colors.base01a })
-
--- define hi-group for documentation-window
-vim.api.nvim_set_hl(0, "DocumentationNormal", 		{ bg = colors.base00a })
-vim.api.nvim_set_hl(0, "DocumentationFloatBorder", 	{ bg = colors.base00a, fg = colors.base00a })
+vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0B, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0C, bg = colors.base01a })
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
-vim.api.nvim_set_hl(0, "LspInfoBorder", { bg = colors.base00, fg = colors.base05 })
+vim.api.nvim_set_hl(0, "LspInfoBorder", 			{ bg = colors.base00, fg = colors.base05 })
 
 
 
@@ -160,10 +156,10 @@ lsp.setup_nvim_cmp({
 	documentation = {
 		max_height = 15,
 		max_width = 60,
-		border = 'rounded',
+		border = 'none',
 		col_offset = 1,
 		side_padding = 1,
-		winhighlight = 'Normal:DocumentationNormal,FloatBorder:DocumentationFloatBorder,CursorLine:DocumentationCursorLine,Search:DocumentationSearch',
+		winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
 		zindex = 1001
 	}
 })

@@ -71,13 +71,17 @@ vim.cmd([[augroup CodeGroup]])
 vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
 vim.cmd([[set winhighlight=Normal:CodeGroup]])
 
-
 -- popupmenu
-vim.api.nvim_set_hl(0, 'Pmenu',			{ bg = colors.base01, fg = colors.base04 })
-vim.api.nvim_set_hl(0, 'PmenuSel',		{ bg = colors.base04, fg = colors.base00, blend = 0 })
-vim.api.nvim_set_hl(0, 'PmenuSbar',		{ bg = colors.base01, })
-vim.api.nvim_set_hl(0, 'PmenuThumb',	{ bg = colors.base0Db, })
+vim.api.nvim_set_hl(0, 'Pmenu',						{ bg = colors.base01a, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'PmenuSel',					{ bg = colors.base03, fg = colors.base00, blend = 0 })
+vim.api.nvim_set_hl(0, 'PmenuSbar',					{ bg = colors.base01a, })
+vim.api.nvim_set_hl(0, 'PmenuThumb',				{ bg = colors.base0Db, })
 
+-- colors for hover-window
+vim.api.nvim_set_hl(0, "NormalFloat", 				{ bg = colors.base01, fg = colors.base03 })
+vim.api.nvim_set_hl(0, "FloatBorder", 				{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, "FloatShadow", 				{ bg = colors.base00a, blend = 15 })
+vim.api.nvim_set_hl(0, "FloatShadowThrough", 		{ bg = colors.base00 })
 
 -- end
 -- return M

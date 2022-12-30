@@ -10,19 +10,15 @@
 
 local colors = require("colorscheme").colors
 
--- notify-background...
-vim.api.nvim_set_hl(0, "NotifyBackground", { bg = colors.base01a })
-vim.api.nvim_set_hl(0, "NotifyERRORBorder", { bg = colors.base00 })
-vim.api.nvim_set_hl(0, "NotifyWARNBorder", 	{ bg = colors.base00 })
-vim.api.nvim_set_hl(0, "NotifyINFOBorder", 	{ bg = colors.base00 })
-vim.api.nvim_set_hl(0, "NotifyDEBUGBorder", { bg = colors.base00 })
-vim.api.nvim_set_hl(0, "NotifyTRACEBorder", { bg = colors.base00 })
-
 -- cmd-line
-vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base01a, fg = colors.base00 })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base01a, fg = colors.base03 })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base01a, fg = colors.base03 })
-vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base01a, fg = colors.base00 })
+vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base01a, fg = colors.base05 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base02, fg = colors.base0Da })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base02, fg = colors.base0Da })
+vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base01a, fg = colors.base0Da })
+
+vim.api.nvim_set_hl(0, "NoiceMini", 			{ bg = colors.base02 })
+vim.api.nvim_set_hl(0, "NoiceMiniSearch", 		{ bg = colors.base0Ab })
+vim.api.nvim_set_hl(0, "NoiceMiniIncSearch", 	{ bg = colors.base0Ab })
 
 
 require("noice").setup({
@@ -37,12 +33,12 @@ require("noice").setup({
 	cmdline = {
 		view = "cmdline",
 		format = {
-			cmdline = { pattern = "^:", icon = " ", lang = "vim" },
-			search_down = { kind = "search", pattern = "^/", icon = "  ", lang = "regex" },
-			search_up = { kind = "search", pattern = "^%?", icon = "  ", lang = "regex" },
-			filter = { pattern = "^:%s*!", icon = " $", lang = "bash" },
-			lua = { pattern = "^:%s*lua%s+", icon = " ", lang = "lua" },
-			help = { pattern = "^:%s*he?l?p?%s+", icon = " " },
+			cmdline = { pattern = "^:", icon = "  ", lang = "vim" },
+			search_down = { kind = "search", pattern = "^/", icon = "   ", lang = "regex" },
+			search_up = { kind = "search", pattern = "^%?", icon = "   ", lang = "regex" },
+			filter = { pattern = "^:%s*!", icon = " $ ", lang = "bash" },
+			lua = { pattern = "^:%s*lua%s+", icon = "  ", lang = "lua" },
+			help = { pattern = "^:%s*he?l?p?%s+", icon = "  " },
 			input = {}, -- Used by input()
 		},
 	},
@@ -68,7 +64,8 @@ require("noice").setup({
 			},
 		},
 		mini = {
-			align = "message-right",
+			align = "message-left",
+			reverse = true,
 			timeout = 4000,
 			position = {
 				row = 2,
@@ -83,8 +80,8 @@ require("noice").setup({
 				winblend = 30,
 				winhighlight = {
 					Normal = "NoiceMini",
-					IncSearch = "",
-					Search = "",
+					IncSearch = "NoiceMiniIncSearch",
+					Search = "NoiceMiniSearch",
 				},
 			},
 		},

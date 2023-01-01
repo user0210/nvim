@@ -26,12 +26,6 @@ require("lazy").setup({
 	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
 	{ "wfxr/minimap.vim", cmd = { "MinimapRefresh" }, config = function() require"plugins.minimap" end, },
 
-	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		--	"rcarriga/nvim-notify",
-		},
-	},
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
 	},
@@ -55,6 +49,19 @@ require("lazy").setup({
 	},
 	{ "mfussenegger/nvim-dap", config = function() require"plugins.dap" end,
 		dependencies = { "rcarriga/nvim-dap-ui" },
+	},
+	{ "jackMort/ChatGPT.nvim", config = function() require"plugins.chatgpt" end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim"
+		}
+	},
+	{ "folke/noice.nvim", config = function() require"plugins.noice" end,
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		--	"rcarriga/nvim-notify",
+		},
 	},
 	{ "nvim-treesitter/nvim-treesitter", config = function() require"plugins.treesitter" end,
 		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring",

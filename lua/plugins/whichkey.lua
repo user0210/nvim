@@ -180,6 +180,7 @@ local nmappings = {
 			D = { "<cmd>DiffviewFileHistory<cr>", "Diff History" },
 		},
 		["h"] = { "<cmd>nohlsearch<CR><silent>:call minimap#vim#ClearColorSearch()<CR>", "No Highlight" },
+		["H"] = { "<cmd>Noice<cr>", "History" },
 		l = {
 			name = "LSP",
 			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -196,6 +197,7 @@ local nmappings = {
 			s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 			S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
 		},
+		["L"] = { "<cmd>Lazy<cr>", "Lazy" },
 		m = {
 			name = "Scrollbar",
 			m = { "<cmd>ScrollbarToggle<bar>MinimapToggle<cr>", "Toggle Minimap" },
@@ -216,14 +218,6 @@ local nmappings = {
 			f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 			h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 			v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
-		},
-		P = {
-			name = "Packer",
-			c = { "<cmd>PackerCompile<cr>", "Compile" },
-			i = { "<cmd>PackerInstall<cr>", "Install" },
-			s = { "<cmd>PackerSync<cr>", "Sync" },
-			S = { "<cmd>PackerStatus<cr>", "Status" },
-			u = { "<cmd>PackerUpdate<cr>", "Update" },
 		},
 		["p"] = { [["_dP]], "Paste No Yank" },
 		["r"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace in File" },

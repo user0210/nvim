@@ -57,7 +57,7 @@ require("bufferline").setup({
 		tab_separator_selected = 	{ bg = colors.base01a, fg = colors.base01a },
 		offset_separator = 			{ bg = colors.base01a, fg = colors.base00 },
 		-- hidden tab
-		fill =						{ bg = colors.base00, fg = colors.base01, },
+		fill =						{ bg = colors.base00, fg = colors.base02, },
 		tab_close = 				{ bg = colors.base01a, fg = colors.base03, },
 		tab = 						{ bg = colors.base02, fg = colors.base00, },
 		numbers = 					{ bg = colors.base02, fg = colors.base00, },

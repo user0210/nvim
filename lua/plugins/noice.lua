@@ -11,10 +11,10 @@
 local colors = require("colorscheme").colors
 
 -- cmd-line
-vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base01a, fg = colors.base05 })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base02, fg = colors.base0Da })
-vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base02, fg = colors.base0Da })
-vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base01a, fg = colors.base0Da })
+vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base01a, fg = colors.base05, blend = 0 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base02, fg = colors.base0Da, blend = 0 })
+vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base02, fg = colors.base0Da, blend = 0 })
+vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.base01a, fg = colors.base0Da , blend = 0 })
 
 vim.api.nvim_set_hl(0, "NoiceMini", 			{ bg = colors.base02 })
 vim.api.nvim_set_hl(0, "NoiceMiniSearch", 		{ bg = colors.base0Ab })

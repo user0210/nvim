@@ -147,7 +147,7 @@ local colors = require("colorscheme").colors
 vim.api.nvim_set_hl(0, 'NvimTreeNormal',			{ bg = "NONE", nocombine = true })
 vim.api.nvim_set_hl(0, 'NvimTreeNormalNC',			{ bg = "NONE", fg = colors.base03, nocombine = true })
 vim.api.nvim_set_hl(0, 'NvimTreeOpenedFile',		{ fg = colors.base07, bold = true })
-vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker',		{ fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker',		{ fg = colors.base02 })
 vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer',		{ bg = "NONE" })
 vim.api.nvim_set_hl(0, 'NvimTreeSpecialFile',		{ fg = "NONE", underline = true })
 

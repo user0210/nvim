@@ -6,10 +6,10 @@
 local base16 = require("base16-colorscheme")
 
 base16.with_config ({
-    telescope = false,
-    indentblankline = true,
-    cmp = false,
-    illuminate = true,
+	telescope = false,
+	indentblankline = true,
+	cmp = false,
+	illuminate = true,
 })
 
 -- MONDO-BEGIN
@@ -55,6 +55,8 @@ base16.setup({
 local colors = require("colorscheme").colors
 
 vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE", bg = "NONE" })
+vim.api.nvim_set_hl(0, 'Whitespace',				{ fg = colors.base02, bg = "NONE" })
+vim.api.nvim_set_hl(0, 'NonText',					{ fg = colors.base02, bg = "NONE" })
 
 vim.api.nvim_set_hl(0, 'CursorLine',				{ bg = colors.base01a, bold = true })
 vim.api.nvim_set_hl(0, 'CursorLineNr',				{ bg = colors.base01a, fg = colors.base02, bold = true })

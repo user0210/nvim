@@ -13,7 +13,7 @@ require("illuminate").configure({
 	filetypes_denylist = {
 		"dirvish",
 		"NvimTree",
-		"packer",
+		"Lazy",
 		"neogitstatus",
 		"Trouble",
 		"Outline",

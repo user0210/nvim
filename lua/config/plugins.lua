@@ -17,7 +17,6 @@ require("lazy").setup({
 	{ "lukas-reineke/indent-blankline.nvim", config = function() require"plugins.indentline" end, },
 	{ "folke/which-key.nvim", config = function() require"plugins.whichkey" end, },
 	{ "uga-rosa/ccc.nvim", config = function() require"plugins.ccc" end, },
-	{ "karb94/neoscroll.nvim", config = function() require"plugins.neoscroll" end, },
 	{ "aserowy/tmux.nvim", config = function() require"plugins.tmux" end, },
 	{ "RRethy/nvim-base16", priority = 1000, config = function() require"plugins.base16" end, },
 	{ "mbbill/undotree", cmd = {"UndotreeToggle", "UndotreeHide" }, config = function() require"plugins.undotree" end, },

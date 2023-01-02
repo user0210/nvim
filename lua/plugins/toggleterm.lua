@@ -3,11 +3,13 @@
 -- }
 -- function M.config()
 
+local colors = require("colorscheme").colors
+
 require("toggleterm").setup({
 	size = 20,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
-	shade_terminals = true,
+	shade_terminals = false,
 	shading_factor = 2,
 	start_in_insert = true,
 	insert_mappings = true,
@@ -18,6 +20,21 @@ require("toggleterm").setup({
 	float_opts = {
 		border = "curved",
 	},
+	highlights = {
+		Normal = {
+			guibg = colors.base01a,
+		},
+	},
+	on_open = function(terminal)
+		local nvimtree = require "nvim-tree"
+		local nvimtree_view = require "nvim-tree.view"
+		if nvimtree_view.is_visible() and terminal.direction == "horizontal" then
+			local nvimtree_width = vim.fn.winwidth(nvimtree_view.get_winnr())
+			nvimtree.toggle()
+			nvimtree_view.View.width = nvimtree_width
+			nvimtree.toggle(false, true)
+		end
+	end,
 })
 
 function _G.set_terminal_keymaps()
@@ -37,6 +54,29 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
+
+-- auto-close
+vim.api.nvim_create_autocmd({ "QuitPre" }, {
+	pattern = "*",
+	callback = function()
+		local exclude = {
+			"help",
+			"man",
+			"DressingSelect",
+			"tsplayground",
+			"lazy",
+			"lspinfo",
+			"mason",
+			"undotree",
+			"diff",
+		}
+		if vim.tbl_contains(exclude, vim.bo.filetype) then
+			return
+		else
+			vim.cmd("ToggleTermToggleAll")
+		end
+	end,
+})
 
 -- end
 -- return M

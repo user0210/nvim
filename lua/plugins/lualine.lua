@@ -301,7 +301,7 @@ lualine.setup({
 			},
 			winbar = {
 				"help",
-				"packer",
+				"Lazy",
 				"NvimTree",
 				"toggleterm",
 				"dapui_scopes",

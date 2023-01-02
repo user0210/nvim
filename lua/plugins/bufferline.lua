@@ -34,8 +34,8 @@ require("bufferline").setup({
 		diagnostics = false, -- | "nvim_lsp" | "coc",
 		diagnostics_update_in_insert = false,
 		offsets = {
-			{ filetype = "NvimTree", text = "", padding = 0 }, -- padding = #[[%L]] + 4
-			{ filetype = "undotree", text = "", padding = 0 },
+			{ filetype = "NvimTree", text = "", separator = " ", padding = 0 }, -- padding = #[[%L]] + 4
+			{ filetype = "undotree", text = "", separator = "██", padding = 0 },
 		--	{ filetype = "minimap", text = "", padding = 0 },
 		},
 		show_buffer_icons = true,
@@ -46,6 +46,13 @@ require("bufferline").setup({
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 		separator_style = "slant", -- | "thick" | "thin" | "slant" | "padded_slant" | {'▎','▕'},
+		-- custom_areas = {
+		-- 	left = function()
+		-- 		local result = {}
+		-- 		table.insert(result, { text = " ", fg = colors.base00, bg ="NONE" })
+		-- 		return result
+		-- 	end,
+		-- },
 	},
 
 	highlights = {
@@ -55,7 +62,7 @@ require("bufferline").setup({
 		separator_visible = 		{ bg = colors.base01a, fg = colors.base00 },
 		tab_separator = 			{ bg = colors.base02, fg = colors.base02 },
 		tab_separator_selected = 	{ bg = colors.base01a, fg = colors.base01a },
-		offset_separator = 			{ bg = colors.base01a, fg = colors.base00 },
+		offset_separator = 			{ bg = "NONE", fg = colors.base00 },
 		-- hidden tab
 		fill =						{ bg = colors.base00, fg = colors.base02, },
 		tab_close = 				{ bg = colors.base01a, fg = colors.base03, },

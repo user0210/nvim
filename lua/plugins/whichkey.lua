@@ -216,8 +216,7 @@ local nmappings = {
 		t = {
 			name = "Terminal",
 			f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-			h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-			v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+			t = { "<cmd>ToggleTerm size=6 direction=horizontal<cr>", "Horizontal" },
 		},
 		["p"] = { [["_dP]], "Paste No Yank" },
 		["r"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace in File" },

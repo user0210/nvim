@@ -74,6 +74,7 @@ require("scrollbar").setup({
 		"undotree",
 		"diff",
 		"lazy",
+		"mason",
 	},
 	autocmd = {
 		render = {

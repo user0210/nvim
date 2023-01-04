@@ -180,7 +180,7 @@ local nmappings = {
 			D = { "<cmd>DiffviewFileHistory<cr>", "Diff History" },
 		},
 		["h"] = { "<cmd>nohlsearch<CR><silent>:call minimap#vim#ClearColorSearch()<CR>", "No Highlight" },
-		["H"] = { "<cmd>Noice<cr>", "History" },
+		["H"] = { "<cmd>Noice telescope<cr>", "History" },
 		l = {
 			name = "LSP",
 			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },

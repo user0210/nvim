@@ -7,7 +7,7 @@ local colors = require("colorscheme").colors
 
 require("toggleterm").setup({
 	size = 20,
-	open_mapping = [[<c-\>]],
+	open_mapping = [[<a-T>]],
 	hide_numbers = true,
 	shade_terminals = false,
 	shading_factor = 2,
@@ -55,28 +55,6 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
--- auto-close
-vim.api.nvim_create_autocmd({ "QuitPre" }, {
-	pattern = "*",
-	callback = function()
-		local exclude = {
-			"help",
-			"man",
-			"DressingSelect",
-			"tsplayground",
-			"lazy",
-			"lspinfo",
-			"mason",
-			"undotree",
-			"diff",
-		}
-		if vim.tbl_contains(exclude, vim.bo.filetype) then
-			return
-		else
-			vim.cmd("ToggleTermToggleAll")
-		end
-	end,
-})
 
 -- end
 -- return M

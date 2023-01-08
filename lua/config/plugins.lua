@@ -23,7 +23,7 @@ require("lazy").setup({
 	{ "RRethy/vim-illuminate", config = function() require"plugins.illuminate" end, },
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
 	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
-	{ "wfxr/minimap.vim", cmd = { "MinimapRefresh" }, config = function() require"plugins.minimap" end, },
+	{ "wfxr/minimap.vim", cmd = { "MinimapClose" }, config = function() require"plugins.minimap" end, },
 
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
@@ -85,9 +85,10 @@ require("lazy").setup({
 			"hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
-			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind.nvim",
 			-- Snippets
 			"L3MON4D3/LuaSnip",
@@ -95,6 +96,9 @@ require("lazy").setup({
 			-- Null-LS
 			"jose-elias-alvarez/null-ls.nvim",
 			"jayp0521/mason-null-ls.nvim",
+			-- misc
+			"nvim-lua/plenary.nvim",
+			"SmiteshP/nvim-navic",
 		},
 	},
 },

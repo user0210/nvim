@@ -137,6 +137,7 @@ local nmappings = {
 	["<a-L>"] = { "<cmd>bnext<cr>", "next Buffer" },
 	["<a-n>"] = { '<cmd>lua require"illuminate".goto_next_reference{wrap=true}<cr>', "Next References-Cursor" },
 	["<a-p>"] = { '<cmd>lua require"illuminate".goto_prev_reference{wrap=true}<cr>', "Prev References-Cursor" },
+
 	-- ["<S-l>"] = { ":bnext<CR>", "move right" }, 		--no need with tmux-plugin
 	-- ["<S-h>"] = { ":bprevious<CR>", "move left" },	--no need with tmux-plugin
 
@@ -145,6 +146,7 @@ local nmappings = {
 		["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Buffers" },
 		["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+		["C"] = { "<cmd>lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>", "Cursor Color", { noremap = true, silent = false }},
 		d = {
 			name = "DAP",
 			b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },

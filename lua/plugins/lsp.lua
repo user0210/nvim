@@ -33,10 +33,10 @@
 -- THEMING
 local colors = require("colorscheme").colors
 
-vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0B, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0C, bg = colors.base01a })
+vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0B, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0C, bg = colors.base01 })
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 vim.api.nvim_set_hl(0, "LspInfoBorder", 			{ bg = colors.base00, fg = colors.base05 })
@@ -111,10 +111,10 @@ lsp.configure("sumneko_lua", {
 lsp.configure('tsserver', {
 	lsp_opts,
 	-- disable format because null-ls does also...
-	-- on_init = function(client)
-	-- 	client.server_capabilities.documentFormattingProvider = false
-	-- 	client.server_capabilities.documentFormattingRangeProvider = false
-	-- end,
+	on_init = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+		client.server_capabilities.documentFormattingRangeProvider = false
+	end,
 })
 
 -- the function below will be executed whenever
@@ -125,8 +125,41 @@ lsp.on_attach(function(client, bufnr)
 	end
 end)
 
+-- CMP-SETUP
+
+local cmp = require("cmp")
 local lspkind = require("lspkind")
+
 lsp.setup_nvim_cmp({
+	preselect = 'none',
+	completion = {
+		completeopt = 'menu,menuone,noinsert,noselect'
+	},
+	mapping = lsp.defaults.cmp_mappings({
+		['<Tab>'] = cmp.mapping(function(fallback)
+			local col = vim.fn.col('.') - 1
+
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif require('luasnip').expand_or_jumpable() then
+				require('luasnip').expand_or_jump()
+			elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+				cmp.complete()
+			else
+				fallback()
+			end
+		end, {'i', 's'}),
+
+		['<S-Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			elseif require('luasnip').jumpable(-1) then
+				require('luasnip').jump(-1)
+			else
+				fallback()
+			end
+		end, {'i', 's'}),
+	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = lspkind.cmp_format({
@@ -138,10 +171,10 @@ lsp.setup_nvim_cmp({
 			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
 			before = function(entry, vim_item)
 				vim_item.menu = ({
+					path = "[Path]",
 					nvim_lsp = "[LSP]",
 					luasnip = "[Snippet]",
 					buffer = "[Buffer]",
-					path = "[Path]",
 				})[entry.source.name]
 				return vim_item
 			end,
@@ -162,6 +195,22 @@ lsp.setup_nvim_cmp({
 		winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None',
 		zindex = 1001
 	}
+})
+
+cmp.setup.cmdline({ '/', '?' }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{name = 'buffer'}
+	}
+})
+
+cmp.setup.cmdline(':', {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{name = 'path'}
+	}, {
+			{name = 'cmdline'}
+		})
 })
 
 lsp.setup()

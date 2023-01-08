@@ -58,20 +58,27 @@ vim.api.nvim_set_hl(0, 'Normal',					{ fg = "NONE", bg = "NONE" })
 vim.api.nvim_set_hl(0, 'Whitespace',				{ fg = colors.base02, bg = "NONE" })
 vim.api.nvim_set_hl(0, 'NonText',					{ fg = colors.base02, bg = "NONE" })
 
-vim.api.nvim_set_hl(0, 'CursorLine',				{ bg = colors.base01a, bold = true })
-vim.api.nvim_set_hl(0, 'CursorLineNr',				{ bg = colors.base01a, fg = colors.base02, bold = true })
+vim.api.nvim_set_hl(0, 'CursorLine',				{ bg = colors.base00a, bold = true })
+vim.api.nvim_set_hl(0, 'CursorLineNr',				{ bg = colors.base02, fg = colors.base00a })
+vim.api.nvim_set_hl(0, 'CursorLineSign',			{ bg = colors.base02, fg = colors.base00a })
+vim.api.nvim_set_hl(0, 'CursorLineFold',			{ bg = colors.base02, fg = colors.base00a })
 
-vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'SignColumn',				{ fg = colors.base02, bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'FoldColumn',				{ fg = colors.base02, bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'LineNr',					{ fg = colors.base02, bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'SignColumn',				{ fg = colors.base02, bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'FoldColumn',				{ fg = colors.base02, bg = colors.base01 })
 
-vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = colors.base00, fg = colors.base01a })
-vim.api.nvim_set_hl(0, 'EndOfBuffer',				{ bg = colors.base01a, fg = colors.base00a})
+vim.api.nvim_set_hl(0, 'VertSplit',					{ bg = colors.base00, fg = colors.base01 })
+vim.api.nvim_set_hl(0, 'EndOfBuffer',				{ bg = colors.base01, fg = colors.base00a})
 
 -- Text Background
-vim.cmd([[augroup CodeGroup]])
-vim.api.nvim_set_hl(0, 'CodeGroup',					{ bg = colors.base00 })
-vim.cmd([[set winhighlight=Normal:CodeGroup]])
+vim.cmd([[augroup Code]])
+vim.api.nvim_set_hl(0, 'Code',						{ bg = colors.base00 })
+vim.cmd([[set winhighlight=Normal:Code]])
+
+vim.cmd([[augroup NoCode]])
+vim.cmd([[augroup NoCodeLine]])
+vim.api.nvim_set_hl(0, 'NoCode',					{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NoCodeLine',				{ bg = colors.base02 })
 
 -- popupmenu
 vim.api.nvim_set_hl(0, 'Pmenu',						{ bg = colors.base01a, fg = colors.base03 })

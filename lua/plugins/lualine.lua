@@ -9,11 +9,14 @@ require("lualine.themes.auto")
 
 local bg = colors.base0Da
 
-vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01a })
-vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01a })
+vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01 })
 
-vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01a, fg = colors.base02})
-vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = bg, fg = colors.base00})
+vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01, fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base01, fg = colors.base03 })
+
+vim.api.nvim_set_hl(0, 'CustomSepL',				{ bg = colors.base01, fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'CustomSepR',				{ bg = colors.base00, fg = colors.base01 })
 
 local templer = {
 	normal = {
@@ -155,28 +158,28 @@ local surroundR = {
 	"surroundR",
 	fmt = function() return "▕" end,
 	padding = 0,
-	color = { fg = colors.base01a },
+	color = { fg = colors.base01 },
 }
 
 local winbarL = {
 	"winbarL",
-	fmt = function() return "%L   " end,
+	fmt = function() return "%L " end,
 	padding = 0,
-	color = { fg = colors.base01a, bg = colors.base01a }
+	color = { fg = colors.base01, bg = colors.base01 }
 }
 
 local tabclose = {
 	"tabclose",
 	fmt = function() return "" end,
 	on_click = function() vim.cmd("tabclose") end,
-	color = { fg = colors.base03, bg = colors.base01a }
+	color = { fg = colors.base03, bg = colors.base01 }
 }
 
 local spread = {
 	"spread",
 	fmt = function() return "%=" end,
 	padding = 0,
-	color = { fg = colors.base01, bg = colors.base00 }
+	color = { fg = colors.base00a, bg = colors.base01 }
 }
 
 local minimap = {
@@ -186,7 +189,7 @@ local minimap = {
 	end,
 	on_click = function()
 		if vim.g.minimap_auto_start == nil then
-			vim.cmd("MinimapRefresh")
+			vim.cmd("MinimapClose")
 		end
 		if vim.g.minimap_auto_start == 1 then
 			vim.g.minimap_auto_start = 0
@@ -212,34 +215,52 @@ local minimap = {
 
 local navic = {
 	"navic",
-	fmt = function() return "%{%v:lua.require'nvim-navic'.get_location()%}%=" end,
-	padding = 0,
-	color = { bg = colors.base01a },
-}
-
-local tabs = {
-	"tabs",
-	max_length = vim.o.columns / 3,
-	mode = 0,
-	-- 0: Shows tab_nr
-	-- 1: Shows tab_name
-	-- 2: Shows tab_nr + tab_name
-
-	tabs_color = {
-		active = { bg = colors.base01a, fg = colors.base04 },
-		inactive = { bg = colors.base02, fg = colors.base00 },
-	},
-	separator = { left = "█", right = "█" },
-	fmt = function(name, context)
-		-- Show + if buffer is modified in tab
-		local buflist = vim.fn.tabpagebuflist(context.tabnr)
-		local winnr = vim.fn.tabpagewinnr(context.tabnr)
-		local bufnr = buflist[winnr]
-		local mod = vim.fn.getbufvar(bufnr, '&mod')
-
-		return name .. (mod == 1 and ' +' or '')
+	fmt = function()
+		local value = ''
+		local entries = require'nvim-navic'.get_data()
+		if entries ~= nil then
+			for i = #entries, 1, -1 do
+				local highlight = 'NavicIcons' .. entries[i].type
+				value = value .. '%#' .. highlight .. '# ' .. entries[i].icon
+				value = value .. '%#NavicText#' .. entries[i].name
+				if i ~= 1 then
+					--value = value .. '%#CustomSepL#' .. ' ' .. '%#CustomSepR#' .. ''     --    
+					value = value .. '%#CustomSepL#' .. ' '
+				else
+					value = value .. '    '
+				end
+			end
+		end
+		return value
+		-- return "%{%v:lua.require'nvim-navic'.get_location()%}%="
 	end,
+	padding = 0,
+	color = { bg = colors.base01 },
 }
+
+-- local tabs = {
+-- 	"tabs",
+-- 	max_length = vim.o.columns / 3,
+-- 	mode = 0,
+-- 	-- 0: Shows tab_nr
+-- 	-- 1: Shows tab_name
+-- 	-- 2: Shows tab_nr + tab_name
+--
+-- 	tabs_color = {
+-- 		active = { bg = colors.base01, fg = colors.base04 },
+-- 		inactive = { bg = colors.base02, fg = colors.base00 },
+-- 	},
+-- 	separator = { left = "█", right = "█" },
+-- 	fmt = function(name, context)
+-- 		-- Show + if buffer is modified in tab
+-- 		local buflist = vim.fn.tabpagebuflist(context.tabnr)
+-- 		local winnr = vim.fn.tabpagewinnr(context.tabnr)
+-- 		local bufnr = buflist[winnr]
+-- 		local mod = vim.fn.getbufvar(bufnr, '&mod')
+--
+-- 		return name .. (mod == 1 and ' +' or '')
+-- 	end,
+-- }
 
 -- local progress = {
 -- 	"progress",
@@ -258,7 +279,7 @@ local tabs = {
 -- 		end
 -- 	end,
 -- 	padding = 0,
--- 	color = { fg = colors.base01a },
+-- 	color = { fg = colors.base01 },
 -- }
 --  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 
@@ -287,7 +308,7 @@ lualine.setup({
 		icons_enabled = true,
 		theme = templer,
 		always_divide_middle = false,
-		globalstatus = false,
+		globalstatus = true,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		ignore_focus = {},
@@ -302,7 +323,6 @@ lualine.setup({
 			winbar = {
 				"help",
 				"Lazy",
-				"NvimTree",
 				"toggleterm",
 				"dapui_scopes",
 				"dapui_breakpoints",
@@ -312,7 +332,6 @@ lualine.setup({
 				"lspinfo",
 				"mason",
 				"diff",
-				"",
 			},
 		},
 	},
@@ -332,14 +351,16 @@ lualine.setup({
 		lualine_y = {},
 		lualine_z = {},
 	},
-	winbar = { lualine_a = { winbarL, navic } },
+	winbar = { lualine_a = { winbarL, spread, navic } },
 	inactive_winbar = { lualine_a = { winbarL } },
-	tabline = { lualine_a = { spread, tabs, tabclose } },
+	-- tabline = { lualine_a = { spread, tabs, tabclose } },
 
 	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm", minimap_bar },
 })
 
-require('lualine').hide({ place = { "tabline" } })
+-- require('lualine').hide({ place = { "tabline" } })
+
+
 
 -- end
 -- return M

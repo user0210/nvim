@@ -3,6 +3,12 @@
 -- }
 -- function M.config()
 
+local colors = require("colorscheme").colors
+
+vim.api.nvim_set_hl(0, "GitSignsAdd", 		{ fg = colors.base0Bb, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "GitSignsChange", 	{ fg = colors.base0Db, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "GitSignsDelete", 	{ fg = colors.base08b, bg = colors.base01 })
+
 require("gitsigns").setup({
 	signs = {
 		add          = { hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
@@ -45,12 +51,6 @@ require("gitsigns").setup({
 		enable = false,
 	},
 })
-
-local colors = require("colorscheme").colors
-
-vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = colors.base0Bb, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.base0Db, bg = colors.base01a })
-vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.base08b, bg = colors.base01a })
 
 -- end
 -- return M

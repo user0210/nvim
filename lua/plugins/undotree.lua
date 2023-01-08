@@ -3,6 +3,9 @@
 -- }
 -- function M.config()
 
+
+vim.g.undotree_WindowLayout = 2
+
 -- e.g. using 'd' instead of 'days' to save some space.
 vim.g.undotree_ShortIndicators = 1
 
@@ -16,10 +19,10 @@ else
 end
 
 -- diff window height
-vim.g.undotree_DiffpanelHeight= 10
+vim.g.undotree_DiffpanelHeight= 6
 
 -- auto open diff window
-vim.g.undotree_DiffAutoOpen = 1
+vim.g.undotree_DiffAutoOpen = 0
 
 -- if set, let undotree window get focus after being opened, otherwise
 -- focus will stay in current window.
@@ -46,7 +49,7 @@ vim.g.undotree_RelativeTimestamp = 1
 vim.g.undotree_HighlightChangedText = 1
 
 -- Highlight changed text using signs in the gutter
-vim.g.undotree_HighlightChangedWithSign = 1
+vim.g.undotree_HighlightChangedWithSign = 0
 
 -- Show help line
 vim.g.undotree_HelpLine = 0
@@ -57,15 +60,9 @@ vim.g.undotree_CursorLine = 1
 -- Highlight linked syntax type.
 -- You may chose your favorite through ":hi" command
 
-local colors = require("colorscheme").colors
-
-vim.api.nvim_set_hl(0, 'UndotreeAdd',				{ bg = colors.base0Bb, fg = "NONE" })
-vim.api.nvim_set_hl(0, 'UndotreeChange',			{ bg = colors.base0Db, fg = "NONE" })
-vim.api.nvim_set_hl(0, 'UndotreeDelete',			{ bg = colors.base08b, fg = "NONE" })
-
-vim.g.undotree_HighlightSyntaxAdd = "UndotreeAdd"
-vim.g.undotree_HighlightSyntaxChange = "UndotreeChange"
-vim.g.undotree_HighlightSyntaxDel = "UndotreeDelete"
+vim.g.undotree_HighlightSyntaxAdd = "DiffAdd"
+vim.g.undotree_HighlightSyntaxChange = "DiffChange"
+vim.g.undotree_HighlightSyntaxDel = "DiffDelete"
 
 -- end
 -- return M

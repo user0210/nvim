@@ -94,15 +94,12 @@ require("diffview").setup({
 			vim.opt_local.signcolumn = "no"
 		end,
 		view_enter = function()
-			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = colors.base00 })
-			lualine.hide({ place = { "tabline" }, unhide = true, })
-			vim.opt.laststatus = 3
+			vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeLine,SignColumn:NoCodeLine"
+			--lualine.hide({ place = { "tabline" }, unhide = true, })
 			vim.cmd("ScrollbarHide")
 		end,
 		view_leave = function()
-			vim.api.nvim_set_hl(0, 'Normal', { fg = "NONE", bg = "NONE" })
-			lualine.hide({ place = { "tabline" }, unhide = false, })
-			vim.opt.laststatus = 2
+			--lualine.hide({ place = { "tabline" }, unhide = false, })
 			vim.cmd("ScrollbarShow")
 		end,
 	}
@@ -117,10 +114,10 @@ vim.api.nvim_set_hl(0, 'DiffDelete',					{ bg = colors.base08b, })
 vim.api.nvim_set_hl(0, 'DiffviewDiffAddAsDelete',		{ bg = colors.base08b, })
 vim.api.nvim_set_hl(0, 'DiffviewDiffDelete',			{ bg = colors.base01a, fg = colors.base08b, })
 vim.api.nvim_set_hl(0, 'DiffviewEndOfBuffer',			{ bg = colors.base01a, })
-vim.api.nvim_set_hl(0, 'DiffviewNormal',				{ bg = colors.base00, })
+vim.api.nvim_set_hl(0, 'DiffviewNormal',				{ bg = colors.base01, })
 vim.api.nvim_set_hl(0, 'DiffviewCursorLine',			{ bg = colors.base02, fg = "NONE" })
 vim.api.nvim_set_hl(0, 'DiffviewFolderName',			{ fg = colors.base06, bold = true })
-vim.api.nvim_set_hl(0, 'DiffviewFolderSign',			{ fg = "NONE", })
+vim.api.nvim_set_hl(0, 'DiffviewFolderSign',			{ fg = colors.base0Aa })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelRootPath',		{ fg = colors.base06, bold = true })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelTitle',		{ fg = colors.base05, })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelPath',			{ fg = colors.base05, })

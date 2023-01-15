@@ -40,7 +40,7 @@ vim.opt.scrolloff = 8							-- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.spelllang = "en_us,de_de"
 vim.opt.title = true
-vim.opt.titlestring = "Vim  %t"
+vim.opt.titlestring = "Vim" -- "Vim  %t"
 vim.opt.linebreak = true
 vim.opt.confirm = true
 vim.opt.shortmess:append("Ic")
@@ -48,11 +48,11 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.fillchars:append "eob: "
 vim.opt.fillchars:append "diff:"
-vim.opt.fillchars:append "vert     :▉"
+vim.opt.fillchars:append "vert     :▊"
 vim.opt.fillchars:append "horiz	   :▇"
 vim.opt.fillchars:append "horizup  :▇"
 vim.opt.fillchars:append "horizdown:█"
-vim.opt.fillchars:append "vertleft :▉"
-vim.opt.fillchars:append "vertright:▉"
-vim.opt.fillchars:append "verthoriz:▉"
+vim.opt.fillchars:append "vertleft :▊"
+vim.opt.fillchars:append "vertright:▊"
+vim.opt.fillchars:append "verthoriz:▊"
 

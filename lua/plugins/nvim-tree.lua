@@ -123,21 +123,21 @@ local colors = require("colorscheme").colors
 
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormal',			{ bg = "NONE", nocombine = true })
 -- vim.api.nvim_set_hl(0, 'NvimTreeNormalNC',		{ bg = "NONE", nocombine = true })
-vim.api.nvim_set_hl(0, 'NvimTreeNormal',			{ bg = colors.base01, fg = colors.base03 })
-vim.api.nvim_set_hl(0, 'NvimTreeNormalNC',			{ bg = colors.base01, fg = colors.base03 })
-vim.api.nvim_set_hl(0, 'NvimTreeCursorLine',		{ bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NvimTreeStatusLine',		{ bg = colors.base01, fg = colors.base04 })
-vim.api.nvim_set_hl(0, 'NvimTreeStatusLineNC',		{ bg = colors.base01, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'NvimTreeNormal',			{ bg = colors.nocdBG, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'NvimTreeNormalNC',			{ bg = colors.nocdBG, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'NvimTreeCursorLine',		{ bg = colors.cursBG })
+vim.api.nvim_set_hl(0, 'NvimTreeStatusLine',		{ bg = colors.nocdBG, fg = colors.base04 })
+vim.api.nvim_set_hl(0, 'NvimTreeStatusLineNC',		{ bg = colors.nocdBG, fg = colors.base03 })
 vim.api.nvim_set_hl(0, 'NvimTreeOpenedFile',		{ fg = colors.base05, bold = true })
-vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker',		{ fg = colors.base02 })
+vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker',		{ fg = colors.base03a })
 vim.api.nvim_set_hl(0, 'NvimTreeEndOfBuffer',		{ bg = "NONE" })
 vim.api.nvim_set_hl(0, 'NvimTreeSpecialFile',		{ fg = "NONE", underline = true })
 
-vim.api.nvim_set_hl(0, 'NvimTreeSignColumn',				{ bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsInformation',	{ bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsHint',		{ bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsError',		{ bg = colors.base02 })
-vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsWarning',		{ bg = colors.base02 })
+vim.api.nvim_set_hl(0, 'NvimTreeSignColumn',				{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsInformation',	{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsHint',		{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsError',		{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'NvimTreeLspDiagnosticsWarning',		{ bg = colors.base01 })
 
 
 -- end

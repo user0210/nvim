@@ -53,18 +53,17 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"minimap",
 	},
 	callback = function()
-    		vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeLine,SignColumn:NoCodeLine"
+    		vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeCursor,SignColumn:NoCodeSign"
 	end,
 })
 
 -- sign-column not for all
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = {
-		"help",
-		"man",
+		"undotree",
 	},
 	callback = function()
-		vim.opt_local.signcolumn = "no"
+		vim.opt_local.signcolumn = "auto"
 	end,
 })
 

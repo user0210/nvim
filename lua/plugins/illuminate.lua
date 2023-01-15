@@ -20,6 +20,7 @@ require("illuminate").configure({
 		"toggleterm",
 		"DressingSelect",
 		"TelescopePrompt",
+		"DiffviewFiles",
 	},
 	filetypes_allowlist = {},
 	modes_denylist = {},

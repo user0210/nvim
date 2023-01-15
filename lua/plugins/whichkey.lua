@@ -3,6 +3,7 @@
 -- }
 -- function M.config()
 
+
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -47,7 +48,7 @@ local setup = {
 		position = "bottom", -- bottom, top
 		margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 1, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
+		winblend = 6,
 	},
 	layout = {
 		height = { min = 2, max = 25 }, -- min and max height of the columns
@@ -158,6 +159,7 @@ local nmappings = {
 			l = { "<cmd>lua require'dap'.run_last()<cr>", "Rerum Last Debug Adapter" },
 			u = { "<cmd>lua require'dapui'.toggle()<cr>", "Dap UI" },
 			t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate Debug Session" },
+			t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate Debug Session" },
 		},
 		["e"] = { "<esc><cmd>UndotreeHide<bar>NvimTreeNoFocus<cr>", "Explorer" },
 		["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -198,6 +200,8 @@ local nmappings = {
 			r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 			s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 			S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+			v = { "<cmd>lua vim.diagnostic.hide()<cr>", "VirtText Off" },
+			V = { "<cmd>lua vim.diagnostic.show()<cr>", "VirtText On" },
 		},
 		["L"] = { "<cmd>Lazy<cr>", "Lazy" },
 		m = {

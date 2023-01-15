@@ -9,14 +9,14 @@ require("lualine.themes.auto")
 
 local bg = colors.base0Da
 
-vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.base01 })
-vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.base01 })
+vim.api.nvim_set_hl(0, 'WinBar',					{ bg = colors.nocdBG })
+vim.api.nvim_set_hl(0, 'WinBarNC',					{ bg = colors.nocdBG })
 
-vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.base01, fg = colors.base00 })
-vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.base01, fg = colors.base03 })
+vim.api.nvim_set_hl(0, 'StatusLineNC',				{ bg = colors.nocdBG, fg = colors.base00 })
+vim.api.nvim_set_hl(0, 'StatusLine',				{ bg = colors.nocdBG, fg = colors.base03 })
 
-vim.api.nvim_set_hl(0, 'CustomSepL',				{ bg = colors.base01, fg = colors.base00 })
-vim.api.nvim_set_hl(0, 'CustomSepR',				{ bg = colors.base00, fg = colors.base01 })
+vim.api.nvim_set_hl(0, 'CustomSepL',				{ bg = colors.nocdBG, fg = colors.base00a })
+vim.api.nvim_set_hl(0, 'CustomSepR',				{ bg = colors.base00a, fg = colors.nocdBG })
 
 local templer = {
 	normal = {
@@ -158,28 +158,28 @@ local surroundR = {
 	"surroundR",
 	fmt = function() return "▕" end,
 	padding = 0,
-	color = { fg = colors.base01 },
+	color = { fg = colors.nocdBG },
 }
 
 local winbarL = {
 	"winbarL",
 	fmt = function() return "%L " end,
 	padding = 0,
-	color = { fg = colors.base01, bg = colors.base01 }
+	color = { fg = colors.nocdBG, bg = colors.nocdBG }
 }
 
 local tabclose = {
 	"tabclose",
 	fmt = function() return "" end,
 	on_click = function() vim.cmd("tabclose") end,
-	color = { fg = colors.base03, bg = colors.base01 }
+	color = { fg = colors.base03, bg = colors.nocdBG }
 }
 
 local spread = {
 	"spread",
 	fmt = function() return "%=" end,
 	padding = 0,
-	color = { fg = colors.base00a, bg = colors.base01 }
+	color = { fg = colors.base00a, bg = colors.nocdBG }
 }
 
 local minimap = {
@@ -235,7 +235,7 @@ local navic = {
 		-- return "%{%v:lua.require'nvim-navic'.get_location()%}%="
 	end,
 	padding = 0,
-	color = { bg = colors.base01 },
+	color = { bg = colors.nocdBG },
 }
 
 -- local tabs = {
@@ -247,8 +247,8 @@ local navic = {
 -- 	-- 2: Shows tab_nr + tab_name
 --
 -- 	tabs_color = {
--- 		active = { bg = colors.base01, fg = colors.base04 },
--- 		inactive = { bg = colors.base02, fg = colors.base00 },
+-- 		active = { bg = colors.nocdBG, fg = colors.base03 },
+-- 		inactive = { bg = colors.base01, fg = colors.base02 },
 -- 	},
 -- 	separator = { left = "█", right = "█" },
 -- 	fmt = function(name, context)
@@ -279,7 +279,7 @@ local navic = {
 -- 		end
 -- 	end,
 -- 	padding = 0,
--- 	color = { fg = colors.base01 },
+-- 	color = { fg = colors.nocdBG },
 -- }
 --  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 
@@ -315,10 +315,7 @@ lualine.setup({
 		disabled_filetypes = {
 			statusline = {
 				"dashboard",
-				"NvimTree",
 				"Outline",
-				"undotree",
-				"diff",
 			},
 			winbar = {
 				"help",
@@ -355,7 +352,7 @@ lualine.setup({
 	inactive_winbar = { lualine_a = { winbarL } },
 	-- tabline = { lualine_a = { spread, tabs, tabclose } },
 
-	extensions = { "nvim-tree", "nvim-dap-ui", "toggleterm", minimap_bar },
+	extensions = { "nvim-dap-ui", "toggleterm", minimap_bar },
 })
 
 -- require('lualine').hide({ place = { "tabline" } })

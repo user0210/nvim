@@ -5,9 +5,9 @@
 
 local colors = require("colorscheme").colors
 
-vim.api.nvim_set_hl(0, "GitSignsAdd", 		{ fg = colors.base0Bb, bg = colors.base01 })
-vim.api.nvim_set_hl(0, "GitSignsChange", 	{ fg = colors.base0Db, bg = colors.base01 })
-vim.api.nvim_set_hl(0, "GitSignsDelete", 	{ fg = colors.base08b, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "GitSignsAdd", 		{ fg = colors.base0Ba, bg = colors.cursBG })
+vim.api.nvim_set_hl(0, "GitSignsChange", 	{ fg = colors.base0Da, bg = colors.cursBG })
+vim.api.nvim_set_hl(0, "GitSignsDelete", 	{ fg = colors.base08a, bg = colors.cursBG })
 
 require("gitsigns").setup({
 	signs = {
@@ -19,7 +19,7 @@ require("gitsigns").setup({
 		untracked    = { hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'    },
 	},
 	signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-	numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+	numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
 	linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
 	word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
 	watch_gitdir = {

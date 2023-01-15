@@ -4,7 +4,6 @@
 -- function M.config()
 
 local colors = require("colorscheme").colors
-local lualine = require("lualine")
 
 require("diffview").setup({
 	diff_binaries = false, -- Show diffs for binaries
@@ -55,7 +54,7 @@ require("diffview").setup({
 		},
 		win_config = { -- See ':h diffview-config-win_config'
 			position = "left",
-			width = 35,
+			width = 30,
 			win_opts = {},
 		},
 	},
@@ -92,14 +91,17 @@ require("diffview").setup({
 	hooks = {
 		diff_buf_win_enter = function()
 			vim.opt_local.signcolumn = "no"
+			vim.opt_local.winhighlight = "Normal:Code"
 		end,
 		view_enter = function()
-			vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeLine,SignColumn:NoCodeLine"
-			--lualine.hide({ place = { "tabline" }, unhide = true, })
+			vim.opt_local.signcolumn = "auto"
+			vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeCursor,SignColumn:NoCodeSign"
+			--require("lualine").hide({ place = { "tabline" }, unhide = true, })
 			vim.cmd("ScrollbarHide")
 		end,
 		view_leave = function()
-			--lualine.hide({ place = { "tabline" }, unhide = false, })
+			vim.opt_local.signcolumn = "no"
+			--require("lualine").hide({ place = { "tabline" }, unhide = false, })
 			vim.cmd("ScrollbarShow")
 		end,
 	}
@@ -107,46 +109,46 @@ require("diffview").setup({
 
 -- colors
 
+vim.api.nvim_set_hl(0, 'DiffviewFolderName',			{ fg = colors.base0Da, bold = true })
+vim.api.nvim_set_hl(0, 'DiffviewFolderSign',			{ fg = colors.base0Da })
 vim.api.nvim_set_hl(0, 'DiffAdd',						{ bg = colors.base0Bb, })
 vim.api.nvim_set_hl(0, 'DiffChange',					{ bg = colors.base0Db, })
 vim.api.nvim_set_hl(0, 'DiffText',						{ bg = colors.base0Cb, })
 vim.api.nvim_set_hl(0, 'DiffDelete',					{ bg = colors.base08b, })
 vim.api.nvim_set_hl(0, 'DiffviewDiffAddAsDelete',		{ bg = colors.base08b, })
-vim.api.nvim_set_hl(0, 'DiffviewDiffDelete',			{ bg = colors.base01a, fg = colors.base08b, })
-vim.api.nvim_set_hl(0, 'DiffviewEndOfBuffer',			{ bg = colors.base01a, })
-vim.api.nvim_set_hl(0, 'DiffviewNormal',				{ bg = colors.base01, })
-vim.api.nvim_set_hl(0, 'DiffviewCursorLine',			{ bg = colors.base02, fg = "NONE" })
-vim.api.nvim_set_hl(0, 'DiffviewFolderName',			{ fg = colors.base06, bold = true })
-vim.api.nvim_set_hl(0, 'DiffviewFolderSign',			{ fg = colors.base0Aa })
-vim.api.nvim_set_hl(0, 'DiffviewFilePanelRootPath',		{ fg = colors.base06, bold = true })
-vim.api.nvim_set_hl(0, 'DiffviewFilePanelTitle',		{ fg = colors.base05, })
-vim.api.nvim_set_hl(0, 'DiffviewFilePanelPath',			{ fg = colors.base05, })
-vim.api.nvim_set_hl(0, 'DiffviewFilePanelFileName',		{ fg = colors.base04, })
+vim.api.nvim_set_hl(0, 'DiffviewDiffDelete',			{ bg = colors.nocdBG, fg = colors.base08b, })
+vim.api.nvim_set_hl(0, 'DiffviewEndOfBuffer',			{ bg = colors.nocdBG, })
+vim.api.nvim_set_hl(0, 'DiffviewNormal',				{ bg = colors.nocdBG, })
+vim.api.nvim_set_hl(0, 'DiffviewCursorLine',			{ bg = colors.cursBG, fg = "NONE" })
+vim.api.nvim_set_hl(0, 'DiffviewFilePanelRootPath',		{ fg = colors.base04, bold = true })
+vim.api.nvim_set_hl(0, 'DiffviewFilePanelTitle',		{ fg = colors.base04, })
+vim.api.nvim_set_hl(0, 'DiffviewFilePanelPath',			{ fg = colors.base04, })
+vim.api.nvim_set_hl(0, 'DiffviewFilePanelFileName',		{ fg = colors.base03, })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelInsertions',	{ fg = colors.base0Ba, })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelDeletions',	{ fg = colors.base08a, })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelCounter',		{ fg = colors.base0Da, })
 vim.api.nvim_set_hl(0, 'DiffviewFilePanelConflicts',	{ fg = colors.base0Fa, })
 
--- vim.api.nvim_set_hl(0, 'DiffviewSignColumn',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewDim1',					{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewWinSeparator',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewNonText',				{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewPrimary',				{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewSecondary',				{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewReference',				{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusDeleted',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusUnmerged',		{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusUntracked',		{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusModified',		{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusRenamed',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusAdded',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusBroken',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusUnknown',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusTypeChange',		{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusCopied',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusLine',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusLineNC',			{ fg = "NONE", })
--- vim.api.nvim_set_hl(0, 'DiffviewStatusIgnored',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewSignColumn',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewDim1',					{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewWinSeparator',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewNonText',				{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewPrimary',				{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewSecondary',				{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewReference',				{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusDeleted',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusUnmerged',		{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusUntracked',		{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusModified',		{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusRenamed',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusAdded',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusBroken',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusUnknown',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusTypeChange',		{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusCopied',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusLine',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusLineNC',			{ fg = "NONE", })
+--	vim.api.nvim_set_hl(0, 'DiffviewStatusIgnored',			{ fg = "NONE", })
 
 
 -- end

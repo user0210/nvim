@@ -20,7 +20,7 @@ require("treesitter-context").setup({
 })
 
 local colors = require("colorscheme").colors
-vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.base01, bold = false, blend = 0 })
+vim.api.nvim_set_hl(0, 'TreesitterContext',			{ bg = colors.nocdBG, bold = false, blend = 0 })
 
 -- end
 -- return M

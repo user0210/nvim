@@ -21,9 +21,9 @@ require("toggleterm").setup({
 		border = "curved",
 	},
 	highlights = {
-		Normal = {
-			guibg = colors.base01a,
-		},
+		Normal 			= { guibg = colors.nocdBG, },
+		CursorLine 		= { guibg = colors.nocdBG, },
+		CursorLineSign	= { guibg = colors.nocdBG, },
 	},
 	on_open = function(terminal)
 		local nvimtree = require "nvim-tree"

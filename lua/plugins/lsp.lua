@@ -33,13 +33,13 @@
 -- THEMING
 local colors = require("colorscheme").colors
 
-vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08, bg = colors.base01 })
-vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09, bg = colors.base01 })
-vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0B, bg = colors.base01 })
-vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0C, bg = colors.base01 })
+vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08a, bg = colors.nocdBG })
+vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09a, bg = colors.nocdBG })
+vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0Ba, bg = colors.nocdBG })
+vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0Ca, bg = colors.nocdBG })
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
-vim.api.nvim_set_hl(0, "LspInfoBorder", 			{ bg = colors.base00, fg = colors.base05 })
+vim.api.nvim_set_hl(0, "LspInfoBorder", 			{ bg = colors.nocdBG, fg = colors.base05 })
 
 
 
@@ -47,7 +47,6 @@ vim.api.nvim_set_hl(0, "LspInfoBorder", 			{ bg = colors.base00, fg = colors.bas
 require("mason.settings").set({ ui = { border = "rounded" } })
 
 local lsp = require("lsp-zero")
-local null_ls = require("null-ls")
 lsp.preset("recommended")
 
 lsp.set_preferences({
@@ -137,14 +136,10 @@ lsp.setup_nvim_cmp({
 	},
 	mapping = lsp.defaults.cmp_mappings({
 		['<Tab>'] = cmp.mapping(function(fallback)
-			local col = vim.fn.col('.') - 1
-
 			if cmp.visible() then
 				cmp.select_next_item()
 			elseif require('luasnip').expand_or_jumpable() then
 				require('luasnip').expand_or_jump()
-			elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-				cmp.complete()
 			else
 				fallback()
 			end
@@ -159,9 +154,25 @@ lsp.setup_nvim_cmp({
 				fallback()
 			end
 		end, {'i', 's'}),
+		['<C-Space>'] = cmp.mapping({
+			i = function()
+				if cmp.visible() then
+					cmp.abort()
+				else
+					cmp.complete()
+				end
+			end,
+			c = function()
+				if cmp.visible() then
+					cmp.close()
+				else
+					cmp.complete()
+				end
+			end,
+		}),
 	}),
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		fields = { "abbr", "kind", "menu" },
 		format = lspkind.cmp_format({
 			mode = "symbol", -- show only symbol annotations
 			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
@@ -209,8 +220,8 @@ cmp.setup.cmdline(':', {
 	sources = cmp.config.sources({
 		{name = 'path'}
 	}, {
-			{name = 'cmdline'}
-		})
+		{name = 'cmdline'}
+	})
 })
 
 lsp.setup()
@@ -226,23 +237,32 @@ vim.diagnostic.config({
 })
 
 -- NULL-LS
+local null_ls = require("null-ls")
 local null_opts = lsp.build_options("null-ls", {})
-
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null_ls.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
--- https://github.com/prettier-solidity/prettier-plugin-solidity
--- npm install --save-dev prettier prettier-plugin-solidity
 
 null_ls.setup({
 	on_attach = function(client, bufnr)
 		null_opts.on_attach(client, bufnr)
 		--- you can add other stuff here....
+		local format_cmd = function(input)
+
+		-- format command (only for null-ls)
+		vim.lsp.buf.format({
+			id = client.id,
+			timeout_ms = 5000,
+			async = input.bang,
+		})
+		end
+		local bufcmd = vim.api.nvim_buf_create_user_command
+		bufcmd(bufnr, "NullFormat", format_cmd, {
+			bang = true,
+			range = true,
+			desc = "Format using null-ls",
+		})
 	end,
 	debug = false,
 	sources = {
-		formatting.prettier.with({
+		null_ls.builtins.formatting.prettier.with({
 			extra_filetypes = { "toml", "solidity" },
 			extra_args = {
 				"--use-tabs",
@@ -254,9 +274,9 @@ null_ls.setup({
 				"--jsx-single-quote",
 			},
 		}),
-		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
-		diagnostics.flake8,
+		null_ls.builtins.formatting.black.with({ extra_args = { "--fast" } }),
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.diagnostics.flake8,
 	},
 })
 

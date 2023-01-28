@@ -136,18 +136,18 @@ local nmappings = {
 	["J"] = { "mzJ`z", "merge Lines" },
 	["<a-H>"] = { "<cmd>bprev<cr>", "previous Buffer" },
 	["<a-L>"] = { "<cmd>bnext<cr>", "next Buffer" },
-	["<a-n>"] = { '<cmd>lua require"illuminate".goto_next_reference{wrap=true}<cr>', "Next References-Cursor" },
-	["<a-p>"] = { '<cmd>lua require"illuminate".goto_prev_reference{wrap=true}<cr>', "Prev References-Cursor" },
+	["<a-n>"] = { "<cmd>lua require'illuminate'.goto_next_reference{wrap=true}<cr>", "Next References-Cursor" },
+	["<a-p>"] = { "<cmd>lua require'illuminate'.goto_prev_reference{wrap=true}<cr>", "Prev References-Cursor" },
 
 	-- ["<S-l>"] = { ":bnext<CR>", "move right" }, 		--no need with tmux-plugin
 	-- ["<S-h>"] = { ":bprevious<CR>", "move left" },	--no need with tmux-plugin
 
 	["<leader>"] = {
-		["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", "Comment" },
-		["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		["/"] = { "<cmd>lua require'Comment.api'.toggle.linewise.current()<CR>", "Comment" },
+		["b"] = { "<cmd>lua require'telescope.builtin'.buffers(require'telescope.themes'.get_dropdown{previewer = false})<cr>",
 			"Buffers" },
 		["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-		["C"] = { "<cmd>lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>", "Cursor Color", { noremap = true, silent = false }},
+		["C"] = { "<cmd>tabclose<CR>", "Close Tab" },
 		d = {
 			name = "DAP",
 			b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -161,7 +161,7 @@ local nmappings = {
 			t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate Debug Session" },
 			t = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate Debug Session" },
 		},
-		["e"] = { "<esc><cmd>UndotreeHide<bar>NvimTreeNoFocus<cr>", "Explorer" },
+		["e"] = { "<esc><cmd>UndotreeHide<bar>NeoTreeShow<cr>", "Explorer" },
 		["f"] = { "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Find files" },
 		["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
@@ -185,6 +185,7 @@ local nmappings = {
 		},
 		["h"] = { "<cmd>nohlsearch<CR><silent>:call minimap#vim#ClearColorSearch()<CR>", "No Highlight" },
 		["H"] = { "<cmd>Noice telescope<cr>", "History" },
+		["j"] = { "<cmd>lua require'ts-node-action'.node_action()<cr>", "Trigger Node Action" },
 		l = {
 			name = "LSP",
 			a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -217,6 +218,7 @@ local nmappings = {
 			R = { "<cmd>Telescope registers<cr>", "Registers" },
 			k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 			C = { "<cmd>Telescope commands<cr>", "Commands" },
+			c = { "<cmd>lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>", "Cursor Color", { noremap = true, silent = false }},
 			p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 		},
 		t = {
@@ -226,7 +228,7 @@ local nmappings = {
 		},
 		["p"] = { [["_dP]], "Paste No Yank" },
 		["r"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace in File" },
-		["u"] = { "<esc><cmd>NvimTreeClose<bar>UndotreeToggle<cr>", "UndoTree" },
+		["u"] = { "<cmd>UndotreeToggle<bar>NeoTreeClose<cr>", "UndoTree" },
 		["y"] = { [["+y]], "Yank System Clipboard" },
 	}
 }

@@ -36,14 +36,14 @@ require("bufferline").setup({
 		diagnostics = false, -- | "nvim_lsp" | "coc",
 		diagnostics_update_in_insert = false,
 		offsets = {
-			{ filetype = "NvimTree",		text = "", separator = "", padding = 1, highlight = "TabLineFill" },
+			{ filetype = "neo-tree",		text = "", separator = "", padding = 1, highlight = "TabLineFill" },
 			{ filetype = "undotree",		text = "", separator = "", padding = 1, highlight = "TabLineFill" },
 			{ filetype = "DiffviewFiles",	text = "", separator = "", padding = 1, highlight = "TabLineFill" },
 		--	{ filetype = "minimap",			text = "", padding = 0 },
 		},
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
-		show_close_icon = true,
+		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		enforce_regular_tabs = true,

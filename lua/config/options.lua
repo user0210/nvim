@@ -6,7 +6,6 @@ vim.opt.winblend=6 								-- window transparency
 vim.opt.pumblend=10 							-- popupmenu transparency
 vim.opt.backup = false							-- creates a backup file
 vim.opt.cmdheight = 1							-- more space in the neovim command line for displaying messages
-vim.opt.laststatus = 3							-- one status line (3) or more (2)
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0						-- so that `` is visible in markdown files
 vim.opt.hlsearch = true							-- highlight all matches on previous search pattern
@@ -40,10 +39,10 @@ vim.opt.scrolloff = 8							-- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.spelllang = "en_us,de_de"
 vim.opt.title = true
-vim.opt.titlestring = "Vim" -- "Vim  %t"
+vim.opt.titlestring = "Vim  %t"
 vim.opt.linebreak = true
 vim.opt.confirm = true
-vim.opt.shortmess:append("Ic")
+vim.opt.shortmess:append("Ics")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.fillchars:append "eob: "
@@ -55,4 +54,3 @@ vim.opt.fillchars:append "horizdown:█"
 vim.opt.fillchars:append "vertleft :▊"
 vim.opt.fillchars:append "vertright:▊"
 vim.opt.fillchars:append "verthoriz:▊"
-

@@ -66,7 +66,7 @@ require("scrollbar").setup({
 		"terminal",
 	},
 	excluded_filetypes = {
-		"NvimTree",
+		"neo-tree",
 		"prompt",
 		"TelescopePrompt",
 		"noice",

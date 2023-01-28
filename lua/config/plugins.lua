@@ -24,7 +24,9 @@ require("lazy").setup({
 	{ "SmiteshP/nvim-navic", config = function() require"plugins.navic" end, },
 	{ "sindrets/diffview.nvim", config = function() require"plugins.diffview" end, },
 	{ "wfxr/minimap.vim", cmd = { "MinimapClose" }, config = function() require"plugins.minimap" end, },
-
+	{ "ckolkey/ts-node-action",
+		dependencies = { "nvim-treesitter" }, opts = {},
+	},
 	{ "nvim-lualine/lualine.nvim", config = function() require"plugins.lualine" end,
 		dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
 	},
@@ -34,8 +36,12 @@ require("lazy").setup({
 	{ "nvim-telescope/telescope.nvim", cmd = "Telescope", config = function() require"plugins.telescope" end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{ "nvim-tree/nvim-tree.lua", config = function() require"plugins.nvim-tree" end,
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+	{ "nvim-neo-tree/neo-tree.nvim", config = function() require"plugins.neo-tree" end,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim"
+		}
 	},
 	{ "akinsho/bufferline.nvim", config = function() require"plugins.bufferline" end,
 		dependencies = { "famiu/bufdelete.nvim", "nvim-tree/nvim-web-devicons" },

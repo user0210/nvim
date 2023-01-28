@@ -16,7 +16,7 @@ require("indent_blankline").setup({
 		"help",
 		"Lazy",
 		"neogitstatus",
-		"NvimTree",
+		"neo-tree",
 		"Trouble",
 	},
 	char = "▏",

@@ -337,7 +337,7 @@ lualine.setup({
 		lualine_b = { "branch" },
 		lualine_c = { diagnostics },
 		lualine_x = { diff, "encoding", filetype },
-		lualine_y = { spaces, "location" },
+		lualine_y = { spaces, "location", "searchcount" },
 		lualine_z = { minimap, surroundR },
 	},
 	inactive_sections = {

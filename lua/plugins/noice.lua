@@ -11,7 +11,7 @@
 local colors = require("colorscheme").colors
 
 -- cmd-line
-vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.nocdBG, fg = colors.base05, blend = 0 })
+vim.api.nvim_set_hl(0, "NoiceCmdline",			{ bg = colors.base0Db, fg = colors.base05, blend = 0 })
 vim.api.nvim_set_hl(0, "NoiceCmdlineIcon",		{ bg = colors.base02, fg = colors.base0Da, blend = 0 })
 vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch",{ bg = colors.base02, fg = colors.base0Da, blend = 0 })
 vim.api.nvim_set_hl(0, "NoiceCmdlinePrompt", 	{ bg = colors.nocdBG, fg = colors.base0Da , blend = 0 })
@@ -87,21 +87,21 @@ require("noice").setup({
 		},
 	},
 	routes = {
-		{ -- Hide Search Virtual Text
-			filter = {
-				event = "msg_show",
-				kind = "search_count",
-			},
-			opts = { skip = true },
-		},
-		{ -- Hide written messages
-			filter = {
-				event = "msg_show",
-				kind = "",
-				find = "written",
-			},
-			opts = { skip = true },
-		},
+		-- { -- Hide Search Virtual Text
+		-- 	filter = {
+		-- 		event = "msg_show",
+		-- 		kind = "search_count",
+		-- 	},
+		-- 	opts = { skip = true },
+		-- },
+		-- { -- Hide written messages
+		-- 	filter = {
+		-- 		event = "msg_show",
+		-- 		kind = "",
+		-- 		find = "written",
+		-- 	},
+		-- 	opts = { skip = true },
+		-- },
 	},
 })
 

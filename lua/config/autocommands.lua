@@ -17,6 +17,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
+-- auto-start
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function()
+		vim.cmd("NeoTreeShow")
+	end,
+})
+
 -- auto-close
 vim.api.nvim_create_autocmd({ "QuitPre" }, {
 	pattern = "*",
@@ -35,7 +42,6 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 		if vim.tbl_contains(exclude, vim.bo.filetype) then
 			return
 		else
-			vim.cmd("NvimTreeClose")
 			vim.cmd("MinimapClose")
 			vim.cmd("UndotreeHide")
 		end

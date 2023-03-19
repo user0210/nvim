@@ -1,68 +1,68 @@
--- local M = {
--- 	"mbbill/undotree",
--- }
--- function M.config()
+return {
+  {
+    "mbbill/undotree",
+    cmd = { "UndotreeToggle", "UndotreeHide" },
 
+    config = function()
+      vim.g.undotree_WindowLayout = 2
 
-vim.g.undotree_WindowLayout = 2
+      -- e.g. using 'd' instead of 'days' to save some space.
+      vim.g.undotree_ShortIndicators = 1
 
--- e.g. using 'd' instead of 'days' to save some space.
-vim.g.undotree_ShortIndicators = 1
+      -- undotree window width
+      if vim.g.undotree_ShortIndicators == 1 then
+        vim.g.undotree_SplitWidth = 28
+      elseif vim.g.undotree_ShortIndicators == 3 then
+        vim.g.undotree_SplitWidth = 28
+      else
+        vim.g.undotree_SplitWidth = 30
+      end
 
--- undotree window width
-if vim.g.undotree_ShortIndicators == 1 then
-	vim.g.undotree_SplitWidth = 26
-elseif vim.g.undotree_ShortIndicators == 3 then
-	vim.g.undotree_SplitWidth = 26
-else
-	vim.g.undotree_SplitWidth = 30
-end
+      -- diff window height
+      vim.g.undotree_DiffpanelHeight = 6
 
--- diff window height
-vim.g.undotree_DiffpanelHeight= 6
+      -- auto open diff window
+      vim.g.undotree_DiffAutoOpen = 0
 
--- auto open diff window
-vim.g.undotree_DiffAutoOpen = 0
+      -- if set, let undotree window get focus after being opened, otherwise
+      -- focus will stay in current window.
+      vim.g.undotree_SetFocusWhenToggle = 0
 
--- if set, let undotree window get focus after being opened, otherwise
--- focus will stay in current window.
-vim.g.undotree_SetFocusWhenToggle = 0
+      -- tree node shape.
+      vim.g.undotree_TreeNodeShape = "*"
 
--- tree node shape.
-vim.g.undotree_TreeNodeShape = '*'
+      -- tree vertical shape.
+      vim.g.undotree_TreeVertShape = "|"
 
--- tree vertical shape.
-vim.g.undotree_TreeVertShape = '|'
+      -- tree split shape.
+      vim.g.undotree_TreeSplitShape = "/"
 
--- tree split shape.
-vim.g.undotree_TreeSplitShape = '/'
+      -- tree return shape.
+      -- vim.g.undotree_TreeReturnShape = '\\'
 
--- tree return shape.
--- vim.g.undotree_TreeReturnShape = '\\'
+      vim.g.undotree_DiffCommand = "diff"
 
-vim.g.undotree_DiffCommand = "diff"
+      -- relative timestamp
+      vim.g.undotree_RelativeTimestamp = 1
 
--- relative timestamp
-vim.g.undotree_RelativeTimestamp = 1
+      -- Highlight changed text
+      vim.g.undotree_HighlightChangedText = 1
 
--- Highlight changed text
-vim.g.undotree_HighlightChangedText = 1
+      -- Highlight changed text using signs in the gutter
+      vim.g.undotree_HighlightChangedWithSign = 0
 
--- Highlight changed text using signs in the gutter
-vim.g.undotree_HighlightChangedWithSign = 0
+      -- Show help line
+      vim.g.undotree_HelpLine = 0
 
--- Show help line
-vim.g.undotree_HelpLine = 0
+      -- Show cursorline
+      vim.g.undotree_CursorLine = 1
 
--- Show cursorline
-vim.g.undotree_CursorLine = 1
+      -- Highlight linked syntax type.
+      -- You may chose your favorite through ":hi" command
 
--- Highlight linked syntax type.
--- You may chose your favorite through ":hi" command
-
-vim.g.undotree_HighlightSyntaxAdd = "DiffAdd"
-vim.g.undotree_HighlightSyntaxChange = "DiffChange"
-vim.g.undotree_HighlightSyntaxDel = "DiffDelete"
-
--- end
--- return M
+      vim.g.undotree_HighlightSyntaxAdd = "DiffAdd"
+      vim.g.undotree_HighlightSyntaxChange = "DiffChange"
+      vim.g.undotree_HighlightSyntaxDel = "DiffDelete"
+    end,
+  },
+}

@@ -1,10 +1,8 @@
--- local M = {
--- 	"aserowy/tmux.nvim",
--- }
--- function M.config()
-
-require("tmux").setup({
-    copy_sync = {
+return {
+  {
+    "aserowy/tmux.nvim",
+    opts = {
+      copy_sync = {
         -- enables copy sync and overwrites all register actions to
         -- sync registers *, +, unnamed, and 0 till 9 from tmux in advance
         enable = false,
@@ -34,8 +32,8 @@ require("tmux").setup({
 
         -- syncs the unnamed register with the first buffer entry from tmux.
         sync_unnamed = false,
-    },
-    navigation = {
+      },
+      navigation = {
         -- cycles to opposite pane while navigating into the border
         cycle_navigation = false,
 
@@ -44,8 +42,8 @@ require("tmux").setup({
 
         -- prevents unzoom tmux when navigating beyond vim border
         persist_zoom = false,
-    },
-    resize = {
+      },
+      resize = {
         -- enables default keybindings (A-hjkl) for normal mode
         enable_default_keybindings = true,
 
@@ -54,8 +52,7 @@ require("tmux").setup({
 
         -- sets resize steps for y axis
         resize_step_y = 1,
-    }
-})
-
--- end
--- return M
+      },
+    },
+  },
+}

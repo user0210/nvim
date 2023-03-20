@@ -14,6 +14,7 @@ return {
         html = {},
         jsonls = {},
         yamlls = {},
+				tailwindcss = {},
       },
       autoformat = false,
     },
@@ -22,7 +23,7 @@ return {
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   -- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
   -- treesitter, mason and typescript.nvim.
-  { import = "lazyvim.plugins.extras.lang.typescript" },
+  -- { import = "lazyvim.plugins.extras.lang.typescript" },
 
   -- add more treesitter parsers
   {
@@ -142,4 +143,19 @@ return {
       })
     end,
   },
+
+	-- add tailwind-color support
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    opts = function(_, opts)
+      -- original LazyVim kind icon formatter
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        format_kinds(entry, item) -- add icons
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
+    end,
+	},
+
 }

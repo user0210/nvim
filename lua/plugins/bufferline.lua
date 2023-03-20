@@ -9,8 +9,8 @@ return {
           numbers = function(opts)
             return string.format("%s", opts.raise(opts.ordinal))
           end, -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-          close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-          right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+          close_command = function() require("mini.bufremove").delete(0, false) end, -- can be a string | function, see "Mouse actions"
+          right_mouse_command = function() require("mini.bufremove").delete(0, false) end, -- can be a string | function, see "Mouse actions"
           left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
           middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
           indicator = {

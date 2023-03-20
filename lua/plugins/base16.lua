@@ -47,22 +47,33 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "default",
     },
   },
-  {
-    "RRethy/nvim-base16",
-    priority = 1000,
-    opts = function()
-      local base16 = require("base16-colorscheme")
-      base16.with_config({
-        telescope = false,
-        indentblankline = true,
-        cmp = true,
-        illuminate = true,
-      })
-      base16.setup(colors)
-    end,
+  -- {
+  -- 	'echasnovski/mini.base16',
+  -- 	priority = 1000,
+  -- 	opts = {
+  -- 		palette = colors,
+  -- 		use_cterm = true,
+  -- 		plugins = {
+  -- 			default = false,
+  -- 			['echasnovski/mini.nvim'] = true,
+  -- 		},
+  -- 	},
+	{
+	  "RRethy/nvim-base16",
+	  priority = 1000,
+	  opts = function()
+	    local base16 = require("base16-colorscheme")
+	    base16.with_config({
+	      telescope = false,
+	      indentblankline = true,
+	      cmp = true,
+	      illuminate = true,
+	    })
+	    base16.setup(colors)
+	  end,
     config = function()
       colors.codeBG = colors.base00
       colors.nocdBG = colors.base01
@@ -199,11 +210,11 @@ return {
       vim.api.nvim_set_hl(0, "GitSignsChange", { fg = colors.base0Da, bg = colors.nocdBG })
       vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.base08a, bg = colors.nocdBG })
 
-	  -- Diagnostics
-	  vim.api.nvim_set_hl(0, "DiagnosticSignError", 		{ fg = colors.base08a, bg = colors.nocdBG })
-	  vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09a, bg = colors.nocdBG })
-	  vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0Ba, bg = colors.nocdBG })
-	  vim.api.nvim_set_hl(0, "DiagnosticSignHint", 		{ fg = colors.base0Ca, bg = colors.nocdBG })
+      -- Diagnostics
+      vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = colors.base08a, bg = colors.nocdBG })
+      vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = colors.base09a, bg = colors.nocdBG })
+      vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = colors.base0Ba, bg = colors.nocdBG })
+      vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = colors.base0Ca, bg = colors.nocdBG })
 
       -- Navic
       vim.api.nvim_set_hl(0, "NavicIconsFile", { fg = colors.base0Da, bg = colors.nocdBG, bold = false })
@@ -244,6 +255,11 @@ return {
       vim.api.nvim_set_hl(0, "NoiceMini", { bg = colors.base02 })
       vim.api.nvim_set_hl(0, "NoiceMiniSearch", { bg = colors.base0Ab })
       vim.api.nvim_set_hl(0, "NoiceMiniIncSearch", { bg = colors.base0Ab })
+
+      -- DapUI
+      vim.api.nvim_set_hl(0, "DapUINormal", { bg = colors.nocdBG })
+      vim.api.nvim_set_hl(0, "DapUINormalNC", { bg = colors.nocdBG })
+      vim.api.nvim_set_hl(0, "DapUILineNumber", { bg = colors.nocdBG })
     end,
   },
 }

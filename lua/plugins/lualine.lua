@@ -330,10 +330,12 @@ return {
 					ignore_focus = {},
 					disabled_filetypes = {
 						statusline = {
+							"alpha",
 							"dashboard",
 							"Outline",
 						},
 						winbar = {
+							"alpha",
 							"help",
 							"Lazy",
 							"toggleterm",

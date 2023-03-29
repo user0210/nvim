@@ -5,7 +5,7 @@ return {
 		opts = function()
 			---@diagnostic disable: need-check-nil
 			local colors = MiniBase16.config.palette
-			-- local colors = require("colorscheme").colors
+
 			return {
 				options = {
 					numbers = function(opts)
@@ -20,9 +20,7 @@ return {
 						-- icon = '█', -- this should be omitted if indicator style is not 'icon'
 						style = "icon",                                                                -- 'icon' | 'underline' | 'none'
 					},
-					buffer_close_icon = " ",
 					modified_icon = "●",
-					close_icon = " ",
 					left_trunc_marker = "",
 					right_trunc_marker = "",
 					max_name_length = 30,

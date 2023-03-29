@@ -12,7 +12,6 @@ return {
 					handler = function()
 						---@diagnostic disable: need-check-nil
 						local colors = MiniBase16.config.palette
-						-- local colors = require("colorscheme").colors
 
 						vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = colors.nocdBG })
 						vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = colors.nocdBG })
@@ -22,7 +21,8 @@ return {
 				{
 					event = "neo_tree_buffer_enter",
 					handler = function()
-						vim.api.nvim_set_hl(0, "Cursor", { blend = 100 })
+						local colors = MiniBase16.config.palette
+						vim.api.nvim_set_hl(0, "Cursor", { bg = colors.nocdBG, blend = 100 })
 					end
 				},
 				{

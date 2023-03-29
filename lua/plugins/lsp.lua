@@ -68,22 +68,6 @@ return {
 		},
 	},
 
-	-- null-ls
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		opts = function()
-			local nls = require("null-ls")
-			return {
-				sources = {
-					nls.builtins.formatting.prettierd,
-					nls.builtins.diagnostics.eslint_d,
-					nls.builtins.diagnostics.ansiblelint,
-					nls.builtins.diagnostics.flake8,
-				}
-			}
-		end,
-	},
-
 	-- override nvim-cmp and add cmp-emoji
 	{
 		"hrsh7th/nvim-cmp",

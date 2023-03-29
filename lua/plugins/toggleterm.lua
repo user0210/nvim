@@ -10,7 +10,7 @@ return {
 		opts = function()
 			---@diagnostic disable: need-check-nil
 			local colors = MiniBase16.config.palette
-			-- local colors = require("base16-colorscheme").colors
+
 			return {
 				size = 9,
 				open_mapping = [[<a-T>]],

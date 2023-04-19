@@ -9,8 +9,8 @@ return {
 		opts = {
 			welcome_message = "", -- set to "" if you don't like the fancy godot robot
 			keymaps = {
-				submit = "<C-Q>"
-			}
+				submit = "<C-m>",
+			},
 		},
 	}
 }

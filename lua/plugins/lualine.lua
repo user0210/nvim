@@ -4,7 +4,6 @@ return {
 		opts = function()
 			---@diagnostic disable: need-check-nil
 			local colors = MiniBase16.config.palette
-			-- local colors = require("colorscheme").colors
 
 			local lualine = require("lualine")
 			require("lualine.themes.auto")
@@ -19,6 +18,11 @@ return {
 
 			vim.api.nvim_set_hl(0, "CustomSepL", { bg = colors.nocdBG, fg = colors.base00a })
 			vim.api.nvim_set_hl(0, "CustomSepR", { bg = colors.base00a, fg = colors.nocdBG })
+
+			vim.api.nvim_set_hl(0, "DiagnosticError", { fg = colors.base08a })
+			vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.base09a })
+			vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = colors.base0Ba })
+			vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = colors.base0Ca })
 
 			local templer = {
 				normal = {
@@ -57,17 +61,6 @@ return {
 
 			-- COMPONENTS
 
-			local function diff_source()
-				local gitsigns = vim.b.gitsigns_status_dict
-				if gitsigns then
-					return {
-						added = gitsigns.added,
-						modified = gitsigns.changed,
-						removed = gitsigns.removed,
-					}
-				end
-			end
-
 			local diff = {
 				"diff",
 				colored = true,
@@ -77,20 +70,22 @@ return {
 					removed = { bg = bg, fg = colors.base08 },
 				},
 				symbols = { added = "+", modified = "~", removed = "-" },
-				source = diff_source,
+				source = function ()
+					local gitsigns = vim.b.gitsigns_status_dict
+					if gitsigns then
+						return {
+							added = gitsigns.added,
+							modified = gitsigns.changed,
+							removed = gitsigns.removed,
+						}
+					end
+				end
 			}
 
 			local diagnostics = {
 				"diagnostics",
 				sources = { "nvim_lsp", "nvim_diagnostic" },
 				sections = { "error", "warn" }, -- sections = { 'error', 'warn', 'info', 'hint' },
-				--diagnostics_color = {
-				--  -- Same values as the general color option can be used here.
-				--  error = 'DiagnosticError', -- Changes diagnostics' error color.
-				--  warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-				--  info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-				--  hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-				--},
 				symbols = { error = " ", warn = " ", info = "I", hint = "H" },
 				colored = true,
 				update_in_insert = false,
@@ -99,10 +94,7 @@ return {
 
 			local mode = {
 				"mode",
-				icons_enabled = true,
-				icon = nil, -- {'branch', icon = ''} / {'branch', icon = {'', align='right', color={fg='green'}}}
 				separator = { left = " ", right = "" },
-				cond = nil, -- Condition function, the component is loaded when the function returns `true`.
 				color = function()
 					if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
 						return { fg = colors.base05 }
@@ -110,70 +102,7 @@ return {
 						return { fg = colors.base00 }
 					end
 				end,
-				type = nil,
 				padding = { left = 0, right = 1 },
-				fmt = nil, -- Format function, formats the component's output.
-				on_click = nil,
-			}
-
-			local filename = {
-				"filename",
-				file_status = true,
-				newfile_status = false,
-				path = 0, -- 0: Just the filename
-				-- 1: Relative path
-				-- 2: Absolute path
-				-- 3: Absolute path, with tilde as the home directory
-				shorting_target = 40,
-				symbols = {
-					modified = "[+]",
-					readonly = "[-]",
-					unnamed = "[No Name]",
-					newfile = "[New]",
-				},
-				padding = { left = 0, right = 2 },
-			}
-
-			local filetype = {
-				"filetype",
-				icons_enabled = false,
-				icon = nil,
-				on_click = function()
-					vim.cmd("LspInfo")
-				end,
-			}
-
-			local spaces = {
-				"spaces",
-				fmt = function()
-					return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-				end,
-			}
-
-			local surroundL = {
-				"surroundL",
-				fmt = function()
-					return "▎ "
-				end,
-				padding = 0,
-			}
-
-			local surroundR = {
-				"surroundR",
-				fmt = function()
-					return "▕"
-				end,
-				padding = 0,
-				color = { fg = colors.nocdBG },
-			}
-
-			local winbarL = {
-				"winbarL",
-				fmt = function()
-					return "%L "
-				end,
-				padding = 0,
-				color = { fg = colors.nocdBG, bg = colors.nocdBG },
 			}
 
 			local tabclose = {
@@ -185,15 +114,6 @@ return {
 					vim.cmd("tabclose")
 				end,
 				color = { fg = colors.base03, bg = colors.nocdBG },
-			}
-
-			local spread = {
-				"spread",
-				fmt = function()
-					return "%="
-				end,
-				padding = 0,
-				color = { fg = colors.base00a, bg = colors.nocdBG },
 			}
 
 			local minimap = {
@@ -256,6 +176,26 @@ return {
 				cond = require("nvim-navic").is_available,
 				color = { bg = colors.nocdBG },
 			}
+			local noice = {
+				require("noice").api.status.mode.get,
+				cond = require("noice").api.status.mode.has,
+				color = function()
+					if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
+						return { fg = colors.base05 }
+					else
+						return { fg = colors.base00 }
+					end
+				end,
+				separator = { left = " ", right = "" },
+				padding = { left = 0, right = 1 },
+			}
+
+			local filetype 	= { "filetype", 	on_click = function() vim.cmd("LspInfo") end, }
+			local spaces 		= { "spaces", 		fmt = function() return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") end, }
+			local surroundL = { "surroundL", 	fmt = function() return "▎ " 	end, padding = 0, }
+			local surroundR = { "surroundR", 	fmt = function() return "▕" 	end, padding = 0, color = { fg = colors.nocdBG }, }
+			local winbarL 	= { "winbarL", 		fmt = function() return "%L " end, padding = 0, color = { fg = colors.nocdBG, bg = colors.nocdBG }, }
+			local spread 		= { "spread", 		fmt = function() return "%=" 	end, padding = 0, color = { fg = colors.base00a, bg = colors.nocdBG }, }
 
 			-- local tabs = {
 			-- 	"tabs",
@@ -302,20 +242,6 @@ return {
 			-- }
 			--  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 
-			local noice = {
-				require("noice").api.statusline.mode.get,
-				cond = require("noice").api.statusline.mode.has,
-				color = function()
-					if vim.api.nvim_get_mode()["mode"]:match("n") ~= nil then
-						return { fg = colors.base05 }
-					else
-						return { fg = colors.base00 }
-					end
-				end,
-				separator = { left = " ", right = "" },
-				padding = { left = 0, right = 1 },
-			}
-
 			-- extensions
 			local minimap_bar = { sections = {}, filetypes = { "minimap" } }
 
@@ -337,15 +263,12 @@ return {
 						winbar = {
 							"alpha",
 							"help",
-							"Lazy",
 							"toggleterm",
 							"dapui_scopes",
 							"dapui_breakpoints",
 							"dapui_stacks",
 							"dapui_watches",
 							"dap-repl",
-							"lspinfo",
-							"mason",
 							"diff",
 						},
 					},

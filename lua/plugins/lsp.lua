@@ -83,6 +83,8 @@ return {
 	-- first: disable default <tab> and <s-tab> behavior in LuaSnip
 	{
 		"L3MON4D3/LuaSnip",
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
 		keys = function()
 			return {}
 		end,

@@ -75,6 +75,8 @@ return {
 				"diff",
 				"lazy",
 				"mason",
+				"lspinfo",
+				"alpha",
 			},
 			autocmd = {
 				render = {

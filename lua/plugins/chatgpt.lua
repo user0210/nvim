@@ -11,6 +11,9 @@ return {
 			keymaps = {
 				submit = "<C-m>",
 			},
+			popup_input = {
+					submit = "<C-m>",
+			},
 		},
 	}
 }

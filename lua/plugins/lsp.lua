@@ -1,70 +1,8 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		---@class PluginLspOpts
 		opts = {
-			---@type lspconfig.options
-			servers = {
-				pyright = {},
-				angularls = {},
-				bashls = {},
-				clangd = {},
-				cssls = {},
-				cssmodules_ls = {},
-				html = {},
-				jsonls = {},
-				yamlls = {},
-				tailwindcss = {},
-			},
 			autoformat = false,
-		},
-	},
-
-	-- add tsserver and setup with typescript.nvim instead of lspconfig
-	-- for typescript, LazyVim also includes extra specs to properly setup lspconfig,
-	-- treesitter, mason and typescript.nvim.
-	-- { import = "lazyvim.plugins.extras.lang.typescript" },
-
-	-- add more treesitter parsers
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"vimdoc",
-				"html",
-				"javascript",
-				"json",
-				"lua",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"query",
-				"regex",
-				"tsx",
-				"typescript",
-				"vim",
-				"yaml",
-			},
-		},
-	},
-
-	-- add jsonls and schemastore ans setup treesitter for json, json5 and jsonc
-	{ import = "lazyvim.plugins.extras.lang.json" },
-
-	-- add any tools you want to have installed below
-	{
-		"williamboman/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"stylua",
-				"shellcheck",
-				"shfmt",
-				"flake8",
-			},
-			ui = {
-				border = "rounded",
-			},
 		},
 	},
 

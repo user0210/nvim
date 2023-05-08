@@ -43,3 +43,49 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
+-- WhichKey
+require("which-key").register({
+	du = {
+		function()
+			vim.cmd("UndotreeHide")
+			vim.cmd("Neotree close")
+			require("dapui").toggle({ })
+		end,
+		"Dap UI"
+	},
+	t = { name = "Terminal" },
+	["e"] = {
+		function()
+			vim.cmd("UndotreeHide")
+			vim.cmd("Neotree toggle show")
+		end,
+		"Explorer",
+	},
+	["U"] = {
+		function()
+			vim.cmd("Neotree close")
+			vim.cmd("UndotreeToggle")
+		end,
+		"UndoTree",
+	},
+	l = { name = "LSP",
+		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+		d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics" },
+		w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
+		f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
+		i = { "<cmd>LspInfo<cr>", "Info" },
+		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+		k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
+		L = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+		v = { "<cmd>lua vim.diagnostic.hide()<cr>", "VirtText Off" },
+		V = { "<cmd>lua vim.diagnostic.show()<cr>", "VirtText On" },
+	},
+	["["] = { name = "prev" },
+	["]"] = { name = "next" },
+}, { prefix = "<leader>" })

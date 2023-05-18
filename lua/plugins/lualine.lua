@@ -270,6 +270,7 @@ return {
 							"dapui_watches",
 							"dap-repl",
 							"diff",
+							"neo-tree",
 						},
 					},
 				},

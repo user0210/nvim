@@ -98,19 +98,24 @@ return {
 			vim.api.nvim_set_hl(0, "TreesitterContext", 		{ bg = colors.nocdBG, bold = false, blend = 15 })
 
 			-- Neotree
+			vim.api.nvim_set_hl(0, "TabLineFill", 					{ bg = colors.base00 })
 			vim.api.nvim_set_hl(0, "NeoTreeCursorLine", 		{ bg = colors.cursBG })
 			vim.api.nvim_set_hl(0, "NeoTreeIndentMarker", 	{ fg = colors.base03a })
-			vim.api.nvim_set_hl(0, "TabLineFill", 					{ bg = colors.base00 })
 			vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", 		{ bg = "NONE", fg = colors.base0D, })
 			vim.api.nvim_set_hl(0, "NeoTreeFloatNormal", 		{ bg = colors.codeBG, fg = colors.base05 })
 			vim.api.nvim_set_hl(0, "NeoTreeTitleBar", 			{ bg = colors.base0Da, fg = colors.base00 })
+			vim.api.nvim_set_hl(0, "NeoTreeTabActive",						{ bg = colors.nocdBG, fg = colors.base03 })
+			vim.api.nvim_set_hl(0, "NeoTreeTabInactive",					{ bg = colors.nocdBG, fg = colors.base00a })
+			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive",	{ bg = colors.nocdBG, fg = colors.codeBG })
+			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive",		{ bg = colors.nocdBG, fg = colors.codeBG })
 
-			-- Gitsigns
+
+			-- Signcolumn
+			vim.api.nvim_set_hl(0, "SignColumn", 						{ bg = colors.nocdBG })
 			vim.api.nvim_set_hl(0, "GitSignsAdd", 					{ fg = colors.base0Ba, bg = colors.nocdBG })
 			vim.api.nvim_set_hl(0, "GitSignsChange", 				{ fg = colors.base0Da, bg = colors.nocdBG })
 			vim.api.nvim_set_hl(0, "GitSignsDelete", 				{ fg = colors.base08a, bg = colors.nocdBG })
 
-			-- Diagnostics
 			vim.api.nvim_set_hl(0, "DiagnosticSignError", 	{ fg = colors.base08a, bg = colors.nocdBG })
 			vim.api.nvim_set_hl(0, "DiagnosticSignWarn", 		{ fg = colors.base09a, bg = colors.nocdBG })
 			vim.api.nvim_set_hl(0, "DiagnosticSignInfo", 		{ fg = colors.base0Ba, bg = colors.nocdBG })

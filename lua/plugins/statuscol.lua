@@ -11,7 +11,7 @@ return {
 				},
         segments = {
           {
-            sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, auto = true, wrap = true },
+            sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, wrap = true },
             -- sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, fillchar = "▕", fillcharhl = "StatusColSign", auto = true, wrap = true },
             click = "v:lua.ScSa",
           },

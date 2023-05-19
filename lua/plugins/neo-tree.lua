@@ -7,13 +7,15 @@ return {
         winbar = true,
         padding = { left = 0, right = 0 },
         -- separator = { left = "", right = "" },
-        separator = "│",
+        -- separator = "│",
+        separator = "▊",
+        tabs_layout = "start",
         separator_active = nil,
         show_separator_on_edge = false,
       },
       close_if_last_window = true,
       window = {
-        width = 28,
+        width = 29,
       },
       renderers = {
         directory = {
@@ -66,12 +68,14 @@ return {
           handler = function()
             local colors = MiniBase16.config.palette
             vim.api.nvim_set_hl(0, "Cursor", { bg = colors.nocdBG, blend = 100 })
+						vim.opt.sidescrolloff = 0
           end,
         },
         {
           event = "neo_tree_buffer_leave",
           handler = function()
             vim.api.nvim_set_hl(0, "Cursor", { blend = 0 })
+						vim.opt.sidescrolloff = 8
           end,
         },
       },

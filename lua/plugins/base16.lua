@@ -106,8 +106,8 @@ return {
 			vim.api.nvim_set_hl(0, "NeoTreeTitleBar", 			{ bg = colors.base0Da, fg = colors.base00 })
 			vim.api.nvim_set_hl(0, "NeoTreeTabActive",						{ bg = colors.nocdBG, fg = colors.base03 })
 			vim.api.nvim_set_hl(0, "NeoTreeTabInactive",					{ bg = colors.nocdBG, fg = colors.base00a })
-			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive",	{ bg = colors.nocdBG, fg = colors.codeBG })
-			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive",		{ bg = colors.nocdBG, fg = colors.codeBG })
+			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorInactive",	{ bg = colors.codeBG, fg = colors.nocdBG })
+			vim.api.nvim_set_hl(0, "NeoTreeTabSeparatorActive",		{ bg = colors.codeBG, fg = colors.nocdBG })
 
 
 			-- Signcolumn

@@ -271,6 +271,7 @@ return {
 							"dap-repl",
 							"diff",
 							"neo-tree",
+							"Trouble",
 						},
 					},
 				},

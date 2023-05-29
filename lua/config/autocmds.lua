@@ -14,12 +14,24 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 	pattern = "*",
 	callback = function()
 		local exclude = {
+			-- augroup "close_with_q"
+			"PlenaryTestPopup",
 			"help",
+			"lspinfo",
 			"man",
+			"notify",
+			"qf",
+			"spectre_panel",
+			"startuptime",
+			"tsplayground",
+			"neotest-output",
+			"checkhealth",
+			"neotest-summary",
+			"neotest-output-panel",
+			-- other stuff
 			"DressingSelect",
 			"tsplayground",
 			"lazy",
-			"lspinfo",
 			"mason",
 			"undotree",
 			"diff",

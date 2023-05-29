@@ -230,6 +230,7 @@ return {
 					"diffpanel",
 					"minimap",
 					"mason",
+					"Trouble",
 				},
 				callback = function()
 					vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeCursor,SignColumn:NoCodeSign"

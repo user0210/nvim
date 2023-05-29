@@ -77,6 +77,7 @@ return {
 				"mason",
 				"lspinfo",
 				"alpha",
+				"Trouble",
 			},
 			autocmd = {
 				render = {

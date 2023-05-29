@@ -8,6 +8,8 @@ return {
       require("statuscol").setup({
         ft_ignore = {
           "neo-tree",
+          "alpha",
+          "Trouble",
 				},
         segments = {
           {

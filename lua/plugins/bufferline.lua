@@ -3,8 +3,7 @@ return {
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		opts = function()
-			---@diagnostic disable: need-check-nil
-			local colors = MiniBase16.config.palette
+			local colors = require("tokyonight.colors").setup()
 
 			return {
 				options = {

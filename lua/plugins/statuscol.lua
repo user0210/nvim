@@ -3,13 +3,14 @@ return {
     "luukvbaal/statuscol.nvim",
     config = function()
       local builtin = require("statuscol.builtin")
-      local colors = MiniBase16.config.palette
+			local colors = require("tokyonight.colors").setup()
       vim.api.nvim_set_hl(0, "StatusColSign", { bg = colors.nocdBG, fg = colors.base01a })
       require("statuscol").setup({
         ft_ignore = {
           "neo-tree",
           "alpha",
           "Trouble",
+          "minimap",
 				},
         segments = {
           {

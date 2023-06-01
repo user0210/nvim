@@ -55,9 +55,7 @@ return {
         {
           event = "neo_tree_window_before_open",
           handler = function()
-            ---@diagnostic disable: need-check-nil
-            local colors = MiniBase16.config.palette
-
+						local colors = require("tokyonight.colors").setup()
             vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = colors.nocdBG })
             vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = colors.nocdBG })
             vim.api.nvim_set_hl(0, "NeoTreeCursorLine", { bg = colors.cursBG })
@@ -66,7 +64,7 @@ return {
         {
           event = "neo_tree_buffer_enter",
           handler = function()
-            local colors = MiniBase16.config.palette
+						local colors = require("tokyonight.colors").setup()
             vim.api.nvim_set_hl(0, "Cursor", { bg = colors.nocdBG, blend = 100 })
 						vim.opt.sidescrolloff = 0
           end,

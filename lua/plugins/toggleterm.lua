@@ -8,8 +8,7 @@ return {
 			{ "<leader>tt", "<cmd>ToggleTerm size=6 direction=horizontal<cr>", desc = "Horizontal", },
 		},
 		opts = function()
-			---@diagnostic disable: need-check-nil
-			local colors = MiniBase16.config.palette
+			local colors = require("tokyonight.colors").setup()
 
 			return {
 				size = 9,

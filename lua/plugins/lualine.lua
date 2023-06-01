@@ -2,8 +2,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = function()
-			---@diagnostic disable: need-check-nil
-			local colors = MiniBase16.config.palette
+			local colors = require("tokyonight.colors").setup()
 
 			local lualine = require("lualine")
 			require("lualine.themes.auto")

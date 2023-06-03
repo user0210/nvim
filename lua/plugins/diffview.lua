@@ -103,11 +103,10 @@ return {
 			hooks = {
 				diff_buf_win_enter = function()
 					vim.opt_local.signcolumn = "no"
-					vim.opt_local.winhighlight = "Normal:Code"
 				end,
 				view_enter = function()
 					vim.opt_local.signcolumn = "auto"
-					vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeCursor,SignColumn:NoCodeSign"
+			 		vim.opt_local.winhighlight = "CursorLine:NoCodeCursor,CursorLineNr:NoCodeCursor,CursorLineSign:NoCodeCursor,CursorLineFold:NoCodeCursor,SignColumn:NoCodeSign"
 					--require("lualine").hide({ place = { "tabline" }, unhide = true, })
 					vim.cmd("ScrollbarHide")
 				end,

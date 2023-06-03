@@ -54,3 +54,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		vim.opt_local.signcolumn = "auto"
 	end,
 })
+
+-- -- color non-code windowscolors
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+-- 	pattern = {
+-- 		"help",
+-- 		"man",
+-- 		"undotree",
+-- 		"diff",
+-- 		"diffpanel",
+-- 		"minimap",
+-- 		"mason",
+-- 		"Trouble",
+-- 	},
+-- 	callback = function()
+-- 		vim.opt_local.winhighlight = "Normal:NoCode,CursorLine:NoCodeCursor,CursorLineNr:NoCodeCursor,CursorLineSign:NoCodeCursor,CursorLineFold:NoCodeCursor,SignColumn:NoCodeSign"
+-- 	end,
+-- })

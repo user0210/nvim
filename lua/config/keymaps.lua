@@ -54,7 +54,7 @@ require("which-key").register({
 		end,
 		"Dap UI"
 	},
-	t = { name = "Terminal" },
+	T = { name = "Terminal" },
 	["e"] = {
 		function()
 			vim.cmd("UndotreeHide")

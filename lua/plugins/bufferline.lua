@@ -3,8 +3,6 @@ return {
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
 		opts = function()
-			local colors = require("tokyonight.colors").setup()
-
 			return {
 				options = {
 					numbers = function(opts)
@@ -48,69 +46,6 @@ return {
 					-- 		return result
 					-- 	end,
 					-- },
-				},
-				highlights = {
-					-- separators
-					separator = 									{ bg = colors.buffBG, fg = colors.base00 },
-					separator_selected = 					{ bg = colors.nocdBG, fg = colors.base00 },
-					separator_visible = 					{ bg = colors.nocdBG, fg = colors.base00 },
-					tab_separator = 							{ bg = colors.base00, fg = colors.base00 },
-					tab_separator_selected = 			{ bg = colors.base00, fg = colors.base00 },
-					offset_separator = 						{ bg = "NONE", 				fg = colors.base00 },
-					-- hidden tab
-					tab = 												{ bg = colors.base00, fg = colors.base02 },
-					fill = 												{ bg = colors.base00, fg = colors.base02 },
-					tab_close = 									{ bg = colors.base00, fg = colors.base01 },
-					numbers = 										{ bg = colors.buffBG, fg = colors.buffFG },
-					background = 									{ bg = colors.buffBG, fg = colors.buffFG },
-					close_button = 								{ bg = colors.buffBG, fg = colors.buffFG },
-					diagnostic = 									{ bg = colors.buffBG, fg = colors.buffFG },
-					info = 												{ bg = colors.buffBG, fg = colors.buffFG },
-					info_diagnostic = 						{ bg = colors.buffBG, fg = colors.buffFG },
-					warning = 										{ bg = colors.buffBG, fg = colors.buffFG },
-					warning_diagnostic = 					{ bg = colors.buffBG, fg = colors.buffFG },
-					error = 											{ bg = colors.buffBG, fg = colors.buffFG },
-					error_diagnostic = 						{ bg = colors.buffBG, fg = colors.buffFG },
-					modified = 										{ bg = colors.buffBG, fg = colors.buffFG, italic = false },
-					duplicate = 									{ bg = colors.buffBG, fg = colors.buffFG },
-					pick = 												{ bg = colors.buffBG, fg = colors.buffFG },
-					hint = 												{ bg = colors.buffBG, fg = colors.buffFG },
-					hint_diagnostic = 						{ bg = colors.buffBG, fg = colors.buffFG },
-					-- selected tab
-					tab_selected = 								{ bg = colors.base00, fg = colors.nocdFG, italic = false },
-					numbers_selected = 						{ bg = colors.nocdBG, fg = colors.nocdFG },
-					close_button_selected = 			{ bg = colors.nocdBG, fg = colors.nocdFG },
-					buffer_selected = 						{ bg = colors.nocdBG, fg = colors.nocdFG, italic = false },
-					diagnostic_selected = 				{ bg = colors.nocdBG, fg = colors.nocdFG },
-					info_selected = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					info_diagnostic_selected =		{ bg = colors.nocdBG, fg = colors.nocdFG },
-					warning_selected = 						{ bg = colors.nocdBG, fg = colors.nocdFG },
-					warning_diagnostic_selected = { bg = colors.nocdBG, fg = colors.nocdFG },
-					error_selected = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					error_diagnostic_selected = 	{ bg = colors.nocdBG, fg = colors.nocdFG },
-					modified_selected = 					{ bg = colors.nocdBG, fg = colors.nocdFG, italic = false },
-					duplicate_selected = 					{ bg = colors.nocdBG, fg = colors.nocdFG },
-					indicator_selected = 					{ bg = colors.nocdBG, fg = colors.nocdFG },
-					pick_selected = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					hint_selected = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					hint_diagnostic_selected = 		{ bg = colors.nocdBG, fg = colors.nocdFG },
-					-- visible tab
-					numbers_visible = 						{ bg = colors.nocdBG, fg = colors.nocdFG },
-					close_button_visible = 				{ bg = colors.nocdBG, fg = colors.nocdFG },
-					buffer_visible = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					diagnostic_visible = 					{ bg = colors.nocdBG, fg = colors.nocdFG },
-					info_visible = 								{ bg = colors.nocdBG, fg = colors.nocdFG },
-					info_diagnostic_visible = 		{ bg = colors.nocdBG, fg = colors.nocdFG },
-					warning_visible = 						{ bg = colors.nocdBG, fg = colors.nocdFG },
-					warning_diagnostic_visible = 	{ bg = colors.nocdBG, fg = colors.nocdFG },
-					error_visible = 							{ bg = colors.nocdBG, fg = colors.nocdFG },
-					error_diagnostic_visible = 		{ bg = colors.nocdBG, fg = colors.nocdFG },
-					modified_visible = 						{ bg = colors.nocdBG, fg = colors.nocdFG, italic = false },
-					duplicate_visible = 					{ bg = colors.nocdBG, fg = colors.nocdFG },
-					indicator_visible = 					{ bg = colors.nocdBG, fg = colors.nocdFG },
-					pick_visible = 								{ bg = colors.nocdBG, fg = colors.nocdFG },
-					hint_visible = 								{ bg = colors.nocdBG, fg = colors.nocdFG },
-					hint_diagnostic_visible = 		{ bg = colors.nocdBG, fg = colors.nocdFG },
 				},
 			}
 		end,

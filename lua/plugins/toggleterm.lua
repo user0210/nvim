@@ -4,12 +4,10 @@ return {
 		event = "VeryLazy",
 		cmd = { "ToggleTerm" },
 		keys = {
-			{ "<leader>tf", "<cmd>ToggleTerm direction=float<cr>",             desc = "Float", },
-			{ "<leader>tt", "<cmd>ToggleTerm size=6 direction=horizontal<cr>", desc = "Horizontal", },
+			{ "<leader>Tf", "<cmd>ToggleTerm direction=float<cr>",             desc = "Float", },
+			{ "<leader>Tt", "<cmd>ToggleTerm size=6 direction=horizontal<cr>", desc = "Horizontal", },
 		},
 		opts = function()
-			local colors = require("tokyonight.colors").setup()
-
 			return {
 				size = 9,
 				open_mapping = [[<a-T>]],
@@ -24,11 +22,6 @@ return {
 				shell = vim.o.shell,
 				float_opts = {
 					border = "curved",
-				},
-				highlights = {
-					Normal = { guibg = colors.nocdBG },
-					CursorLine = { guibg = colors.nocdBG },
-					CursorLineSign = { guibg = colors.nocdBG },
 				},
 			}
 		end,

@@ -3,15 +3,20 @@ return {
     "luukvbaal/statuscol.nvim",
     config = function()
       local builtin = require("statuscol.builtin")
-			local colors = require("tokyonight.colors").setup()
-      vim.api.nvim_set_hl(0, "StatusColSign", { bg = colors.nocdBG, fg = colors.base01a })
       require("statuscol").setup({
         ft_ignore = {
           "neo-tree",
           "alpha",
           "Trouble",
           "minimap",
-				},
+          "toggleterm",
+          "help",
+          "man",
+          "undotree",
+          "diff",
+          "diffpanel",
+          "mason",
+        },
         segments = {
           {
             sign = { name = { ".*" }, maxwidth = 1, colwidth = 1, wrap = true },

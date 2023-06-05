@@ -9,19 +9,8 @@ return {
 
 			local bg = colors.base0Da
 
-			vim.api.nvim_set_hl(0, "WinBar", { bg = colors.nocdBG })
-			vim.api.nvim_set_hl(0, "WinBarNC", { bg = colors.nocdBG })
-
-			vim.api.nvim_set_hl(0, "StatusLineNC", { bg = colors.nocdBG, fg = colors.base00 })
-			vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.nocdBG, fg = colors.base03 })
-
 			vim.api.nvim_set_hl(0, "CustomSepL", { bg = colors.nocdBG, fg = colors.base00a })
 			vim.api.nvim_set_hl(0, "CustomSepR", { bg = colors.base00a, fg = colors.nocdBG })
-
-			vim.api.nvim_set_hl(0, "DiagnosticError", { fg = colors.base08a })
-			vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.base09a })
-			vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = colors.base0Ba })
-			vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = colors.base0Ca })
 
 			local templer = {
 				normal = {
@@ -64,9 +53,9 @@ return {
 				"diff",
 				colored = true,
 				diff_color = {
-					added = { bg = bg, fg = colors.base0B },
-					modified = { bg = bg, fg = colors.base0D },
-					removed = { bg = bg, fg = colors.base08 },
+					added = { bg = bg, fg = colors.base0Bb },
+					modified = { bg = bg, fg = colors.base0Db },
+					removed = { bg = bg, fg = colors.base08b },
 				},
 				symbols = { added = "+", modified = "~", removed = "-" },
 				source = function ()
@@ -242,7 +231,7 @@ return {
 			--  ⢾⡷   ⠙⢿⡿⠋⣠⣾⣷⣄  ⢀⣴⣦⡀⠈⠻⠟⠁ ⣶⡆⢰⣶  ⠿⠇⠸⠿  ⠰⠶⠆  ⠰⠶⡷  ⡇⢸  ▏▕
 
 			-- extensions
-			local minimap_bar = { sections = {}, filetypes = { "minimap" } }
+			-- local minimap_bar = { sections = {}, filetypes = { "minimap" } }
 
 			return {
 				options = {
@@ -284,7 +273,7 @@ return {
 				},
 				inactive_sections = {
 					lualine_a = { surroundL },
-					lualine_b = { filename },
+					lualine_b = { "filename" },
 					lualine_c = {},
 					lualine_x = { "location" },
 					lualine_y = {},

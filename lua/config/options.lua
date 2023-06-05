@@ -1,3 +1,4 @@
+vim.opt.mousemoveevent = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
 vim.opt.clipboard = ""
@@ -9,6 +10,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.scrolloff = 4
 vim.opt.spelllang = "en_us,de_de"
+vim.opt.swapfile = false
 vim.opt.title = true
 vim.opt.titlestring = "Vim  %t"
 vim.opt.linebreak = true

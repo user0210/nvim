@@ -25,10 +25,10 @@ return {
           {
             "container",
             content = {
+              { "diagnostics", errors_only = true, zindex = 20, align = "right", hide_when_expanded = true },
               { "name", zindex = 10 },
               { "clipboard", zindex = 10 },
               { "git_status", zindex = 20, align = "right", hide_when_expanded = true },
-              { "diagnostics", errors_only = true, zindex = 20, align = "right", hide_when_expanded = true },
             },
           },
         },
@@ -42,10 +42,6 @@ return {
                 "name",
                 zindex = 10,
               },
-              { "clipboard", zindex = 10 },
-              { "bufnr", zindex = 10 },
-              { "modified", zindex = 20, align = "right" },
-              { "git_status", zindex = 20, align = "right" },
               { "diagnostics", zindex = 20, align = "right" },
             },
           },

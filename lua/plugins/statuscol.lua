@@ -5,17 +5,17 @@ return {
       local builtin = require("statuscol.builtin")
       require("statuscol").setup({
         ft_ignore = {
-          "neo-tree",
           "alpha",
-          "Trouble",
-          "minimap",
-          "toggleterm",
-          "help",
-          "man",
-          "undotree",
           "diff",
           "diffpanel",
+          "help",
+          "man",
           "mason",
+          "minimap",
+          "neo-tree",
+          "toggleterm",
+          "Trouble",
+          "undotree",
         },
         segments = {
           {

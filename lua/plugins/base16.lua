@@ -131,8 +131,11 @@ return {{
   lazy = true,
   opts = {
 		style = "templer",
+    -- transparent = true,
 		styles = {
 			sidebars = "templer", -- style for sidebars, see below
+      -- sidebars = "transparent",
+      -- floats = "transparent",
 		},
 		sidebars = {
 			"help",

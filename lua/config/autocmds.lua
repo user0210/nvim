@@ -51,7 +51,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"undotree",
 	},
 	callback = function()
-		vim.opt_local.signcolumn = "auto"
+		vim.opt_local.signcolumn = "number"
+	end,
+})
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = {
+		"help",
+	},
+	callback = function()
+		vim.opt_local.signcolumn = "yes"
 	end,
 })
 

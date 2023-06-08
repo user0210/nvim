@@ -10,9 +10,9 @@ return {
 
 			-- undotree window width
 			if vim.g.undotree_ShortIndicators == 1 then
-				vim.g.undotree_SplitWidth = 28
+				vim.g.undotree_SplitWidth = 27
 			elseif vim.g.undotree_ShortIndicators == 3 then
-				vim.g.undotree_SplitWidth = 28
+				vim.g.undotree_SplitWidth = 27
 			else
 				vim.g.undotree_SplitWidth = 30
 			end

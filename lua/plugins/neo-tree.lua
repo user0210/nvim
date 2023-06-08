@@ -6,16 +6,17 @@ return {
       source_selector = {
         winbar = true,
         padding = { left = 0, right = 0 },
-        -- separator = { left = "", right = "" },
         -- separator = "│",
-        separator = "▊",
-        tabs_layout = "start",
+        -- separator = "▊",
+        separator = "",
+        -- separator_active = { left = "", right = "" },
         separator_active = nil,
+        tabs_layout = "start",
         show_separator_on_edge = false,
       },
       close_if_last_window = true,
       window = {
-        width = 29,
+        width = 27,
       },
       renderers = {
         directory = {

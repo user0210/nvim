@@ -164,12 +164,12 @@ return {{
 			hl.CursorLineFold						= { bg = color.base02a, fg = color.base00a }
 
 			-- Scrollbar
-			hl.NoCode										= { bg = c.templer.bg }
-			hl.NoCodeSign								= { bg = c.templer.bg }
-			hl.NoCodeCursor							= { bg = c.templer.base01 }
-			hl.IlluminatedWordRead			= { bg = c.templer.base01 }
-			hl.IlluminatedWordText			= { bg = c.templer.base01 }
-			hl.IlluminatedWordWrite			= { bg = c.templer.base01 }
+			hl.NoCode										= { bg = color.bg }
+			hl.NoCodeSign								= { bg = color.bg }
+			hl.NoCodeCursor							= { bg = color.base01 }
+			hl.IlluminatedWordRead			= { bg = color.base01 }
+			hl.IlluminatedWordText			= { bg = color.base01 }
+			hl.IlluminatedWordWrite			= { bg = color.base01 }
 			hl.ScrollbarCursor					= { bg = color.base00a, fg = color.base00a }
 			hl.ScrollbarHandle					= { bg = color.base02, 	fg = color.base00a }
 			hl.ScrollbarCursorHandle		= { bg = color.base02, 	fg = color.base00a }
@@ -204,6 +204,7 @@ return {{
 			-- NeoTree
 			hl.NeoTreeTabActive							= { bg = color.nocdBG, fg = color.base03 }
 			hl.NeoTreeTabInactive						= { bg = color.base00a, fg = color.base02 }
+			hl.NeoTreeRootName							= { underline = true }
 			hl.NeoTreeTabSeparatorInactive	= { bg = color.base01a, fg = color.base00a }
 			hl.NeoTreeTabSeparatorActive		= { bg = color.codeBG, fg = color.nocdBG }
 			-- TreesitterContext

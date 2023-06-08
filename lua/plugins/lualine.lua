@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		opts = function()
-			local colors = require("tokyonight.colors").setup()
+			local colors = vim.deepcopy(require("tokyonight.colors").setup())
 
 			local lualine = require("lualine")
 			require("lualine.themes.auto")
@@ -246,6 +246,7 @@ return {
 						statusline = {
 							"alpha",
 							"dashboard",
+							"help",
 							"Outline",
 						},
 						winbar = {
@@ -257,6 +258,7 @@ return {
 							"dap-repl",
 							"diff",
 							"help",
+							"man",
 							"neo-tree",
 							"toggleterm",
 							"Trouble",

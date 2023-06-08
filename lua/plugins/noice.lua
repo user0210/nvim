@@ -27,6 +27,15 @@ return {
 			popupmenu = {
 				backend = "cmp", -- backend to use to show regular cmdline completions
 			},
+			-- routes = {
+			-- 	{
+			-- 		filter = {
+			-- 			event = "msg_show",
+			-- 			kind = "lua_error",
+			-- 		},
+			-- 		opts = { skip = true },
+			-- 	},
+			-- },
 			-- lsp = {
 			-- 	override = {
 			-- 		["vim.lsp.util.convert_input_to_markdown_lines"] = true,

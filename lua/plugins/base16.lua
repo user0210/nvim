@@ -163,6 +163,10 @@ return {{
 			hl.CursorLineSign						= { bg = color.base02a, fg = color.base00a }
 			hl.CursorLineFold						= { bg = color.base02a, fg = color.base00a }
 
+			hl.GitSignsAdd 							= { fg = color.base0Bb }
+			hl.GitSignsChange						= { fg = color.base0Db }
+			hl.GitSignsDelete						= { fg = color.base08b }
+
 			-- Scrollbar
 			hl.NoCode										= { bg = color.bg }
 			hl.NoCodeSign								= { bg = color.bg }

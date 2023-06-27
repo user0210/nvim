@@ -4,7 +4,7 @@ return {
     opts = {
       add_blank_line_at_top = true,
       source_selector = {
-        winbar = true,
+        -- winbar = true,
         padding = { left = 0, right = 0 },
         -- separator = "│",
         -- separator = "▊",

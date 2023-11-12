@@ -113,7 +113,7 @@ c.templer.purple = "#92749B"
 c.templer.red = "#cc6666"
 c.templer.red1 = "#AC4646"
 c.templer.teal = "#959D48"
-c.templer.terminal_black = "#969896"
+c.templer.terminal_black = "#373b41"
 c.templer.warning = "#f0c674"
 c.templer.yellow = "#f0c674"
 -- MONDO-END

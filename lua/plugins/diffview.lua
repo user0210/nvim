@@ -3,11 +3,11 @@ return {
 		"sindrets/diffview.nvim",
 		keys = {
 			{ "<leader>gd", function()
-  			if next(require("diffview.lib").views) == nil then
-    			vim.cmd("DiffviewOpen")
-  			else
-    			vim.cmd("DiffviewClose")
-  			end
+				if next(require("diffview.lib").views) == nil then
+					vim.cmd("DiffviewOpen")
+				else
+					vim.cmd("DiffviewClose")
+				end
 			end, desc = "Diff", },
 			{ "<leader>gD", "<cmd>DiffviewFileHistory<cr>", desc = "Diff History", },
 		},
@@ -19,7 +19,7 @@ return {
 			show_help_hints = true,  -- Show hints for how to open the help panel
 			watch_index = true,      -- Update views and index buffers when the git index changes.
 			icons = {
-			                         -- Only applies when use_icons is true.
+				                       -- Only applies when use_icons is true.
 				folder_closed = "",
 				folder_open = "",
 			},

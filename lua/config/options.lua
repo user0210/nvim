@@ -1,3 +1,6 @@
+vim.opt.statuscolumn = "%=%l%s%C"
+-- vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
+
 vim.opt.mousemoveevent = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = false
@@ -32,16 +35,30 @@ vim.opt.fillchars:append("vertleft :▊")
 vim.opt.fillchars:append("vertright:▊")
 vim.opt.fillchars:append("verthoriz:▊")
 
+-- vim.opt.clipboard = ""
+-- vim.g.clipboard = {
+--   name = "WslClipboard",
+--   copy = {
+--     ["+"] = { "clip.exe" },
+--     ["*"] = { "clip.exe" },
+--   },
+--   paste = {
+--     ["+"] = { 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))' },
+--     ["*"] = { 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))' },
+--   },
+--   cache_enabled = true,
+-- }
+
 vim.opt.clipboard = ""
 vim.g.clipboard = {
-  name = "WslClipboard",
+  name = "win32yank-wsl",
   copy = {
-    ["+"] = { "clip.exe" },
-    ["*"] = { "clip.exe" },
+    ["+"] = "win32yank.exe -i --crlf",
+    ["*"] = "win32yank.exe -i --crlf",
   },
   paste = {
-    ["+"] = { 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))' },
-    ["*"] = { 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))' },
+    ["+"] = "win32yank.exe -o --lf",
+    ["*"] = "win32yank.exe -o --lf",
   },
-  cache_enabled = true,
+  cache_enabled = 0,
 }

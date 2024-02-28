@@ -4,16 +4,22 @@ return {
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
+			"nvim-telescope/telescope.nvim"
 		},
-		opts = {
-			welcome_message = "", -- set to "" if you don't like the fancy godot robot
-			keymaps = {
-				submit = "<C-m>",
-			},
-			popup_input = {
-					submit = "<C-m>",
-			},
-		},
+		event = "VeryLazy",
+		config = function()
+			require("chatgpt").setup({
+				-- api_key_cmd = "gopass show -o -f chatgpt/apikey",
+				chat = {
+					welcome_message = "", -- set to "" if you don't like the fancy godot robot
+				},
+				-- openai_params = {
+				-- 	model = "gpt-4",
+				-- },
+				-- openai_edit_params = {
+				-- 	model = "gpt-4",
+				-- },
+			})
+		end,
 	}
 }

@@ -21,7 +21,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.yaml" },
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
-		-- { import = "lazyvim.plugins.extras.coding.yanky" },
 		{ import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.dap.nlua" },
 		{ import = "lazyvim.plugins.extras.util.project" },
@@ -30,6 +29,9 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.ui.mini-animate" },
 		{ import = "lazyvim.plugins.extras.editor.mini-files" },
 		{ import = "lazyvim.plugins.extras.editor.navic" },
+		{ import = "lazyvim.plugins.extras.editor.leap" },
+		{ import = "lazyvim.plugins.extras.lsp.none-ls" },
+		-- { import = "lazyvim.plugins.extras.coding.yanky" },
 		-- { import = "lazyvim.plugins.extras.ui.edgy" },
 		-- import/override with your plugins
 		{ import = "plugins" },

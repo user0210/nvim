@@ -38,6 +38,7 @@ vim.opt.fillchars:append("verthoriz:▊")
 
 vim.opt.clipboard = ""
 if vim.fn.has("wsl") == 1 then
+
 	vim.api.nvim_create_autocmd("TextYankPost", {
 		callback = function()
 			vim.schedule(function()
@@ -45,6 +46,7 @@ if vim.fn.has("wsl") == 1 then
 			end)
 		end,
 	})
+
 	-- vim.g.clipboard = {
 	-- 	name = "win32yank-wsl",
 	-- 	copy = {
@@ -57,6 +59,7 @@ if vim.fn.has("wsl") == 1 then
 	-- 	},
 	-- 	cache_enabled = 0,
 	-- }
+
 	-- vim.g.clipboard = {
 	-- 	name = "WslClipboard",
 	-- 	copy = {

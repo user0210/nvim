@@ -14,7 +14,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>n", "<cmd>nohlsearch<CR><silent>:call minimap#vim#ClearColorSearch()<CR>", { desc = "No Highlight" })
-map("n", "<leader>p", [["_dP]], { desc = "Paste No Yank" })
+map("n", "<leader>P", [["_dP]], { desc = "Paste No Yank" })
 map("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace in File" })
 map("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 

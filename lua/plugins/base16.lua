@@ -133,138 +133,164 @@ colors.buffFG = colors.base02a
 			end,
 
 			on_highlights = function(hl, color)
-				hl.Whithespace              = { fg = color.base02 }
-				hl.NonText                  = { fg = color.base02 }
-				hl.IndentBlanklineContextChar = { fg = color.base02 }
-				hl.IndentBlanklineChar      = { fg = color.base02 }
-				hl.LineNr                   = { fg = color.base02 }
+				hl.Whithespace                          = {                     fg = color.base02                  }
+				hl.NonText                              = {                     fg = color.base02                  }
+				hl.IndentBlanklineContextChar           = {                     fg = color.base02                  }
+				hl.IndentBlanklineChar                  = {                     fg = color.base02                  }
+				hl.LineNr                               = {                     fg = color.base02                  }
 
-				hl.TabLineFill              = { bg = color.base00 }
-				hl.VertSplit                = { bg = color.base00, fg = color.bg }
-				hl.WinSeparator             = { bg = color.base00, fg = color.bg }
+				hl.TabLineFill                          = { bg = color.base00                                      }
+				hl.VertSplit                            = { bg = color.base00,  fg = color.bg                      }
+				hl.WinSeparator                         = { bg = color.base00,  fg = color.bg                      }
 
-				hl.CursorLine               = { bg = color.base01, bold = true }
-				hl.CursorLineNr             = { bg = color.base02a, fg = color.base00a }
-				hl.CursorLineSign           = { bg = color.base02a, fg = color.base00a }
-				hl.CursorLineFold           = { bg = color.base02a, fg = color.base00a }
+				hl.CursorLine                           = { bg = color.base01,                      bold = true    }
+				hl.CursorLineNr                         = { bg = color.base02a, fg = color.base00a                 }
+				hl.CursorLineSign                       = { bg = color.base02a, fg = color.base00a                 }
+				hl.CursorLineFold                       = { bg = color.base02a, fg = color.base00a                 }
 
-				hl.GitSignsAdd              = { fg = color.base0Bb }
-				hl.GitSignsChange           = { fg = color.base0Db }
-				hl.GitSignsDelete           = { fg = color.base08b }
-				hl.GitSignsAddCul           = { bg = color.base02a, fg = color.base0Bb }
-				hl.GitSignsChangeCul        = { bg = color.base02a, fg = color.base0Db }
-				hl.GitSignsDeleteCul        = { bg = color.base02a, fg = color.base08b }
-				hl.GitSignsStagedChangeCul  = { bg = color.base02a, fg = color.base0Db }
-				hl.GitSignsStagedDeleteCul  = { bg = color.base02a, fg = color.base08b }
+				hl.GitSignsAdd                          = {                     fg = color.base0Bb                 }
+				hl.GitSignsChange                       = {                     fg = color.base0Db                 }
+				hl.GitSignsDelete                       = {                     fg = color.base08b                 }
+				hl.GitSignsAddCul                       = { bg = color.base02a, fg = color.base0Bb                 }
+				hl.GitSignsChangeCul                    = { bg = color.base02a, fg = color.base0Db                 }
+				hl.GitSignsDeleteCul                    = { bg = color.base02a, fg = color.base08b                 }
+				hl.GitSignsStagedChangeCul              = { bg = color.base02a, fg = color.base0Db                 }
+				hl.GitSignsStagedDeleteCul              = { bg = color.base02a, fg = color.base08b                 }
 
 				-- Scrollbar
-				hl.NoCode                   = { bg = color.bg }
-				hl.NoCodeSign               = { bg = color.bg }
-				hl.NoCodeCursor             = { bg = color.base01 }
-				hl.IlluminatedWordRead      = { bg = color.base01 }
-				hl.IlluminatedWordText      = { bg = color.base01 }
-				hl.IlluminatedWordWrite     = { bg = color.base01 }
-				hl.ScrollbarCursor          = { bg = color.base00a, fg = color.base00a }
-				hl.ScrollbarHandle          = { bg = color.base02,  fg = color.base00a }
-				hl.ScrollbarCursorHandle    = { bg = color.base02,  fg = color.base00a }
-				hl.ScrollbarError           = { bg = color.codeBG,  fg = color.base08b }
-				hl.ScrollbarErrorHandle     = { bg = color.base02,  fg = color.base08a }
-				hl.ScrollbarWarn            = { bg = color.codeBG,  fg = color.base09b }
-				hl.ScrollbarWarnHandle      = { bg = color.base02,  fg = color.base09a }
-				hl.ScrollbarSearch          = { bg = color.codeBG,  fg = color.base0Ab }
-				hl.ScrollbarSearchHandle    = { bg = color.base02,  fg = color.base0Aa }
-				hl.ScrollbarInfo            = { bg = color.codeBG,  fg = color.base0Cb }
-				hl.ScrollbarInfoHandle      = { bg = color.base02,  fg = color.base0Ca }
-				hl.ScrollbarHint            = { bg = color.codeBG,  fg = color.base0Fb }
-				hl.ScrollbarHintHandle      = { bg = color.base02,  fg = color.base0Fa }
-				hl.ScrollbarMisc            = { bg = color.codeBG,  fg = color.base03 }
-				hl.ScrollbarMiscHandle      = { bg = color.base02,  fg = color.base04 }
-				hl.ScrollbarGitAdd          = { bg = color.codeBG,  fg = color.base0Bb }
-				hl.ScrollbarGitAddHandle    = { bg = color.base02,  fg = color.base0Ba }
-				hl.ScrollbarGitChange       = { bg = color.codeBG,  fg = color.base0Db }
-				hl.ScrollbarGitChangeHandle = { bg = color.base02,  fg = color.base0Da }
-				hl.ScrollbarGitDelete       = { bg = color.codeBG,  fg = color.base0Fb }
-				hl.ScrollbarGitDeleteHandle = { bg = color.base02,  fg = color.base0Fa }
+				hl.NoCode                               = { bg = color.bg                                          }
+				hl.NoCodeSign                           = { bg = color.bg                                          }
+				hl.NoCodeCursor                         = { bg = color.base01                                      }
+				hl.IlluminatedWordRead                  = { bg = color.base01                                      }
+				hl.IlluminatedWordText                  = { bg = color.base01                                      }
+				hl.IlluminatedWordWrite                 = { bg = color.base01                                      }
+				hl.ScrollbarCursor                      = { bg = color.base00a, fg = color.base00a                 }
+				hl.ScrollbarHandle                      = { bg = color.base02,  fg = color.base00a                 }
+				hl.ScrollbarCursorHandle                = { bg = color.base02,  fg = color.base00a                 }
+				hl.ScrollbarError                       = { bg = color.codeBG,  fg = color.base08b                 }
+				hl.ScrollbarErrorHandle                 = { bg = color.base02,  fg = color.base08a                 }
+				hl.ScrollbarWarn                        = { bg = color.codeBG,  fg = color.base09b                 }
+				hl.ScrollbarWarnHandle                  = { bg = color.base02,  fg = color.base09a                 }
+				hl.ScrollbarSearch                      = { bg = color.codeBG,  fg = color.base0Ab                 }
+				hl.ScrollbarSearchHandle                = { bg = color.base02,  fg = color.base0Aa                 }
+				hl.ScrollbarInfo                        = { bg = color.codeBG,  fg = color.base0Cb                 }
+				hl.ScrollbarInfoHandle                  = { bg = color.base02,  fg = color.base0Ca                 }
+				hl.ScrollbarHint                        = { bg = color.codeBG,  fg = color.base0Fb                 }
+				hl.ScrollbarHintHandle                  = { bg = color.base02,  fg = color.base0Fa                 }
+				hl.ScrollbarMisc                        = { bg = color.codeBG,  fg = color.base03                  }
+				hl.ScrollbarMiscHandle                  = { bg = color.base02,  fg = color.base04                  }
+				hl.ScrollbarGitAdd                      = { bg = color.codeBG,  fg = color.base0Bb                 }
+				hl.ScrollbarGitAddHandle                = { bg = color.base02,  fg = color.base0Ba                 }
+				hl.ScrollbarGitChange                   = { bg = color.codeBG,  fg = color.base0Db                 }
+				hl.ScrollbarGitChangeHandle             = { bg = color.base02,  fg = color.base0Da                 }
+				hl.ScrollbarGitDelete                   = { bg = color.codeBG,  fg = color.base0Fb                 }
+				hl.ScrollbarGitDeleteHandle             = { bg = color.base02,  fg = color.base0Fa                 }
 				-- Navic
-				hl.NavicText                    = { fg = color.base03a,   bg = color.nocdBG, bold = false }
+				hl.NavicText                            = { bg = color.nocdBG,  fg = color.base03a, bold = false   }
+        hl.NavicIconsFile                       = { bg = color.nocdBG,  fg = color.fg                      }
+        hl.NavicIconsModule                     = { bg = color.nocdBG,  fg = color.yellow                  }
+        hl.NavicIconsNamespace                  = { bg = color.nocdBG,  fg = color.fg                      }
+        hl.NavicIconsPackage                    = { bg = color.nocdBG,  fg = color.fg                      }
+        hl.NavicIconsClass                      = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsMethod                     = { bg = color.nocdBG,  fg = color.blue                    }
+        hl.NavicIconsProperty                   = { bg = color.nocdBG,  fg = color.green1                  }
+        hl.NavicIconsField                      = { bg = color.nocdBG,  fg = color.green1                  }
+        hl.NavicIconsConstructor                = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsEnum                       = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsInterface                  = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsFunction                   = { bg = color.nocdBG,  fg = color.blue                    }
+        hl.NavicIconsVariable                   = { bg = color.nocdBG,  fg = color.magenta                 }
+        hl.NavicIconsConstant                   = { bg = color.nocdBG,  fg = color.magenta                 }
+        hl.NavicIconsString                     = { bg = color.nocdBG,  fg = color.green                   }
+        hl.NavicIconsNumber                     = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsBoolean                    = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsArray                      = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsObject                     = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsKey                        = { bg = color.nocdBG,  fg = color.purple                  }
+        hl.NavicIconsNull                       = { bg = color.nocdBG,  fg = color.purple                  }
+        hl.NavicIconsEnumMember                 = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsStruct                     = { bg = color.nocdBG,  fg = color.green1                  }
+        hl.NavicIconsEvent                      = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsOperator                   = { bg = color.nocdBG,  fg = color.orange                  }
+        hl.NavicIconsTypeParameter              = { bg = color.nocdBG,  fg = color.fg                      }
 				-- Noice
-				hl.NoiceCmdline                 = { bg = color.base0Db,fg = color.base05, blend = 0 }
-				hl.NoiceCmdlineIcon             = { bg = color.base02, fg = color.base0Da, blend = 0 }
-				hl.NoiceCmdlineIconSearch       = { bg = color.base02, fg = color.base0Da, blend = 0 }
-				hl.NoiceCmdlinePrompt           = { bg = color.nocdBG, fg = color.base0Da, blend = 0 }
-				hl.NoiceMini                    = { bg = color.base0Dc }
-				hl.NoiceMiniSearch              = { bg = color.base0Ac }
-				hl.NoiceMiniIncSearch           = { bg = color.base0Ac }
+				hl.NoiceCmdline                         = { bg = color.base0Db, fg = color.base05,  blend = 0      }
+				hl.NoiceCmdlineIcon                     = { bg = color.base02,  fg = color.base0Da, blend = 0      }
+				hl.NoiceCmdlineIconSearch               = { bg = color.base02,  fg = color.base0Da, blend = 0      }
+				hl.NoiceCmdlinePrompt                   = { bg = color.nocdBG,  fg = color.base0Da, blend = 0      }
+				hl.NoiceMini                            = { bg = color.base0Dc                                     }
+				hl.NoiceMiniSearch                      = { bg = color.base0Ac                                     }
+				hl.NoiceMiniIncSearch                   = { bg = color.base0Ac                                     }
 				-- NeoTree
-				hl.NeoTreeTabActive             = { bg = color.nocdBG, fg = color.base03 }
-				hl.NeoTreeNormal                = { bg = color.nocdBG, fg = color.base03 }
-				hl.NeoTreeTabInactive           = { bg = color.baseBG, fg = color.base03 }
-				hl.NeoTreeNormalNC              = { bg = color.baseBG, fg = color.base03 }
-				hl.NeoTreeRootName              = { underline = true }
-				hl.NeoTreeTabSeparatorInactive  = { bg = color.base01a, fg = color.base00a }
-				hl.NeoTreeTabSeparatorActive    = { bg = color.codeBG, fg = color.nocdBG }
+				hl.NeoTreeTabActive                     = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.NeoTreeNormal                        = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.NeoTreeTabInactive                   = { bg = color.baseBG,  fg = color.base03                  }
+				hl.NeoTreeNormalNC                      = { bg = color.baseBG,  fg = color.base03                  }
+				hl.NeoTreeRootName                      = {                                         underline = true }
+				hl.NeoTreeTabSeparatorInactive          = { bg = color.base01a, fg = color.base00a                 }
+				hl.NeoTreeTabSeparatorActive            = { bg = color.codeBG,  fg = color.nocdBG                  }
 				-- TreesitterContext
-				hl.TreesitterContext            = { bg = color.base01, bold = false, blend = 10 }
+				hl.TreesitterContext                    = { bg = color.base01,                      bold = false, blend = 10   }
 				-- Bufferline
-				hl.BufferLineDiffAdd                    = { bg = color.base00, fg = color.base0Bb }
-				hl.BufferLineDiffChange                 = { bg = color.base00, fg = color.base0Db }
-				hl.BufferLineDiffDelete                 = { bg = color.base00, fg = color.base08b }
-				hl.BufferLineSeparator                  = { bg = color.buffBG, fg = color.base00 }
-				hl.BufferLineSeparatorSelected          = { bg = color.nocdBG, fg = color.base00 }
-				hl.BufferLineSeparatorVisible           = { bg = color.nocdBG, fg = color.base00 }
-				hl.BufferLineTab                        = { bg = color.base00a, fg = color.base02 }
-				hl.BufferLineTabSeparator               = { bg = color.base00a, fg = color.base00 }
-				hl.BufferLineTabSelected                = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineTabSeparatorSelected       = { bg = color.nocdBG, fg = color.base00 }
-				hl.BufferLineFill                       = { bg = color.base00, fg = color.base02 }
-				hl.BufferLineTabClose                   = { bg = color.base00, fg = color.base01 }
-				hl.BufferLineNumbers                    = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineBackground                 = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineCloseButton                = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineDiagnostic                 = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineInfo                       = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineInfoDiagnostic             = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineWarning                    = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineWarningDiagnostic          = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineError                      = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineErrorDiagnostic            = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineModified                   = { bg = color.buffBG, fg = color.buffFG, italic = false }
-				hl.BufferLineDuplicate                  = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLinePick                       = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineHint                       = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineHintDiagnostic             = { bg = color.buffBG, fg = color.buffFG }
-				hl.BufferLineNumbersSelected            = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineCloseButtonSelected        = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineBufferSelected             = { bg = color.nocdBG, fg = color.nocdFG, italic = false }
-				hl.BufferLineDiagnosticSelected         = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineInfoSelected               = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineInfoDiagnosticSelected     = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineWarningSelected            = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineWarningDiagnostic_selected = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineErrorSelected              = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineErrorDiagnosticSelected    = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineModifiedSelected           = { bg = color.nocdBG, fg = color.nocdFG, italic = false }
-				hl.BufferLineDuplicateSelected          = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineIndicatorSelected          = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLinePickSelected               = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineHintSelected               = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineHintDiagnosticSelected     = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineNumbersVisible             = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineCloseButtonVisible         = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineBufferVisible              = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineDiagnosticVisible          = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineInfoVisible                = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineInfoDiagnosticVisible      = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineWarningVisible             = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineWarningDiagnosticVisible   = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineErrorVisible               = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineErrorDiagnosticVisible     = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineModifiedVisible            = { bg = color.nocdBG, fg = color.nocdFG, italic = false }
-				hl.BufferLineDuplicateVisible           = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineIndicatorVisible           = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLinePickVisible                = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineHintVisible                = { bg = color.nocdBG, fg = color.nocdFG }
-				hl.BufferLineHintDiagnosticVisible      = { bg = color.nocdBG, fg = color.nocdFG }
+				hl.BufferLineDiffAdd                    = { bg = color.base00,  fg = color.base0Bb                 }
+				hl.BufferLineDiffChange                 = { bg = color.base00,  fg = color.base0Db                 }
+				hl.BufferLineDiffDelete                 = { bg = color.base00,  fg = color.base08b                 }
+				hl.BufferLineSeparator                  = { bg = color.buffBG,  fg = color.base00                  }
+				hl.BufferLineSeparatorSelected          = { bg = color.nocdBG,  fg = color.base00                  }
+				hl.BufferLineSeparatorVisible           = { bg = color.nocdBG,  fg = color.base00                  }
+				hl.BufferLineTab                        = { bg = color.base00a, fg = color.base02                  }
+				hl.BufferLineTabSeparator               = { bg = color.base00a, fg = color.base00                  }
+				hl.BufferLineTabSelected                = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineTabSeparatorSelected       = { bg = color.nocdBG,  fg = color.base00                  }
+				hl.BufferLineFill                       = { bg = color.base00,  fg = color.base02                  }
+				hl.BufferLineTabClose                   = { bg = color.base00,  fg = color.base01                  }
+				hl.BufferLineNumbers                    = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineBackground                 = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineCloseButton                = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineDiagnostic                 = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineInfo                       = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineInfoDiagnostic             = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineWarning                    = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineWarningDiagnostic          = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineError                      = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineErrorDiagnostic            = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineModified                   = { bg = color.buffBG,  fg = color.buffFG,  italic = false }
+				hl.BufferLineDuplicate                  = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLinePick                       = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineHint                       = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineHintDiagnostic             = { bg = color.buffBG,  fg = color.buffFG                  }
+				hl.BufferLineNumbersSelected            = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineCloseButtonSelected        = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineBufferSelected             = { bg = color.nocdBG,  fg = color.nocdFG,  italic = false }
+				hl.BufferLineDiagnosticSelected         = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineInfoSelected               = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineInfoDiagnosticSelected     = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineWarningSelected            = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineWarningDiagnostic_selected = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineErrorSelected              = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineErrorDiagnosticSelected    = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineModifiedSelected           = { bg = color.nocdBG,  fg = color.nocdFG,  italic = false }
+				hl.BufferLineDuplicateSelected          = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineIndicatorSelected          = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLinePickSelected               = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineHintSelected               = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineHintDiagnosticSelected     = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineNumbersVisible             = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineCloseButtonVisible         = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineBufferVisible              = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineDiagnosticVisible          = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineInfoVisible                = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineInfoDiagnosticVisible      = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineWarningVisible             = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineWarningDiagnosticVisible   = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineErrorVisible               = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineErrorDiagnosticVisible     = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineModifiedVisible            = { bg = color.nocdBG,  fg = color.nocdFG,  italic = false }
+				hl.BufferLineDuplicateVisible           = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineIndicatorVisible           = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLinePickVisible                = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineHintVisible                = { bg = color.nocdBG,  fg = color.nocdFG                  }
+				hl.BufferLineHintDiagnosticVisible      = { bg = color.nocdBG,  fg = color.nocdFG                  }
 			end,
 		},
 	}

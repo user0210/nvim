@@ -16,9 +16,11 @@ return {
 				"terminal",
 			},
 			excluded_filetypes = {
+				"blink-cmp-menu",
+				"blink-cmp-documentation",
+				-- "cmp_docs",
+				-- "cmp_menu",
 				"alpha",
-				"cmp_docs",
-				"cmp_menu",
 				"diff",
 				"lazy",
 				"lspinfo",

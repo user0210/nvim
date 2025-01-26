@@ -1,13 +1,4 @@
 return {
-  {
-		"tiagovla/scope.nvim",
-		opts = function()
-			require("telescope").load_extension("scope")
-			return {
-				restore_state = false, -- experimental
-			}
-		end,
-  },
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",

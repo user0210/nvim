@@ -39,6 +39,7 @@ require("lazy").setup({
 
 		{ import = "lazyvim.plugins.extras.coding.mini-surround" },
 		{ import = "lazyvim.plugins.extras.coding.yanky" },
+		-- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
 
 		{ import = "lazyvim.plugins.extras.editor.dial" },
 		{ import = "lazyvim.plugins.extras.editor.inc-rename" },
@@ -47,15 +48,14 @@ require("lazy").setup({
 
 
 		{ import = "lazyvim.plugins.extras.ui.treesitter-context" },
-		{ import = "lazyvim.plugins.extras.ui.mini-indentscope" },
 		{ import = "lazyvim.plugins.extras.ui.smear-cursor" },
+		-- { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
 		-- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 		-- { import = "lazyvim.plugins.extras.ui.edgy" },
 
 		{ import = "lazyvim.plugins.extras.editor.leap" },
 		{ import = "lazyvim.plugins.extras.editor.mini-files" },
 		{ import = "lazyvim.plugins.extras.editor.navic" },
-		-- { import = "lazyvim.plugins.extras.editor.fzf" },
 		-- { import = "lazyvim.plugins.extras.editor.telescope" },
 		-- { import = "lazyvim.plugins.extras.editor.mini-diff" },
 

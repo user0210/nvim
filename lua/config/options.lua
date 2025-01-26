@@ -1,5 +1,7 @@
-vim.opt.statuscolumn = "%=%l%s%C"
+vim.opt.statuscolumn = "%=%C%l%s"
 -- vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
+
+vim.g.lazyvim_picker = "snacks"
 
 vim.opt.mousemoveevent = true
 vim.opt.cursorline = true

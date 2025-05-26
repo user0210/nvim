@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 			return
 		else
 			vim.cmd("MinimapClose")
-			vim.cmd("UndotreeHide")
+			-- vim.cmd("UndotreeHide")
 		end
 	end,
 })

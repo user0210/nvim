@@ -2,12 +2,18 @@ return {
 	{
 		"snacks.nvim",
 		opts = {
-			indent = { enabled = true },
-			terminal = { enabled = true },
-			input = { enabled = true },
-			notifier = { enabled = true },
-			scope = { enabled = true },
-			scroll = { enabled = true },
+			picker = {
+				sources = {
+					explorer = {
+						-- auto_close = true,
+						layout = {
+							layout = {
+								width = 25,
+							},
+						},
+					},
+				},
+			},
 			statuscolumn = {
 				enabled = true,
 				right = { "mark", "sign" }, -- priority of signs on the left (high to low)
@@ -22,8 +28,6 @@ return {
 				},
 				refresh = 50, -- refresh at most every 50ms
 			}, -- we set this in options.lua
-			toggle = { map = LazyVim.safe_keymap_set },
-			words = { enabled = true },
 			dashboard = {
 				preset = {
 					pick = function(cmd, opts)

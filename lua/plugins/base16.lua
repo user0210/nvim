@@ -141,7 +141,7 @@ colors.buffFG = colors.base02a
 
 				hl.TabLineFill                          = { bg = color.base00                                      }
 				hl.VertSplit                            = { bg = color.base00,  fg = color.bg                      }
-				hl.WinSeparator                         = { bg = color.base00,  fg = color.bg                      }
+				hl.WinSeparator                         = { bg = color.bg,      fg = color.base00                  }
 
 				hl.CursorLine                           = { bg = color.base01,                      bold = true    }
 				hl.CursorLineNr                         = { bg = color.base02a, fg = color.base00a                 }
@@ -187,32 +187,32 @@ colors.buffFG = colors.base02a
 				hl.ScrollbarGitDeleteHandle             = { bg = color.base02,  fg = color.base0Fa                 }
 				-- Navic
 				hl.NavicText                            = { bg = color.nocdBG,  fg = color.base03a, bold = false   }
-        hl.NavicIconsFile                       = { bg = color.nocdBG,  fg = color.fg                      }
-        hl.NavicIconsModule                     = { bg = color.nocdBG,  fg = color.yellow                  }
-        hl.NavicIconsNamespace                  = { bg = color.nocdBG,  fg = color.fg                      }
-        hl.NavicIconsPackage                    = { bg = color.nocdBG,  fg = color.fg                      }
-        hl.NavicIconsClass                      = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsMethod                     = { bg = color.nocdBG,  fg = color.blue                    }
-        hl.NavicIconsProperty                   = { bg = color.nocdBG,  fg = color.green1                  }
-        hl.NavicIconsField                      = { bg = color.nocdBG,  fg = color.green1                  }
-        hl.NavicIconsConstructor                = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsEnum                       = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsInterface                  = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsFunction                   = { bg = color.nocdBG,  fg = color.blue                    }
-        hl.NavicIconsVariable                   = { bg = color.nocdBG,  fg = color.magenta                 }
-        hl.NavicIconsConstant                   = { bg = color.nocdBG,  fg = color.magenta                 }
-        hl.NavicIconsString                     = { bg = color.nocdBG,  fg = color.green                   }
-        hl.NavicIconsNumber                     = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsBoolean                    = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsArray                      = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsObject                     = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsKey                        = { bg = color.nocdBG,  fg = color.purple                  }
-        hl.NavicIconsNull                       = { bg = color.nocdBG,  fg = color.purple                  }
-        hl.NavicIconsEnumMember                 = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsStruct                     = { bg = color.nocdBG,  fg = color.green1                  }
-        hl.NavicIconsEvent                      = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsOperator                   = { bg = color.nocdBG,  fg = color.orange                  }
-        hl.NavicIconsTypeParameter              = { bg = color.nocdBG,  fg = color.fg                      }
+				hl.NavicIconsFile                       = { bg = color.nocdBG,  fg = color.fg                      }
+				hl.NavicIconsModule                     = { bg = color.nocdBG,  fg = color.yellow                  }
+				hl.NavicIconsNamespace                  = { bg = color.nocdBG,  fg = color.fg                      }
+				hl.NavicIconsPackage                    = { bg = color.nocdBG,  fg = color.fg                      }
+				hl.NavicIconsClass                      = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsMethod                     = { bg = color.nocdBG,  fg = color.blue                    }
+				hl.NavicIconsProperty                   = { bg = color.nocdBG,  fg = color.green1                  }
+				hl.NavicIconsField                      = { bg = color.nocdBG,  fg = color.green1                  }
+				hl.NavicIconsConstructor                = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsEnum                       = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsInterface                  = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsFunction                   = { bg = color.nocdBG,  fg = color.blue                    }
+				hl.NavicIconsVariable                   = { bg = color.nocdBG,  fg = color.magenta                 }
+				hl.NavicIconsConstant                   = { bg = color.nocdBG,  fg = color.magenta                 }
+				hl.NavicIconsString                     = { bg = color.nocdBG,  fg = color.green                   }
+				hl.NavicIconsNumber                     = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsBoolean                    = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsArray                      = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsObject                     = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsKey                        = { bg = color.nocdBG,  fg = color.purple                  }
+				hl.NavicIconsNull                       = { bg = color.nocdBG,  fg = color.purple                  }
+				hl.NavicIconsEnumMember                 = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsStruct                     = { bg = color.nocdBG,  fg = color.green1                  }
+				hl.NavicIconsEvent                      = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsOperator                   = { bg = color.nocdBG,  fg = color.orange                  }
+				hl.NavicIconsTypeParameter              = { bg = color.nocdBG,  fg = color.fg                      }
 				-- Noice
 				hl.NoiceCmdline                         = { bg = color.base0Db, fg = color.base05,  blend = 0      }
 				hl.NoiceCmdlineIcon                     = { bg = color.base02,  fg = color.base0Da, blend = 0      }
@@ -229,6 +229,18 @@ colors.buffFG = colors.base02a
 				hl.NeoTreeRootName                      = {                                         underline = true }
 				hl.NeoTreeTabSeparatorInactive          = { bg = color.base01a, fg = color.base00a                 }
 				hl.NeoTreeTabSeparatorActive            = { bg = color.codeBG,  fg = color.nocdBG                  }
+				-- Snacks.Explorer
+				hl.SnacksPicker                         = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerPreviewBorder            = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerPreview                  = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerPreviewTitle             = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerBoxBorder                = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerInputBorder              = { bg = color.nocdBG,  fg = color.base01                  }
+				hl.SnacksPickerInputSearch              = { bg = color.nocdBG,  fg = color.base01                  }
+				hl.SnacksPickerInputTitle               = { bg = color.nocdBG,  fg = color.base02                  }
+				hl.SnacksPickerListBorder               = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerList                     = { bg = color.nocdBG,  fg = color.base03                  }
+				hl.SnacksPickerListTitle                = { bg = color.nocdBG,  fg = color.base03                  }
 				-- TreesitterContext
 				hl.TreesitterContext                    = { bg = color.base01,                      bold = false, blend = 10   }
 				-- Bufferline

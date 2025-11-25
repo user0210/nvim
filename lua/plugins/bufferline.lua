@@ -10,8 +10,9 @@ return {
 				left_trunc_marker = "",
 				right_trunc_marker = "",
 				offsets = {
-					{ filetype = "neo-tree",      text = "", separator = "", padding = 1, highlight = "TabLineFill" },
-					{ filetype = "undotree",      text = "", separator = "", padding = 1, highlight = "TabLineFill" },
+					-- { filetype = "neo-tree",      text = "", separator = "", padding = 1, highlight = "TabLineFill" },
+					-- { filetype = "undotree",      text = "", separator = "", padding = 1, highlight = "TabLineFill" },
+					{ filetype = "snacks_layout_box",      text = "", separator = "", padding = 1, highlight = "TabLineFill" },
 					{ filetype = "DiffviewFiles", text = "", separator = "", padding = 1, highlight = "TabLineFill" },
 					--	{ filetype = "minimap",			text = "", padding = 0 },
 				},

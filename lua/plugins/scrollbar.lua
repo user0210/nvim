@@ -32,6 +32,7 @@ return {
 				"TelescopePrompt",
 				"Trouble",
 				"undotree",
+				"snacks_picker_list",
 			},
 			handlers = {
 				cursor = true,

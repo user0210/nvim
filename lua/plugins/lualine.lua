@@ -260,6 +260,7 @@ return {
 							"help",
 							"man",
 							"neo-tree",
+							"snacks_layout_box",
 							"toggleterm",
 							"Trouble",
 						},

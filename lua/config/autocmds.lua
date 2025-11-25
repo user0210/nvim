@@ -7,7 +7,7 @@ local function neostart() vim.cmd("Neotree show") end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()
-		vim.schedule(neostart)
+		-- vim.schedule(neostart)
 	end,
 })
 

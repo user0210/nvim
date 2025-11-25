@@ -32,21 +32,21 @@ map("v", "<leader>y", [["+y]], { desc = "Yank System Clipboard" })
 
 -- WhichKey
 require("which-key").add({
-	{ "<leader>U", function()
-		vim.cmd("Neotree close")
-		vim.cmd("UndotreeToggle")
-	end, desc = "UndoTree" },
+	-- { "<leader>U", function()
+	-- 	vim.cmd("Neotree close")
+	-- 	vim.cmd("UndotreeToggle")
+	-- end, desc = "UndoTree" },
+	-- { "<leader>e", function()
+	-- 	vim.cmd("UndotreeHide")
+	-- 	vim.cmd("Neotree toggle show")
+	-- end, desc = "Explorer" },
+	-- { "<leader>du", function()
+	-- 	vim.cmd("UndotreeHide")
+	-- 	vim.cmd("Neotree close")
+	-- 	require("dapui").toggle({ })
+	-- end, desc = "Dap UI" },
 	{ "<leader>[", group = "prev" },
 	{ "<leader>]", group = "next" },
-	{ "<leader>du", function()
-		vim.cmd("UndotreeHide")
-		vim.cmd("Neotree close")
-		require("dapui").toggle({ })
-	end, desc = "Dap UI" },
-	{ "<leader>e", function()
-		vim.cmd("UndotreeHide")
-		vim.cmd("Neotree toggle show")
-	end, desc = "Explorer" },
 	{ "<leader>l", group = "LSP" },
 	{ "<leader>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info" },
 	{ "<leader>lL", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },

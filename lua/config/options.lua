@@ -1,5 +1,6 @@
-vim.opt.statuscolumn = "%=%C%l%s"
+--vim.opt.statuscolumn = "%=%C%l%s"
 -- vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
+vim.opt.statuscolumn = [[%!v:lua.LazyVim.statuscolumn()]]
 
 vim.g.lazyvim_picker = "snacks"
 
@@ -29,13 +30,20 @@ vim.opt.fillchars:append("eob: ")
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.fillchars:append("diff:")
-vim.opt.fillchars:append("vert     :▊")
-vim.opt.fillchars:append("horiz	   :▇")
-vim.opt.fillchars:append("horizup  :▇")
+-- vim.opt.fillchars:append("vert     :▊")
+-- vim.opt.fillchars:append("horiz	   :▇")
+-- vim.opt.fillchars:append("horizup  :▇")
+-- vim.opt.fillchars:append("horizdown:█")
+-- vim.opt.fillchars:append("vertleft :▊")
+-- vim.opt.fillchars:append("vertright:▊")
+-- vim.opt.fillchars:append("verthoriz:▊")
+vim.opt.fillchars:append("vert     :▎")
+vim.opt.fillchars:append("horiz	   :▁")
+vim.opt.fillchars:append("horizup  :▁")
 vim.opt.fillchars:append("horizdown:█")
-vim.opt.fillchars:append("vertleft :▊")
-vim.opt.fillchars:append("vertright:▊")
-vim.opt.fillchars:append("verthoriz:▊")
+vim.opt.fillchars:append("vertleft :▎")
+vim.opt.fillchars:append("vertright:▎")
+vim.opt.fillchars:append("verthoriz:▎")
 
 vim.opt.clipboard = ""
 if vim.fn.has("wsl") == 1 then

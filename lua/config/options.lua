@@ -1,6 +1,10 @@
 --vim.opt.statuscolumn = "%=%C%l%s"
 -- vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
 vim.opt.statuscolumn = [[%!v:lua.LazyVim.statuscolumn()]]
+-- vim.diagnostic.config({
+-- 	virtual_text = false,
+-- 	virtual_lines = { current_line = true },
+-- })
 
 vim.g.lazyvim_picker = "snacks"
 

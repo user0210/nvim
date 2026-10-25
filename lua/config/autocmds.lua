@@ -38,12 +38,12 @@ vim.api.nvim_create_autocmd({ "QuitPre" }, {
 			"undotree",
 			"diff",
 		}
-		if vim.tbl_contains(exclude, vim.bo.filetype) then
-			return
-		else
-			vim.cmd("MinimapClose")
-			-- vim.cmd("UndotreeHide")
-		end
+		-- if vim.tbl_contains(exclude, vim.bo.filetype) then
+		-- 	return
+		-- else
+		-- 	vim.cmd("MinimapClose")
+		-- 	-- vim.cmd("UndotreeHide")
+		-- end
 	end,
 })
 

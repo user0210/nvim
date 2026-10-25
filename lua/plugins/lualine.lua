@@ -104,39 +104,26 @@ return {
 				color = { fg = colors.base03, bg = colors.nocdBG },
 			}
 
+			local minimap_enabled = false
 			local minimap = {
-				"minimap",
-				fmt = function()
-					if vim.g.minimap_auto_start == 1 then
-						return ">>"
-					else
-						return "<<"
-					end
-				end,
-				on_click = function()
-					if vim.g.minimap_auto_start == nil then
-						vim.cmd("MinimapClose")
-					end
-					if vim.g.minimap_auto_start == 1 then
-						vim.g.minimap_auto_start = 0
-						vim.api.nvim_del_augroup_by_name("minimaptoggle")
-						vim.cmd("MinimapClose")
-						vim.cmd("ScrollbarShow")
-						lualine.refresh({ place = { "statusline" } })
-					else
-						vim.g.minimap_auto_start = 1
-						vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter" }, {
-							callback = function()
-								vim.cmd("Minimap")
-							end,
-							group = vim.api.nvim_create_augroup("minimaptoggle", { clear = true }),
-							lualine.refresh({ place = { "statusline" } }),
-						})
-						vim.cmd("Minimap")
-						vim.cmd("ScrollbarHide")
-					end
-				end,
-				padding = { left = 1, right = 0 },
+					"minimap",
+					fmt = function()
+							return minimap_enabled and ">>" or "<<"
+					end,
+					on_click = function()
+							minimap_enabled = not minimap_enabled
+
+							if minimap_enabled then
+									vim.cmd("ScrollbarHide")
+									vim.cmd("MinimapShow")
+							else
+									vim.cmd("MinimapHide")
+									vim.cmd("ScrollbarShow")
+							end
+
+							lualine.refresh({ place = { "statusline" } })
+					end,
+					padding = { left = 1, right = 0 },
 			}
 
 			local navic = {

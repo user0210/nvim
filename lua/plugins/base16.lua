@@ -185,6 +185,7 @@ colors.buffFG = colors.base02a
 				hl.ScrollbarGitChangeHandle             = { bg = color.base02,  fg = color.base0Da                 }
 				hl.ScrollbarGitDelete                   = { bg = color.codeBG,  fg = color.base0Fb                 }
 				hl.ScrollbarGitDeleteHandle             = { bg = color.base02,  fg = color.base0Fa                 }
+				hl.ScrollbarMinimapFloatBorder          = { bg = color.codeBG,  fg = color.base00                  }
 				-- Navic
 				hl.NavicText                            = { bg = color.nocdBG,  fg = color.base03a, bold = false   }
 				hl.NavicIconsFile                       = { bg = color.nocdBG,  fg = color.fg                      }
